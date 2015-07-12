@@ -1,0 +1,998 @@
+###################################
+#
+# Miscellaneous Events
+#
+# Id 2000 - 2999 is reserved
+#
+###################################
+
+# Written by Carolus Magnus
+
+########################################
+# Renaming 2000-2199
+########################################
+
+# Special event for Alemannia to be renamed to Swabia
+# character_event = {
+	# id = moduscarolimagni.2000
+	# title = EVTNAMEmoduscarolimagni.2000
+	# desc = EVTDESCmoduscarolimagni.2000
+	
+	# picture = GFX_evt_council
+	# border = GFX_event_normal_frame_diplomacy
+	
+	# only_playable = yes
+	
+	# trigger = {
+		# has_landed_title = d_swabia
+		# NOT = { dynasty = 25061 } # Karling dynasty
+		# NOT = { has_global_flag = swabia_renamed }
+	# }
+	
+	# mean_time_to_happen = {
+		# days = 1
+	# }
+	
+	# option = {
+		# name = EVTOPTA62930
+		# set_global_flag = swabia_renamed
+		# d_swabia = {
+			# set_name=""
+			# adjective=""
+		# }
+	# }
+# }
+
+########################################
+# Rise of Italian City States 2200-2399
+########################################
+
+
+#Informed of the Rise of Pisa
+narrative_event = {
+id = moduscarolimagni.2200
+	title = EVTNAMEmoduscarolimagni.2200
+	desc = EVTDESCmoduscarolimagni.2200
+	picture = GFX_evt_doge_republic
+	border = GFX_event_narrative_frame_diplomacy
+	major = yes
+	trigger = {
+		has_global_flag = pisa_formed
+		NOT = { has_global_flag = pisa_republic_by_event_announcement }
+		has_landed_title = c_pisa
+	}
+	major_trigger = {
+		is_ruler = yes
+		capital_scope = {
+			NOT = {
+				distance = {
+					where = 333 # Rome
+					value = 600	# Same part of the world
+				}
+			}
+		}
+	}
+	
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	option = { # OK
+		name = OK
+		
+		set_global_flag = pisa_republic_by_event_announcement
+		
+	}
+
+}
+
+#Informed of the Rise of Genoa
+narrative_event = {
+id = moduscarolimagni.2201
+	title = EVTNAMEmoduscarolimagni.2201
+	desc = EVTDESCmoduscarolimagni.2201
+	picture = GFX_evt_doge_republic
+	border = GFX_event_narrative_frame_diplomacy
+	major = yes
+	trigger = {
+		has_global_flag = genoa_formed
+		NOT = { has_global_flag = genoa_republic_by_event_announcement }
+		has_landed_title = c_genoa
+	}
+	major_trigger = {
+		is_ruler = yes
+		capital_scope = {
+			NOT = {
+				distance = {
+					where = 333 # Rome
+					value = 600	# Same part of the world
+				}
+			}
+		}
+	}
+	
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	option = { # OK
+		name = OK
+		
+		set_global_flag = genoa_republic_by_event_announcement
+		
+	}
+
+}
+
+#Informed of the Rise of Ancona
+narrative_event = {
+id = moduscarolimagni.2202
+	title = EVTNAMEmoduscarolimagni.2202
+	desc = EVTDESCmoduscarolimagni.2202
+	picture = GFX_evt_doge_republic
+	border = GFX_event_narrative_frame_diplomacy
+	major = yes
+	trigger = {
+		has_global_flag = ancona_formed
+		NOT = { has_global_flag = ancona_republic_by_event_announcement }
+		has_landed_title = c_ancona
+	}
+	major_trigger = {
+		is_ruler = yes
+		capital_scope = {
+			NOT = {
+				distance = {
+					where = 333 # Rome
+					value = 600	# Same part of the world
+				}
+			}
+		}
+	}
+	
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	option = { # OK
+		name = OK
+		
+		set_global_flag = ancona_republic_by_event_announcement
+		
+	}
+
+}
+
+#Informed of the Rise of Ragusa
+narrative_event = {
+id = moduscarolimagni.2203
+	title = EVTNAMEmoduscarolimagni.2203
+	desc = EVTDESCmoduscarolimagni.2203
+	picture = GFX_evt_doge_republic
+	border = GFX_event_narrative_frame_diplomacy
+	major = yes
+	trigger = {
+		has_global_flag = ragusa_formed
+		NOT = { has_global_flag = ragusa_republic_by_event_announcement }
+		has_landed_title = c_ragusa
+	}
+	major_trigger = {
+		is_ruler = yes
+		capital_scope = {
+			NOT = {
+				distance = {
+					where = 333 # Rome
+					value = 600	# Same part of the world
+				}
+			}
+		}
+	}
+	
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	option = { # OK
+		name = OK
+		
+		set_global_flag = ragusa_republic_by_event_announcement
+		
+	}
+
+}
+
+# Formation of Pisa
+	character_event = {
+	id = moduscarolimagni.2204
+	trigger = {
+	has_landed_title = k_papal_state
+	NOT = {has_global_flag = pisa_formed}
+	NOT = {year = 1065}
+	year = 970
+	}
+	mean_time_to_happen = {
+		days = 1
+	}
+	option = {
+	name = OK
+	set_character_flag = made_pisa
+	set_global_flag = pisa_formed
+	create_character = {
+			random_traits = no
+			dynasty = 622 # Caetani
+			name = "Tedice"
+			culture = italian
+			religion = catholic
+			age = 18
+			attributes = {
+				martial = 4
+				diplomacy = 8
+				stewardship = 16
+				intrigue = 9
+				learning = 4
+			}
+			health = 7
+			fertility = 0.8
+			trait = midas_touched
+			trait = ambitious
+			trait = diligent
+			trait = greedy
+		}
+		new_character = {
+		b_pisa = {
+		gain_title = prev
+		}
+		c_pisa = {
+		gain_title = prev
+		}
+		k_pisa = {
+		gain_title = prev
+		}
+		c_piombino = {
+	gain_title = prev
+	}
+	create_family_palace = yes
+		}
+	c_piombino = {
+	de_jure_liege = d_pisa
+	}
+	c_pisa = {
+	de_jure_liege = d_pisa
+	}
+	d_pisa = {
+	de_jure_liege = k_pisa
+	}
+	k_pisa = {
+	de_jure_liege = 0
+	}
+	d_venice = {
+	holder_scope = {
+	k_venice = {
+	gain_title = prev
+	}
+	
+	}
+	destroy_landed_title = this
+	}
+	
+}
+	
+	}
+
+	# Formation of Genoa
+	character_event = {
+	id = moduscarolimagni.2205
+	trigger = {
+	has_landed_title = k_papal_state
+	NOT = {has_global_flag = genoa_formed}
+	NOT = {year = 1065}
+	year = 1005
+	}
+	mean_time_to_happen = {
+		days = 1
+	}
+	option = {
+	name = OK
+	set_character_flag = made_genoa
+	set_global_flag = genoa_formed
+	create_character = {
+			random_traits = no
+			dynasty =13041 # Doria
+			name = "Manfredo"
+			culture = italian
+			religion = catholic
+			age = 18
+			attributes = {
+				martial = 4
+				diplomacy = 8
+				stewardship = 16
+				intrigue = 9
+				learning = 4
+			}
+			health = 7
+			fertility = 0.8
+			trait = midas_touched
+			trait = ambitious
+			trait = diligent
+			trait = greedy
+		}
+		new_character = {
+		b_genoa = {
+		gain_title = prev
+		}
+		c_genoa = {
+		gain_title = prev
+		}
+		k_genoa = {
+		gain_title = prev
+		}
+	create_family_palace = yes
+		}
+	c_genoa = {
+	de_jure_liege = d_genoa
+	}
+	d_genoa = {
+	de_jure_liege = k_genoa
+	}
+	k_genoa = {
+	de_jure_liege = 0
+	}
+	
+}
+
+	
+	}
+
+	# Formation of Ancona
+	character_event = {
+	id = moduscarolimagni.2206
+	trigger = {
+	has_landed_title = k_papal_state
+	NOT = {has_global_flag = ancona_formed}
+	NOT = {year = 1065}
+	year = 1025
+	}
+	
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	option = {
+	name = OK
+	set_character_flag = made_ancona
+	set_global_flag = ancona_formed
+	create_character = {
+			random_traits = no
+			dynasty = 650 # Welf
+			name = "Giacinto"
+			culture = italian
+			religion = catholic
+			age = 18
+			attributes = {
+				martial = 4
+				diplomacy = 8
+				stewardship = 16
+				intrigue = 9
+				learning = 4
+			}
+			health = 7
+			fertility = 0.8
+			trait = midas_touched
+			trait = ambitious
+			trait = diligent
+			trait = greedy
+			trait = zealous
+		}
+		new_character = {
+		b_ancona = {
+		gain_title = prev
+		}
+		c_ancona = {
+		gain_title = prev
+		}
+		d_ancona = {
+		gain_title = prev
+		}
+	create_family_palace = yes
+		}
+	c_urbino = {
+	de_jure_liege = d_urbino
+	}
+	d_ancona = {
+	de_jure_liege = k_ancona
+	}
+}
+
+	
+	}
+
+# Formation of Ragusa
+	character_event = {
+	id = moduscarolimagni.2207
+	trigger = {
+	has_landed_title = k_papal_state
+	NOT = {has_global_flag = ragusa_formed}
+	NOT = {year = 1065}
+	year = 1050
+	}
+	
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	option = {
+	name = OK
+	set_character_flag = made_ragusa
+	set_global_flag = ragusa_formed
+	create_character = {
+			random_traits = no
+			dynasty = random
+			name = "Lujo"
+			culture = italian
+			religion = catholic
+			age = 18
+			attributes = {
+				martial = 4
+				diplomacy = 8
+				stewardship = 16
+				intrigue = 9
+				learning = 4
+			}
+			health = 7
+			fertility = 0.8
+			trait = midas_touched
+			trait = ambitious
+			trait = diligent
+			trait = greedy
+		}
+		new_character = {
+		b_ragusa = {
+		gain_title = prev
+		}
+		c_ragusa = {
+		gain_title = prev
+		}
+		d_ragusa = {
+		gain_title = prev
+		}
+	create_family_palace = yes
+		}
+	c_ragusa = {
+	de_jure_liege = d_ragusa
+	}
+	b_ragusa = {
+
+		add_building = ct_wall_1
+		add_building = ct_wall_2
+		add_building = ct_wall_3
+		add_building = ct_wall_4
+		add_building = ct_wall_5
+		add_building = ct_wall_q_1
+		add_building = ct_wall_q_2
+		add_building = ct_wall_q_3
+		add_building = ct_wall_q_4
+		add_building = ct_wall_q_5
+		}
+	
+}
+
+	
+	}
+########################################
+# Religious Conversions 2300 - 2399 
+########################################
+character_event = { #convert to Catholicism
+id = moduscarolimagni.2300
+title = EVTNAMEmoduscarolimagni.2300
+desc = EVTDESCmoduscarolimagni.2300
+picture = GFX_evt_pope
+border = "GFX_event_normal_frame_religion"
+is_triggered_only = yes
+option = {
+name = EVTOPTAmoduscarolimagni.2300
+ai_chance = {
+			factor = 50
+			modifier = {
+				factor = .5
+				OR = {
+				has_landed_title = k_bulgaria
+				has_landed_title = k_serbia
+				}
+			}
+			modifier = {
+				factor = 1.8
+				OR = {
+				has_landed_title = k_bohemia
+				has_landed_title = k_moravia
+				}
+			}
+			modifier = {
+				factor = .02
+				has_landed_title = k_ruthenia
+				
+			}
+			modifier = {
+				factor = 1
+				has_landed_title = k_poland
+				
+			}
+			modifier = {
+				factor = .02
+				has_landed_title = k_khazaria
+				
+			}
+			modifier = {
+				factor = 1
+				has_landed_title = k_croatia
+				
+			}
+			modifier = {
+				factor = 1.9
+				has_landed_title = k_hungary
+				
+			}
+
+			
+		}
+religion = catholic
+piety = 250
+
+any_courtier = {
+	limit = { is_close_relative = ROOT }
+	religion = FROM
+}
+any_spouse = {
+	limit = { is_consort = no }
+	religion = FROM
+}
+		
+}
+option = {
+name = EVTOPTBmoduscarolimagni.2300
+ai_chance = {
+			factor = 50
+			modifier = {
+				factor = 1.5
+				OR = {
+				has_landed_title = k_bulgaria
+				has_landed_title = k_serbia
+				}
+			}
+			modifier = {
+				factor = .2
+				OR = {
+				has_landed_title = k_bohemia
+				has_landed_title = k_moravia
+				}
+			}
+			modifier = {
+				factor = 1.98
+				has_landed_title = k_ruthenia
+				
+			}
+			
+			modifier = {
+				factor = 1
+				has_landed_title = k_poland
+				
+			}
+			modifier = {
+				factor = 1.98
+				has_landed_title = k_khazaria
+				
+			}
+			modifier = {
+				factor = 1
+				has_landed_title = k_croatia
+				
+			}
+			modifier = {
+				factor = 0.1
+				has_landed_title = k_hungary
+				
+			}
+			
+		}
+}
+}
+
+character_event = { #convert to Orthodoxy
+id = moduscarolimagni.2301
+title = EVTNAMEmoduscarolimagni.2301
+desc = EVTDESCmoduscarolimagni.2301
+picture = GFX_evt_pope
+border = "GFX_event_normal_frame_religion"
+is_triggered_only = yes
+option = {
+name = EVTOPTAmoduscarolimagni.2301
+ai_chance = {
+			factor = 50
+			modifier = {
+				factor = 1.5
+				OR = {
+				has_landed_title = k_bulgaria
+				has_landed_title = k_serbia
+				}
+			}
+			modifier = {
+				factor = .2
+				OR = {
+				has_landed_title = k_bohemia
+				has_landed_title = k_moravia
+				}
+			}
+			modifier = {
+				factor = 1
+				has_landed_title = k_ruthenia
+				
+			}
+			modifier = {
+				factor = .2
+				has_landed_title = k_poland
+				
+			}
+			modifier = {
+				factor = .2
+				has_landed_title = k_khazaria
+				
+			}
+			modifier = {
+				factor = 1
+				has_landed_title = k_croatia
+				
+			}
+			modifier = {
+				factor = .2
+				has_landed_title = k_hungary
+				
+			}
+
+			
+		}
+religion = orthodox
+piety = 250
+
+any_courtier = {
+	limit = { is_close_relative = ROOT }
+	religion = FROM
+}
+any_spouse = {
+	limit = { is_consort = no }
+	religion = FROM
+}
+		
+}
+option = {
+name = EVTOPTBmoduscarolimagni.2301
+ai_chance = {
+			factor = 50
+			modifier = {
+				factor = .5
+				OR = {
+				has_landed_title = k_bulgaria
+				has_landed_title = k_serbia
+				}
+			}
+			modifier = {
+				factor = 1.8
+				OR = {
+				has_landed_title = k_bohemia
+				has_landed_title = k_moravia
+				}
+			}
+			modifier = {
+				factor = 1
+				has_landed_title = k_ruthenia
+				
+			}
+			
+			modifier = {
+				factor = 1.8
+				has_landed_title = k_poland
+				
+			}
+			modifier = {
+				factor = 1.8
+				has_landed_title = k_khazaria
+				
+			}
+			modifier = {
+				factor = 1
+				has_landed_title = k_croatia
+				
+			}
+			modifier = {
+				factor = 1.8
+				has_landed_title = k_hungary
+				
+			}
+			
+		}
+}
+}
+
+########################################
+# Rise of Swiss Confederacy 2400 - 2499 BROKEN AND NEEDS FIXING. ONLY SPAWNS IN SCHWYZ, NOTHING ELSE WORKS
+########################################
+
+#Informed of the Formation of Swiss Confederacy
+narrative_event = {
+id = moduscarolimagni.2400
+	title = EVTNAMEmoduscarolimagni.2400
+	desc = EVTDESCmoduscarolimagni.2400
+	picture = GFX_evt_doge_republic
+	border = GFX_event_narrative_frame_diplomacy
+	major = yes
+	trigger = {
+		has_global_flag = switzerland_formed
+		NOT = { has_global_flag = switzerland_created_by_event_announcement }
+		has_landed_title = c_schwyz
+	}
+	major_trigger = {
+		is_ruler = yes
+		capital_scope = {
+			NOT = {
+				distance = {
+					where = 245 # Schwyz
+					value = 600	# Same part of the world
+				}
+			}
+		}
+	}
+	
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	option = { # OK
+		name = OK
+		
+		set_global_flag = switzerland_created_by_event_announcement
+		
+	}
+
+}
+
+# Formation of Swiss Confederacy
+	character_event = {
+	id = moduscarolimagni.2401
+	trigger = {
+	has_landed_title = k_papal_state
+	NOT = {has_global_flag = switzerland_formed}
+	year = 1291
+	OR = {
+	c_schwyz = {
+	is_republic = yes
+	}
+	c_schwyz = {
+	holder_scope = {
+	b_zurich = {
+	holder_scope = {
+	opinion = {who = prevprev value = 25}
+	}
+	}
+	}
+	}
+	}
+	}
+	mean_time_to_happen = {
+		days = 1
+	}
+	option = {
+	name = OK
+	set_character_flag = made_switzerland
+	set_global_flag = switzerland_formed
+	b_zurich = {
+	holder_scope = {
+	c_schwyz = {
+	gain_title = prev
+	}
+	d_swiss = {
+	gain_title = prev
+	liege = e_hre
+	}
+	}
+	}
+	c_schwyz = {
+	de_jure_liege = d_swiss
+	holder_scope = {
+	wealth = 5000 
+	}
+	}
+	c_st_gallen = {
+	de_jure_liege = d_swiss
+	}
+	c_chur = {
+	de_jure_liege = d_swiss
+	}
+	c_bern = {
+	de_jure_liege = d_swiss
+	}
+	c_grisons = {
+	de_jure_liege = d_swiss
+	}
+	
+}
+	
+	}
+
+	# St Gallen joins Swiss Confederacy
+	character_event = {
+	id = moduscarolimagni.2402
+	trigger = {
+	has_landed_title = k_papal_state
+	has_global_flag = switzerland_formed
+	c_st_gallen = {
+	NOT = {
+	liege = d_swiss
+	}
+	}
+	d_swiss = {
+	has_holder = yes
+	}
+	OR = {
+	c_st_gallen = {
+	is_republic = yes
+	}
+	c_st_gallen = {
+	b_appenzell = {
+	opinion = {who = prev value = 25}
+	}
+	}
+	}
+	}
+	mean_time_to_happen = {
+		days = 1
+	}
+	option = {
+	name = OK
+	set_character_flag = st_gallen_to_swiss
+	b_appenzell = {
+	holder_scope = {
+	c_st_gallen = {
+	gain_title = prev
+	}
+	}
+	}
+	c_st_gallen = {
+	liege = d_swiss
+	}
+}
+	
+	}
+	
+# Bern joins Swiss Confederacy
+	character_event = {
+	id = moduscarolimagni.2403
+	trigger = {
+	has_landed_title = k_papal_state
+	c_bern = {
+	NOT = {
+	liege = d_swiss
+	}
+	}
+	d_swiss = {
+	has_holder = yes
+	}
+	has_global_flag = switzerland_formed
+	OR = {
+	c_bern = {
+	is_republic = yes
+	}
+	c_bern = {
+	b_bern = {
+	opinion = {who = prev value = 25}
+	}
+	}
+	}
+	}
+	mean_time_to_happen = {
+		days = 1
+	}
+	option = {
+	name = OK
+	set_character_flag = bern_to_swiss
+	b_bern = {
+	holder_scope = {
+	c_bern = {
+	gain_title = prev
+	}
+	}
+	}
+	c_bern = {
+	liege = d_swiss
+	}
+}
+	
+	}
+	
+	# Grisons joins Swiss Confederacy
+	character_event = {
+	id = moduscarolimagni.2404
+	trigger = {
+	has_landed_title = k_papal_state
+	c_grisons = {
+	NOT = {
+	liege = d_swiss
+	}
+	}
+	d_swiss = {
+	has_holder = yes
+	}
+	has_global_flag = switzerland_formed
+	OR = {
+	c_grisons = {
+	is_republic = yes
+	}
+	c_grisons = {
+	b_locarno = {
+	opinion = {who = prev value = 25}
+	}
+	}
+	}
+	}
+	mean_time_to_happen = {
+		days = 1
+	}
+	option = {
+	name = OK
+	set_character_flag = grisons_to_swiss
+	b_locarno = {
+	holder_scope = {
+	c_grisons = {
+	gain_title = prev
+	}
+	}
+	}
+	c_grisons = {
+	liege = d_swiss
+	}
+}
+	
+	}
+	
+	# Chur joins Swiss Confederacy
+	character_event = {
+	id = moduscarolimagni.2405
+	trigger = {
+	has_landed_title = k_papal_state
+	c_chur = {
+	NOT = {
+	liege = d_swiss
+	}
+	}
+	d_swiss = {
+	has_holder = yes
+	}
+	has_global_flag = switzerland_formed
+	OR = {
+	c_chur = {
+	is_republic = yes
+	}
+	c_chur = {
+	b_davos = {
+	opinion = {who = prev value = 25}
+	}
+	}
+	}
+	}
+	mean_time_to_happen = {
+		days = 1
+	}
+	option = {
+	name = OK
+	set_character_flag = chur_to_swiss
+	b_davos = {
+	holder_scope = {
+	c_chur = {
+	gain_title = prev
+	}
+	}
+	}
+	c_chur = {
+	liege = d_swiss
+	}
+}
+	
+	}
+
+

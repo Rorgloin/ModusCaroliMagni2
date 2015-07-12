@@ -1,0 +1,1682 @@
+
+###########################################
+#                                         #
+# Maintenance Events                      #             
+#                                         #
+# ID moduscarolimagni 7000 - 7999         #
+#                                         #
+###########################################
+
+# Written by Carolus Magnus
+namespace = moduscarolimagni
+##################################
+# Duchy Correction Events 7000-7500
+##################################
+
+# Invisible Starter Event
+
+character_event = {
+id = moduscarolimagni.7000
+is_triggered_only = yes
+hide_window = yes
+trigger = {
+has_landed_title = k_papal_state
+}
+immediate = {
+
+set_character_flag = alpha
+character_event = {id = moduscarolimagni.7001 days = 10}
+character_event = {id = moduscarolimagni.7002 days = 10}
+character_event = {id = moduscarolimagni.7003 days = 10}
+character_event = {id = moduscarolimagni.7004 days = 10}
+character_event = {id = moduscarolimagni.7005 days = 10}
+character_event = {id = moduscarolimagni.7006 days = 10}
+character_event = {id = moduscarolimagni.7007 days = 10}
+character_event = {id = moduscarolimagni.7008 days = 10}
+character_event = {id = moduscarolimagni.7010 days = 10} # has to be called before 09 because the Frankish Empire will have land if not.
+character_event = {id = moduscarolimagni.7009 days = 10}
+character_event = {id = moduscarolimagni.7011 days = 10}
+character_event = {id = moduscarolimagni.7013 days = 10}
+character_event = {id = moduscarolimagni.7014 days = 10}
+character_event = {id = moduscarolimagni.7015 days = 10}
+character_event = {id = moduscarolimagni.7016 days = 10}
+character_event = {id = moduscarolimagni.7017 days = 10}
+character_event = {id = moduscarolimagni.7018 days = 10}
+character_event = {id = moduscarolimagni.7019 days = 10}
+character_event = {id = moduscarolimagni.7020 days = 10}
+character_event = {id = moduscarolimagni.7021 days = 10}
+character_event = {id = moduscarolimagni.7022 days = 10}
+character_event = {id = moduscarolimagni.7023 days = 10}
+character_event = {id = moduscarolimagni.7024 days = 10}
+character_event = {id = moduscarolimagni.7025 days = 10}
+character_event = {id = moduscarolimagni.7026 days = 10}
+character_event = {id = moduscarolimagni.7027 days = 10}
+character_event = {id = moduscarolimagni.7028 days = 10}
+character_event = {id = moduscarolimagni.7029 days = 10}
+character_event = {id = moduscarolimagni.7030 days = 10}
+character_event = {id = moduscarolimagni.7031 days = 10}
+character_event = {id = moduscarolimagni.7032 days = 10}
+character_event = {id = moduscarolimagni.7033 days = 10}
+character_event = {id = moduscarolimagni.7034 days = 10}
+character_event = {id = moduscarolimagni.7035 days = 10}
+character_event = {id = moduscarolimagni.7036 days = 10}
+character_event = {id = moduscarolimagni.7037 days = 10}
+character_event = {id = moduscarolimagni.7038 days = 10}
+character_event = {id = moduscarolimagni.7039 days = 10}
+}
+}
+
+# Golden Bull Debug I
+character_event = {
+	id = moduscarolimagni.7001
+	is_triggered_only = yes
+	
+	option = {
+	name = EVTOPTAmoduscarolimagni.7001
+	trigger = {
+	has_global_flag = golden_bull_one
+	}
+			e_hre = {
+				any_direct_de_jure_vassal_title = {
+					de_jure_liege = 0
+				}
+			}
+			k_saxonyelectorate = {
+			de_jure_liege = e_hre
+			}
+			c_pfalz = {
+			de_jure_liege = d_palatinate
+			}
+			k_palatinate = {
+			de_jure_liege = e_hre
+			}
+			k_brandenburg = {
+			de_jure_liege = e_hre
+			}
+			k_bohemiaelectorate = {
+			de_jure_liege = e_hre
+			}
+			k_mainz = {
+			de_jure_liege = e_hre
+			}
+			k_koln = {
+			de_jure_liege = e_hre
+			}
+			k_trier = {
+			de_jure_liege = e_hre
+			}
+		
+	}
+	
+	option = {
+	name = EVTOPTBmoduscarolimagni.7001
+	trigger = {
+	NOT = {
+			has_global_flag = golden_bull_one
+			}
+	}
+	}
+}
+
+# Golden Bull Debug II
+character_event = {
+	id = moduscarolimagni.7002
+	is_triggered_only = yes
+	option = {
+	name = EVTOPTAmoduscarolimagni.7002
+	trigger = {
+	has_global_flag = golden_bull_two
+	}
+			e_hre = {
+				any_direct_de_jure_vassal_title = {
+					de_jure_liege = 0
+				}
+			}
+			k_saxonyelectorate = {
+			de_jure_liege = e_hre
+			}
+			k_swabia = {
+			de_jure_liege = e_hre
+			}
+			k_franconia = {
+			de_jure_liege = e_hre
+			}
+			k_bavariaelectorate = {
+			de_jure_liege = e_hre
+			}
+			k_mainz = {
+			de_jure_liege = e_hre
+			}
+			k_koln = {
+			de_jure_liege = e_hre
+			}
+			k_trier = {
+			de_jure_liege = e_hre
+			}
+		
+	}
+	
+	option = {
+	name = EVTOPTBmoduscarolimagni.7002
+	trigger = {
+	NOT = {
+			has_global_flag = golden_bull_two
+			}
+	}
+	}
+}
+
+# Golden Bull Debug III
+character_event = {
+	id = moduscarolimagni.7003
+	is_triggered_only = yes
+
+	option = {
+	name = EVTOPTAmoduscarolimagni.7003
+	trigger = {
+	has_global_flag = golden_bull_three
+	}
+			e_hre = {
+				any_direct_de_jure_vassal_title = {
+					de_jure_liege = 0
+				}
+			}
+			k_bamberg = {
+			de_jure_liege = e_hre
+			}
+			c_bamberg = {
+			de_jure_liege = d_bamberg
+			}
+			k_magdeburg = {
+			de_jure_liege = e_hre
+			}
+			c_anhalt = {
+			de_jure_liege = d_magdeburg
+			}
+			k_bremen = {
+			de_jure_liege = e_hre
+			}
+			c_bremen = {
+			de_jure_liege = d_bremen
+			}
+			k_salzburg = {
+			de_jure_liege = e_hre
+			}
+			c_salzburg = {
+			de_jure_liege = d_salzburg
+			}
+			k_mainz = {
+			de_jure_liege = e_hre
+			}
+			k_koln = {
+			de_jure_liege = e_hre
+			}
+			k_trier = {
+			de_jure_liege = e_hre
+			}
+		
+	}
+	
+	option = {
+	name = EVTOPTBmoduscarolimagni.7003
+	trigger = {
+	NOT = {
+			has_global_flag = golden_bull_three
+			}
+	}
+	}
+}
+
+# Golden Bull Debug IV
+character_event = {
+	id = moduscarolimagni.7004
+	is_triggered_only = yes
+	option = {
+	name = EVTOPTAmoduscarolimagni.7004
+	trigger = {
+	has_global_flag = golden_bull_four
+	}
+			e_hre = {
+				any_direct_de_jure_vassal_title = {
+					de_jure_liege = 0
+				}
+			}
+			k_saxonyelectorate = {
+			de_jure_liege = e_hre
+			}
+			k_swabia = {
+			de_jure_liege = e_hre
+			}
+			k_franconia = {
+			de_jure_liege = e_hre
+			}
+			k_bavariaelectorate = {
+			de_jure_liege = e_hre
+			}
+			k_osterreich = {
+			de_jure_liege = e_hre
+			}
+			k_thuringia = {
+			de_jure_liege = e_hre
+			}
+			k_brandenburg = {
+			de_jure_liege = e_hre
+			}
+		
+	}
+	
+	option = {
+	name = EVTOPTBmoduscarolimagni.7004
+	trigger = {
+	NOT = {
+			has_global_flag = golden_bull_four
+			}
+	}
+	}
+}
+
+# Pisa De Jure Duchy
+character_event = {
+	id = moduscarolimagni.7005
+	is_triggered_only = yes
+	option = {
+	name = EVTOPTAmoduscarolimagni.7005
+	trigger = {
+	has_global_flag = pisa_formed
+	}
+			c_pisa = {
+			de_jure_liege = d_pisa
+			}
+			c_piombino = {
+			de_jure_liege = d_pisa
+			}
+		
+	}
+	
+	option = {
+	name = EVTOPTBmoduscarolimagni.7005
+	trigger = {
+	NOT = {	
+	has_global_flag = pisa_formed
+			}
+	}
+	}
+}
+
+
+# Genoa De Jure Duchy
+character_event = {
+	id = moduscarolimagni.7006
+	is_triggered_only = yes
+	option = {
+	name = EVTOPTAmoduscarolimagni.7006
+	trigger = {
+	
+	has_global_flag = genoa_formed
+	
+	}
+		
+			c_genoa = {
+			de_jure_liege = d_genoa
+			}
+			
+		
+	}
+	
+	option = {
+	name = EVTOPTBmoduscarolimagni.7006
+	trigger = {
+	NOT = {
+	has_global_flag = genoa_formed
+			}
+	}
+	}
+}
+
+# Urbino De Jure Duchy
+character_event = {
+	id = moduscarolimagni.7007
+	is_triggered_only = yes
+	option = {
+	name = EVTOPTAmoduscarolimagni.7007
+	trigger = {
+	has_global_flag = ancona_formed
+	}
+		
+			c_urbino = {
+			de_jure_liege = d_urbino
+			}
+			
+		
+	}
+	
+	option = {
+	name = EVTOPTBmoduscarolimagni.7007
+	trigger = {
+	NOT = {
+			
+	has_global_flag = ancona_formed
+	
+			}
+	}
+	}
+}
+
+# Ragusa De Jure Duchy
+character_event = {
+	id = moduscarolimagni.7008
+	is_triggered_only = yes
+	option = {
+	name = EVTOPTAmoduscarolimagni.7008
+	trigger = {
+	has_global_flag = ragusa_formed
+	
+	}
+		
+			c_ragusa = {
+			de_jure_liege = d_ragusa
+			}
+			
+		
+	}
+	
+	option = {
+	name = EVTOPTBmoduscarolimagni.7008
+	trigger = {
+	NOT = {
+			OR = {
+	year = 1065
+	has_global_flag = ragusa_formed
+	}
+			}
+	}
+	}
+}
+
+# Frankish Empire de jure Remover
+character_event = {
+	id = moduscarolimagni.7009
+	is_triggered_only = yes
+	option = {
+	name = EVTOPTAmoduscarolimagni.7009
+	trigger = {
+	has_global_flag = hre_formed
+	}
+		
+			e_karling = {
+		any_direct_de_jure_vassal_title = {
+		limit = {
+		tier = king
+		}
+		de_jure_liege = 0
+		}
+		}
+			
+		
+	}
+	
+	option = {
+	name = EVTOPTBmoduscarolimagni.7009
+	trigger = {
+	NOT = {
+			has_global_flag = hre_formed
+			}
+	}
+	
+	}
+}
+
+# HRE de jure Remover
+character_event = {
+	id = moduscarolimagni.7010
+	is_triggered_only = yes
+	option = {
+	name = EVTOPTAmoduscarolimagni.7010
+	trigger = {
+	NOT = {
+	has_global_flag = hre_formed
+	}
+	}
+		
+			e_hre = {
+		any_de_jure_vassal_title = {
+		limit = {
+		tier = king
+		}
+		de_jure_liege = 0
+		}
+		}
+			
+		
+	}
+	
+	option = {
+	name = EVTOPTBmoduscarolimagni.7009
+	trigger = {
+	
+			has_global_flag = hre_formed
+			
+	}
+	
+	}
+}
+
+# Upper and Lower Lorraine De Jure Duchy Split
+character_event = {
+	id = moduscarolimagni.7011
+	is_triggered_only = yes
+	option = {
+	name = EVTOPTAmoduscarolimagni.7011
+	trigger = {
+	has_global_flag = lorraine_split
+	
+	}
+		
+			c_metz = {
+			de_jure_liege = d_upper_lorraine
+			}
+			c_verdun = {
+			de_jure_liege = d_upper_lorraine
+			}
+			c_lorraine = {
+			de_jure_liege = d_upper_lorraine
+			}
+			c_bar = {
+			de_jure_liege = d_upper_lorraine
+			}
+			c_santois = {
+			de_jure_liege = d_upper_lorraine
+			}
+			c_loon = {
+			de_jure_liege = d_lower_lorraine
+			}
+			c_julich = {
+			de_jure_liege = d_lower_lorraine
+			}
+			c_luxembourg = {
+			de_jure_liege = d_lower_lorraine
+			}
+			c_liege = {
+			de_jure_liege = d_lower_lorraine
+			}
+			c_kleve = {
+			de_jure_liege = d_lower_lorraine
+			}
+			c_holland = {
+			de_jure_liege = d_lower_lorraine
+			}
+			c_sticht = {
+			de_jure_liege = d_lower_lorraine
+			}
+			c_westfriesland = {
+			de_jure_liege = d_lower_lorraine
+			}
+			c_gelre = {
+			de_jure_liege = d_lower_lorraine
+			}
+			c_ostfriesland = {
+			de_jure_liege = d_lower_lorraine
+			}
+			c_frisia = {
+			de_jure_liege = d_lower_lorraine
+			}
+			c_brabant = {
+			de_jure_liege = d_lower_lorraine
+			}
+			c_hainaut = {
+			de_jure_liege = d_lower_lorraine
+			}
+			c_breda = {
+			de_jure_liege = d_lower_lorraine
+			}
+
+		
+	}
+	
+	option = {
+	name = EVTOPTBmoduscarolimagni.7011
+	trigger = {
+	NOT = {
+			has_global_flag = lorraine_split
+			}
+	}
+	}
+}
+
+# Hispania de jure Remover
+character_event = {
+	id = moduscarolimagni.7012
+	is_triggered_only = yes
+	option = {
+	name = EVTOPTAmoduscarolimagni.7012
+			k_leon = {
+			de_jure_liege = 0
+			}
+		set_character_flag = leon_fixed
+	}
+	
+	
+}
+
+# Holland de jure
+character_event = {
+	id = moduscarolimagni.7013
+	is_triggered_only = yes
+	option = {
+	name = EVTOPTAmoduscarolimagni.7013
+	trigger = {
+	has_global_flag = holland_formed
+	
+	}
+		
+			
+			c_holland = {
+			de_jure_liege = d_holland
+			}
+			c_sticht = {
+			de_jure_liege = d_holland
+			}
+			c_westfriesland = {
+			de_jure_liege = d_holland
+			}
+	}
+	
+	option = {
+	name = EVTOPTBmoduscarolimagni.7013
+	trigger = {
+	NOT = {
+			has_global_flag = holland_formed
+			}
+	}
+	}
+}
+# Gelre de jure
+character_event = {
+	id = moduscarolimagni.7014
+	is_triggered_only = yes
+	option = {
+	name = EVTOPTAmoduscarolimagni.7014
+	trigger = {
+	has_global_flag = gelre_formed
+	
+	}
+		
+			
+			c_gelre = {
+			de_jure_liege = d_gelre
+			}
+			c_ostfriesland = {
+			de_jure_liege = d_gelre
+			}
+			c_frisia = {
+			de_jure_liege = d_gelre
+			}
+	}
+	
+	option = {
+	name = EVTOPTBmoduscarolimagni.7014
+	trigger = {
+	NOT = {
+			has_global_flag = gelre_formed
+			}
+	}
+	}
+}
+
+# Brabant de jure
+character_event = {
+	id = moduscarolimagni.7015
+	is_triggered_only = yes
+	option = {
+	name = EVTOPTAmoduscarolimagni.7015
+	trigger = {
+	has_global_flag = brabant_formed
+	
+	}
+		
+			
+			c_brabant = {
+			de_jure_liege = d_brabant
+			}
+			c_hainaut = {
+			de_jure_liege = d_brabant
+			}
+			c_breda = {
+			de_jure_liege = d_brabant
+			}
+	}
+	
+	option = {
+	name = EVTOPTBmoduscarolimagni.7015
+	trigger = {
+	NOT = {
+			has_global_flag = brabant_formed
+			}
+	}
+	}
+}
+
+# Brandenburg de jure
+character_event = {
+	id = moduscarolimagni.7016
+	is_triggered_only = yes
+	option = {
+	name = EVTOPTAmoduscarolimagni.7016
+	trigger = {
+	has_global_flag = brandenburg_march
+	
+	}
+		
+			
+			d_brandenburg = {
+			de_jure_liege = k_germany
+			}
+			
+	}
+	
+	option = {
+	name = EVTOPTBmoduscarolimagni.7016
+	trigger = {
+	NOT = {
+			has_global_flag = brandenburg_march
+			}
+	}
+	}
+}
+
+# Osterreich de jure
+character_event = {
+	id = moduscarolimagni.7017
+	is_triggered_only = yes
+	option = {
+	name = EVTOPTAmoduscarolimagni.7017
+	trigger = {
+	has_global_flag = osterreich_formed
+	
+	}
+		
+			
+			c_osterreich = {
+			de_jure_liege = d_osterreich
+			}
+			c_znojmo = {
+			de_jure_liege = d_osterreich
+			}
+			c_passau = {
+			de_jure_liege = d_osterreich
+			}
+			c_steiermark = {
+			de_jure_liege = d_osterreich
+			}
+			
+	}
+	
+	option = {
+	name = EVTOPTBmoduscarolimagni.7017
+	trigger = {
+	NOT = {
+			has_global_flag = osterreich_formed
+			}
+	}
+	}
+}
+
+# Meissen de jure
+character_event = {
+	id = moduscarolimagni.7018
+	is_triggered_only = yes
+	option = {
+	name = EVTOPTAmoduscarolimagni.7018
+	trigger = {
+	has_global_flag = meissen_march
+	
+	}
+		
+			
+			d_meissen = {
+			de_jure_liege = k_germany
+			}
+			
+	}
+	
+	option = {
+	name = EVTOPTBmoduscarolimagni.7018
+	trigger = {
+	NOT = {
+			has_global_flag = meissen_march
+			}
+	}
+	}
+}
+
+# Tyrol de jure
+character_event = {
+	id = moduscarolimagni.7019
+	is_triggered_only = yes
+	option = {
+	name = EVTOPTAmoduscarolimagni.7019
+	trigger = {
+	has_global_flag = tyrol_formed
+	
+	}
+		
+			
+			c_tirol = {
+			de_jure_liege = d_tyrol
+			}
+			c_innsbruck = {
+			de_jure_liege = d_tyrol
+			}
+			
+	}
+	
+	option = {
+	name = EVTOPTBmoduscarolimagni.7019
+	trigger = {
+	NOT = {
+			has_global_flag = tyrol_formed
+			}
+	}
+	}
+}
+
+# Baden de jure
+character_event = {
+	id = moduscarolimagni.7020
+	is_triggered_only = yes
+	option = {
+	name = EVTOPTAmoduscarolimagni.7020
+	trigger = {
+	has_global_flag = baden_formed
+	
+	}
+		
+			
+			c_baden = {
+			de_jure_liege = d_baden
+			}
+			c_breisgau = {
+			de_jure_liege = d_baden
+			}
+			
+	}
+	
+	option = {
+	name = EVTOPTBmoduscarolimagni.7020
+	trigger = {
+	NOT = {
+			has_global_flag = baden_formed
+			}
+	}
+	}
+}
+
+# Alsace de jure
+character_event = {
+	id = moduscarolimagni.7021
+	is_triggered_only = yes
+	option = {
+	name = EVTOPTAmoduscarolimagni.7021
+	trigger = {
+	has_global_flag = alsace_formed
+	
+	}
+		
+			
+			c_sundgau = {
+			de_jure_liege = d_alsace
+			}
+			c_nordgau = {
+			de_jure_liege = d_alsace
+			}
+			
+	}
+	
+	option = {
+	name = EVTOPTBmoduscarolimagni.7021
+	trigger = {
+	NOT = {
+			has_global_flag = alsace_formed
+			}
+	}
+	}
+}
+
+# Brunswick de jure
+character_event = {
+	id = moduscarolimagni.7022
+	is_triggered_only = yes
+	option = {
+	name = EVTOPTAmoduscarolimagni.7022
+	trigger = {
+	has_global_flag = brunswick_formed
+	
+	}
+		
+			
+			c_celle = {
+			de_jure_liege = d_brunswick
+			}
+			c_luneburg = {
+			de_jure_liege = d_brunswick
+			}
+			c_braunschweig = {
+			de_jure_liege = d_brunswick
+			}
+			c_oldenburg = {
+			de_jure_liege = d_brunswick
+			}
+			c_osnabruck = {
+			de_jure_liege = d_brunswick
+			}
+			
+	}
+	
+	option = {
+	name = EVTOPTBmoduscarolimagni.7022
+	trigger = {
+	NOT = {
+			has_global_flag = brunswick_formed
+			}
+	}
+	}
+}
+
+# Luxembourg de jure
+character_event = {
+	id = moduscarolimagni.7023
+	is_triggered_only = yes
+	option = {
+	name = EVTOPTAmoduscarolimagni.7023
+	trigger = {
+	has_global_flag = luxembourg_formed
+	
+	}
+		
+			
+			c_luxembourg = {
+			de_jure_liege = d_luxembourg
+			}
+		
+	}
+	
+	option = {
+	name = EVTOPTBmoduscarolimagni.7023
+	trigger = {
+	NOT = {
+			has_global_flag = luxembourg_formed
+			}
+	}
+	}
+}
+
+# Munster de jure
+character_event = {
+	id = moduscarolimagni.7024
+	is_triggered_only = yes
+	option = {
+	name = EVTOPTAmoduscarolimagni.7024
+	trigger = {
+	has_global_flag = munster_formed
+	
+	}
+		
+			
+			c_munster = {
+			de_jure_liege = d_german_munster
+			}
+			c_gottingen = {
+			de_jure_liege = d_german_munster
+			}
+		
+	}
+	
+	option = {
+	name = EVTOPTBmoduscarolimagni.7024
+	trigger = {
+	NOT = {
+			has_global_flag = munster_formed
+			}
+	}
+	}
+}
+
+# Bremen de jure
+character_event = {
+	id = moduscarolimagni.7025
+	is_triggered_only = yes
+	option = {
+	name = EVTOPTAmoduscarolimagni.7025
+	trigger = {
+	has_global_flag = bremen_formed
+	
+	}
+		
+			
+			c_bremen = {
+			de_jure_liege = d_bremen
+			}
+		
+	}
+	
+	option = {
+	name = EVTOPTBmoduscarolimagni.7025
+	trigger = {
+	NOT = {
+			has_global_flag = bremen_formed
+			}
+	}
+	}
+}
+
+# Palatinate de jure
+character_event = {
+	id = moduscarolimagni.7026
+	is_triggered_only = yes
+	option = {
+	name = EVTOPTAmoduscarolimagni.7026
+	trigger = {
+	has_global_flag = palatinate_formed
+	
+	}
+		
+			
+			c_pfalz = {
+			de_jure_liege = d_palatinate
+			}
+			c_leiningen = {
+			de_jure_liege = d_palatinate
+			}
+		
+	}
+	
+	option = {
+	name = EVTOPTBmoduscarolimagni.7026
+	trigger = {
+	NOT = {
+			has_global_flag = palatinate_formed
+			}
+	}
+	}
+}
+
+# Switzerland de jure
+character_event = {
+	id = moduscarolimagni.7027
+	is_triggered_only = yes
+	option = {
+	name = EVTOPTAmoduscarolimagni.7027
+	trigger = {
+	has_global_flag = switzerland_formed
+	
+	}
+		
+			
+			c_schwyz = {
+	de_jure_liege = d_swiss
+	}
+	c_st_gallen = {
+	de_jure_liege = d_swiss
+	}
+	c_chur = {
+	de_jure_liege = d_swiss
+	}
+	c_bern = {
+	de_jure_liege = d_swiss
+	}
+	c_grisons = {
+	de_jure_liege = d_swiss
+	}
+		
+	}
+	
+	option = {
+	name = EVTOPTBmoduscarolimagni.7027
+	trigger = {
+	NOT = {
+			has_global_flag = switzerland_formed
+			}
+	}
+	}
+}
+
+# Auvergne de jure
+character_event = {
+	id = moduscarolimagni.7028
+	is_triggered_only = yes
+	option = {
+	name = EVTOPTAmoduscarolimagni.7028
+	trigger = {
+	has_global_flag = auvergne_formed
+	
+	}
+		
+			
+			c_auvergne = {
+			de_jure_liege = d_auvergne
+			}
+			c_gevaudan = {
+			de_jure_liege = d_auvergne
+			}
+			
+		
+	}
+	
+	option = {
+	name = EVTOPTBmoduscarolimagni.7028
+	trigger = {
+	NOT = {
+			has_global_flag = auvergne_formed
+			}
+	}
+	}
+}
+
+# Bourbon de jure
+character_event = {
+	id = moduscarolimagni.7029
+	is_triggered_only = yes
+	option = {
+	name = EVTOPTAmoduscarolimagni.7029
+	trigger = {
+	has_global_flag = bourbon_formed
+	
+	}
+		
+			
+			c_bourbon = {
+			de_jure_liege = d_bourbon
+			}
+			c_la_marche = {
+			de_jure_liege = d_bourbon
+			}
+			c_limousin = {
+			de_jure_liege = d_bourbon
+			}
+			
+			
+		
+	}
+	
+	option = {
+	name = EVTOPTBmoduscarolimagni.7029
+	trigger = {
+	NOT = {
+			has_global_flag = bourbon_formed
+			}
+	}
+	}
+}
+
+# Berry de jure
+character_event = {
+	id = moduscarolimagni.7030
+	is_triggered_only = yes
+	option = {
+	name = EVTOPTAmoduscarolimagni.7030
+	trigger = {
+	has_global_flag = berry_formed
+	
+	}
+		
+			
+			c_tourraine = {
+			de_jure_liege = d_berry
+			}
+			c_bourges = {
+			de_jure_liege = d_berry
+			}
+			
+			
+			
+		
+	}
+	
+	option = {
+	name = EVTOPTBmoduscarolimagni.7030
+	trigger = {
+	NOT = {
+			has_global_flag = berry_formed
+			}
+	}
+	}
+}
+
+# Poitou de jure
+character_event = {
+	id = moduscarolimagni.7031
+	is_triggered_only = yes
+	option = {
+	name = EVTOPTAmoduscarolimagni.7031
+	trigger = {
+	has_global_flag = poitou_formed
+	
+	}
+		
+			
+			c_poitiers = {
+			de_jure_liege = d_poitou
+			}
+			c_thouars = {
+			de_jure_liege = d_poitou
+			}
+			c_saintonge = {
+			de_jure_liege = d_poitou
+			}
+			c_lusignan = {
+			de_jure_liege = d_poitou
+			}
+			
+			
+			
+		
+	}
+	
+	option = {
+	name = EVTOPTBmoduscarolimagni.7031
+	trigger = {
+	NOT = {
+			has_global_flag = poitou_formed
+			}
+	}
+	}
+}
+
+# Anjou de jure
+character_event = {
+	id = moduscarolimagni.7032
+	is_triggered_only = yes
+	option = {
+	name = EVTOPTAmoduscarolimagni.7032
+	trigger = {
+	has_global_flag = anjou_formed
+	
+	}
+		
+			
+			c_anjou = {
+			de_jure_liege = d_anjou
+			}
+			c_maine = {
+			de_jure_liege = d_anjou
+			}
+			
+			
+			
+			
+		
+	}
+	
+	option = {
+	name = EVTOPTBmoduscarolimagni.7032
+	trigger = {
+	NOT = {
+			has_global_flag = anjou_formed
+			}
+	}
+	}
+}
+
+# Orleans de jure
+character_event = {
+	id = moduscarolimagni.7033
+	is_triggered_only = yes
+	option = {
+	name = EVTOPTAmoduscarolimagni.7033
+	trigger = {
+	has_global_flag = orleans_formed
+	
+	}
+		
+			
+			c_vendome = {
+			de_jure_liege = d_orleans
+			}
+			c_blois = {
+			de_jure_liege = d_orleans
+			}
+			c_orleans = {
+			de_jure_liege = d_orleans
+			}
+			c_chartres = {
+			de_jure_liege = d_orleans
+			}
+			
+			
+			
+			
+			
+		
+	}
+	
+	option = {
+	name = EVTOPTBmoduscarolimagni.7033
+	trigger = {
+	NOT = {
+			has_global_flag = orleans_formed
+			}
+	}
+	}
+}
+
+# Valois de jure
+character_event = {
+	id = moduscarolimagni.7034
+	is_triggered_only = yes
+	option = {
+	name = EVTOPTAmoduscarolimagni.7034
+	trigger = {
+	has_global_flag = valois_formed
+	
+	}
+		
+			
+			c_ile_de_france = {
+			de_jure_liege = d_valois
+			}
+			c_vermandois = {
+			de_jure_liege = d_valois
+			}
+			c_amiens = {
+			de_jure_liege = d_valois
+			}
+			
+			
+			
+			
+			
+			
+		
+	}
+	
+	option = {
+	name = EVTOPTBmoduscarolimagni.7034
+	trigger = {
+	NOT = {
+			has_global_flag = valois_formed
+			}
+	}
+	}
+}
+
+# Champagne de jure
+character_event = {
+	id = moduscarolimagni.7035
+	is_triggered_only = yes
+	option = {
+	name = EVTOPTAmoduscarolimagni.7035
+	trigger = {
+	has_global_flag = champagne_formed
+	
+	}
+		
+			
+			c_reims = {
+			de_jure_liege = d_champagne
+			}
+			c_sens = {
+			de_jure_liege = d_champagne
+			}
+			c_troyes = {
+			de_jure_liege = d_champagne
+			}
+			
+			
+			
+			
+			
+			
+			
+		
+	}
+	
+	option = {
+	name = EVTOPTBmoduscarolimagni.7035
+	trigger = {
+	NOT = {
+			has_global_flag = champagne_formed
+			}
+	}
+	}
+}
+# Flanders de jure
+character_event = {
+	id = moduscarolimagni.7036
+	is_triggered_only = yes
+	option = {
+	name = EVTOPTAmoduscarolimagni.7036
+	trigger = {
+	has_global_flag = flanders_formed
+	
+	}
+		
+			
+			c_artois = {
+			de_jure_liege = d_flanders
+			}
+			c_boulogne = {
+			de_jure_liege = d_flanders
+			}
+			c_guines = {
+			de_jure_liege = d_flanders
+			}
+			c_yperen = {
+			de_jure_liege = d_flanders
+			}
+			c_zeeland = {
+			de_jure_liege = d_flanders
+			}
+			c_gent = {
+			de_jure_liege = d_flanders
+			}
+			c_brugge = {
+			de_jure_liege = d_flanders
+			}
+			
+			
+			
+			
+			
+			
+			
+			
+		
+	}
+	
+	option = {
+	name = EVTOPTBmoduscarolimagni.7036
+	trigger = {
+	NOT = {
+			has_global_flag = flanders_formed
+			}
+	}
+	}
+}
+
+# Normandy de jure
+character_event = {
+	id = moduscarolimagni.7037
+	is_triggered_only = yes
+	option = {
+	name = EVTOPTAmoduscarolimagni.7037
+	trigger = {
+	has_global_flag = normandy_creation
+	
+	}
+		
+			
+			c_arques = {
+			de_jure_liege = d_normandy
+			}
+			c_avranches = {
+			de_jure_liege = d_normandy
+			}
+			c_evreux = {
+			de_jure_liege = d_normandy
+			}
+			c_eu = {
+			de_jure_liege = d_normandy
+			}
+			c_vexin = {
+			de_jure_liege = d_normandy
+			}
+			
+			
+			
+			
+			
+			
+			
+			
+		
+	}
+	
+	option = {
+	name = EVTOPTBmoduscarolimagni.7037
+	trigger = {
+	NOT = {
+			has_global_flag = normandy_creation
+			}
+	}
+	}
+}
+
+# England de jure one
+character_event = {
+	id = moduscarolimagni.7038
+	is_triggered_only = yes
+	option = {
+	name = EVTOPTAmoduscarolimagni.7038
+	trigger = {
+	has_global_flag = england_formed
+	
+	}
+		
+			
+			c_hereford = {
+	de_jure_liege = d_hereford
+	}
+	c_gloucester = {
+	de_jure_liege = d_hereford
+	}
+	c_oxford = {
+	de_jure_liege = d_hereford
+	}
+	c_wiltshire = {
+	de_jure_liege = d_somerset
+	}
+	c_surrey = {
+	de_jure_liege = d_canterbury
+	}
+	c_sussex = {
+	de_jure_liege = d_sussex
+	}
+	c_winchester = {
+	de_jure_liege = d_somerset
+	}
+	c_dorset = {
+	de_jure_liege = d_somerset
+	}
+	c_somerset = {
+	de_jure_liege = d_somerset
+	}
+	c_worcester = {
+	de_jure_liege = d_hereford
+	}
+	c_middlesex = {
+	de_jure_liege = d_bedford
+	}
+	c_northumberland = {
+	de_jure_liege = d_northumberland
+	}
+	c_cumberland = {
+	de_jure_liege = d_northumberland
+	}
+	c_westmorland = {
+	de_jure_liege = d_northumberland
+	}
+	c_durham = {
+	de_jure_liege = d_northumberland
+	}
+	c_york = {
+	de_jure_liege = d_northumberland
+	}
+	c_lancaster = {
+	de_jure_liege = d_northumberland
+	}
+	c_chester = {
+	de_jure_liege = d_hereford
+	}
+	c_lincoln = {
+	de_jure_liege = d_hereford
+	}
+	c_leicester = {
+	de_jure_liege = d_hereford
+	}
+	c_derby = {
+	de_jure_liege = d_hereford
+	}
+	c_shrewsbury = {
+	de_jure_liege = d_hereford
+	}
+	c_warwick = {
+	de_jure_liege = d_hereford
+	}
+	c_northampton = {
+	de_jure_liege = d_hereford
+	}
+	c_bedford = {
+	de_jure_liege = d_hereford
+	}
+	c_norfolk = {
+	de_jure_liege = d_norfolk
+	}
+	c_suffolk = {
+	de_jure_liege = d_norfolk
+	}
+	c_essex = {
+	de_jure_liege = d_bedford
+	}
+	c_kent = {
+	de_jure_liege = d_canterbury
+	}
+			
+			
+			
+			
+			
+			
+			
+			
+		
+	}
+	
+	option = {
+	name = EVTOPTBmoduscarolimagni.7038
+	trigger = {
+	NOT = {
+			has_global_flag = england_formed
+			}
+	}
+	}
+}
+
+# England de jure two
+character_event = {
+	id = moduscarolimagni.7039
+	is_triggered_only = yes
+	option = {
+	name = EVTOPTAmoduscarolimagni.7039
+	trigger = {
+	has_global_flag = england_reorganized
+	
+	}
+		
+			
+			c_hereford = {
+	de_jure_liege = d_england
+	}
+	c_gloucester = {
+	de_jure_liege = d_england
+	}
+	c_oxford = {
+	de_jure_liege = d_england
+	}
+	c_wiltshire = {
+	de_jure_liege = d_england
+	}
+	c_surrey = {
+	de_jure_liege = d_england
+	}
+	c_sussex = {
+	de_jure_liege = d_england
+	}
+	c_winchester = {
+	de_jure_liege = d_england
+	}
+	c_dorset = {
+	de_jure_liege = d_england
+	}
+	c_somerset = {
+	de_jure_liege = d_england
+	}
+	c_worcester = {
+	de_jure_liege = d_england
+	}
+	c_middlesex = {
+	de_jure_liege = d_england
+	}
+	c_northumberland = {
+	de_jure_liege = d_england
+	}
+	c_cumberland = {
+	de_jure_liege = d_england
+	}
+	c_westmorland = {
+	de_jure_liege = d_england
+	}
+	c_durham = {
+	de_jure_liege = d_england
+	}
+	c_york = {
+	de_jure_liege = d_england
+	}
+	c_lancaster = {
+	de_jure_liege = d_england
+	}
+	c_chester = {
+	de_jure_liege = d_england
+	}
+	c_lincoln = {
+	de_jure_liege = d_england
+	}
+	c_leicester = {
+	de_jure_liege = d_england
+	}
+	c_derby = {
+	de_jure_liege = d_england
+	}
+	c_shrewsbury = {
+	de_jure_liege = d_england
+	}
+	c_warwick = {
+	de_jure_liege = d_england
+	}
+	c_northampton = {
+	de_jure_liege = d_england
+	}
+	c_bedford = {
+	de_jure_liege = d_england
+	}
+	c_norfolk = {
+	de_jure_liege = d_england
+	}
+	c_suffolk = {
+	de_jure_liege = d_england
+	}
+	c_essex = {
+	de_jure_liege = d_england
+	}
+	c_kent = {
+	de_jure_liege = d_england
+	}
+			
+			
+			
+			
+			
+			
+			
+			
+		
+	}
+	
+	option = {
+	name = EVTOPTBmoduscarolimagni.7038
+	trigger = {
+	NOT = {
+			has_global_flag = england_reorganized
+			}
+	}
+	}
+}

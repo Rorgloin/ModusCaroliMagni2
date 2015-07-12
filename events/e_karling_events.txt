@@ -1,0 +1,938 @@
+
+###########################################
+#                                         #
+# Frankish Empire Events                  #             
+#                                         #
+# ID moduscarolimagni 3000-4999           #
+#                                         #
+###########################################
+
+# Written by Carolus Magnus
+namespace = moduscarolimagni
+##################################
+# Frankish Empire Events 3000-3099. Most adapted from CKII Plus
+##################################
+# Upon a new Carolingian emperor ascending to the throne
+character_event = {
+	id = moduscarolimagni.3000
+	
+	hide_window = yes
+	only_playable = yes
+	trigger = {
+		has_landed_title = e_karling
+		NOT = {
+		has_character_flag = karling_succession
+		}
+		NOT = {
+		has_character_flag = is_charlemagne
+		}
+	}
+	
+	mean_time_to_happen = {
+	days = 1
+	}
+	
+	immediate = {
+		character_event = { id = moduscarolimagni.3001 days = 2 }
+		set_character_flag = karling_succession
+	}
+	
+}
+
+character_event = {
+	id = moduscarolimagni.3001
+	
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		has_landed_title = e_karling
+	}
+	
+	immediate = {		
+		# Send an acceptance event to all duke & king vassals
+		any_vassal = {
+			limit = { higher_tier_than = COUNT }
+			character_event = { id = moduscarolimagni.3002 days = 3 }
+		}		
+		# Follow-up succeed-or-fail events (only one will be valid}
+		narrative_event = { id = moduscarolimagni.3004 days = 15 } # coronated by the Pope
+		narrative_event = { id = moduscarolimagni.3005 days = 15 } # empire dissolves
+	}
+}
+
+# Event to Carolingian vassals -- do you accept the new emperor or declare independence?
+character_event = {
+	id = moduscarolimagni.3002
+	title = EVTNAMEmoduscarolimagni.3002
+	desc = EVTDESCmoduscarolimagni.3002
+	picture = GFX_evt_council
+	border = GFX_event_normal_frame_diplomacy
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		vassal_of = FROM
+	}
+	
+	option = {
+		name = EVTOPTAmoduscarolimagni.3002 # declare independence
+		trigger = {
+			prisoner = no
+			is_adult = yes
+			NOT = { trait = incapable }
+		}
+		ai_chance = {
+			factor = 50
+			modifier = {
+				factor = 0
+				religion = FROM
+				is_close_relative = FROM
+			}
+			modifier = {
+				factor = 0.5
+				OR = {
+					dynasty = FROM
+					is_allied_with = FROM
+				}
+			}
+			modifier = {
+				factor = 3
+				#the emperor is not a Karling
+				FROM = { NOT = { dynasty = 25061 } }
+			}
+			modifier = {
+				factor = 3
+				NOT = { religion = FROM }
+			}
+			modifier = {
+				factor = 1.25
+				NOT = { culture = FROM }
+			}
+			modifier = {
+				factor = 1.25
+				NOT = { culture_group = FROM }
+			}
+			modifier = {
+				factor = 10
+				in_faction = faction_separatist
+			}
+			modifier = {
+				factor = 0.5
+				NOT = { year = 880 }
+			}
+			modifier = {
+				factor = 1.25
+				year = 900
+			}
+			modifier = {
+				factor = 1.25
+				year = 925
+			}
+			modifier = {
+				factor = 1.25
+				year = 950
+			}
+			modifier = {
+				factor = 1.25
+				year = 975
+			}
+			modifier = {
+				factor = 1.25
+				year = 1000
+			}
+			modifier = {
+				factor = 1.5
+				NOT = { opinion = { who = FROM value = 0 } }
+			}
+			modifier = {
+				factor = 1.5
+				NOT = { opinion = { who = FROM value = -25 } }
+			}
+			modifier = {
+				factor = 1.5
+				NOT = { opinion = { who = FROM value = -50 } }
+			}
+			modifier = {
+				factor = 1.5
+				NOT = { opinion = { who = FROM value = -75 } }
+			}
+			modifier = {
+				factor = 1.5
+				relative_power = { who = FROM power = 1.0 }
+			}
+			modifier = {
+				factor = 2
+				relative_power = { who = FROM power = 1.5 }
+			}
+			modifier = {
+				factor = 2.5
+				relative_power = { who = FROM power = 2.0 }
+			}
+			modifier = {
+				factor = 1.5
+				any_allied_character = {
+					war = no
+					independent = yes
+					is_ruler = yes
+					NOT = { same_realm = ROOT }
+					higher_tier_than = DUKE
+				}
+			}
+			modifier = {
+				factor = 2
+				trait = ambitious
+			}
+			modifier = {
+				factor = 1.5
+				trait = envious
+			}
+			modifier = {
+				factor = 1.5
+				trait = greedy
+			}
+			modifier = {
+				factor = 10
+				trait = lunatic
+			}
+			modifier = {
+				factor = 0.1
+				trait = possessed
+				has_character_modifier = voice_of_jesus
+			}
+			modifier = {
+				factor = 10
+				trait = possessed
+				has_character_modifier = voice_of_satan
+			}
+		}
+		set_defacto_liege = ROOT
+		hidden_tooltip = {
+			FROM = { letter_event = { id = moduscarolimagni.3003 } }
+		}
+	}
+	option = {
+		name = EVTOPTBmoduscarolimagni.3002 # remain loyal vassal
+		ai_chance = {
+			factor = 50
+			modifier = {
+				factor = 2
+				OR = {
+					dynasty = FROM
+					is_allied_with = FROM
+				}
+			}
+			modifier = {
+				factor = 3
+				tier = DUKE
+			}
+			modifier = {
+				factor = 2
+				e_karling = { has_law = crown_authority_1 }
+			}
+			modifier = {
+				factor = 2
+				in_faction = faction_court
+			}
+			modifier = {
+				factor = 2
+				NOT = { year = 880 }
+			}
+			modifier = {
+				factor = 1.5
+				opinion = { who = FROM value = 25 }
+			}
+			modifier = {
+				factor = 1.5
+				opinion = { who = FROM value = 50 }
+			}
+			modifier = {
+				factor = 2
+				opinion = { who = FROM value = 75 }
+			}
+			modifier = {
+				factor = 1.5
+				NOT = { relative_power = { who = FROM power = 0.5 } }
+			}
+			modifier = {
+				factor = 1.5
+				NOT = { relative_power = { who = FROM power = 0.25 } }
+			}
+			modifier = {
+				factor = 1.5
+				NOT = { relative_power = { who = FROM power = 0.1 } }
+			}
+			modifier = {
+				factor = 2
+				trait = content
+			}
+			modifier = {
+				factor = 1.5
+				trait = slothful
+			}
+			modifier = {
+				factor = 1.5
+				trait = patient
+			}
+			modifier = {
+				factor = 1.5
+				trait = humble
+			}
+		}
+	}
+}
+
+# Notification to the new Carolingian emperor of a declaration of independence
+letter_event = {
+	id = moduscarolimagni.3003
+	desc = EVTDESCmoduscarolimagni.3003
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTAmoduscarolimagni.3003
+		FROM = {
+			any_demesne_title = {
+				limit = {
+					higher_tier_than = COUNT
+					NOT = { ROOT = { has_claim = PREV } }
+				}
+				add_claim = ROOT
+			}
+			reverse_opinion = {
+				modifier = opinion_traitor
+				who = FROM
+				multiplier = 2
+				years = 25
+			}
+		}
+	}
+}
+
+# Carolingian Emperor has a large enough empire
+narrative_event = {
+	id = moduscarolimagni.3004
+	title = EVTNAMEmoduscarolimagni.3004
+	desc = EVTDESCmoduscarolimagni.3004
+	picture = GFX_evt_cathedral
+	border = GFX_event_narrative_frame_diplomacy
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		has_landed_title = e_karling
+		any_realm_title = {
+			tier = count
+			count = 100
+		}
+	}
+	
+	option = {
+		name = OK
+		prestige = 100
+	}
+}
+
+# Carolingian Emperor has a too-small domain, and the empire is dissolved
+narrative_event = {
+	id = moduscarolimagni.3005
+	title = EVTNAMEmoduscarolimagni.3005
+	desc = EVTDESCmoduscarolimagni.3005
+	picture = GFX_evt_cathedral
+	border = GFX_event_narrative_frame_diplomacy
+
+	is_triggered_only = yes
+	
+	trigger = {
+		has_landed_title = e_karling
+		NOT = {
+			any_realm_title = {
+				tier = count
+				count = 100
+			}
+		}
+	}
+	
+	option = {
+		name = EVTOPTAmoduscarolimagni.3005
+		set_character_flag = former_carolingian_emperor
+		hidden_tooltip = {
+			
+			
+			any_realm_character = {
+				if = {
+					limit = { has_weak_claim = e_karling }
+					add_weak_pressed_claim = k_germany
+					remove_claim = e_karling
+				}
+				if = {
+					limit = { has_strong_claim = e_karling }
+					add_pressed_claim = k_germany
+					remove_claim = e_karling
+				}
+			}
+			any_independent_ruler = {
+				if = {
+					limit = { has_weak_claim = e_karling }
+					add_weak_pressed_claim = k_germany
+					remove_claim = e_karling
+				}
+				if = {
+					limit = { has_strong_claim = e_karling }
+					add_pressed_claim = k_germany
+					remove_claim = e_karling
+				}
+				any_realm_character = {
+					if = {
+						limit = { has_weak_claim = e_karling }
+						add_weak_pressed_claim = k_germany
+						remove_claim = e_karling
+					}
+					if = {
+						limit = { has_strong_claim = e_karling }
+						add_pressed_claim = k_germany
+						remove_claim = e_karling
+					}
+				}
+			}
+			e_hre = {
+				copy_title_laws = e_karling
+				copy_title_history = e_karling
+			}
+		}
+		e_karling = {
+			destroy_landed_title = THIS
+		}
+		set_global_flag = carolingian_empire_fallen
+		if = {
+			limit = { ai = no }
+			chronicle = {
+				entry = END_OF_CAROLINGIAN_EMPIRE
+				portrait = [Root.GetID]
+				picture = GFX_evt_cathedral
+			}
+		}
+		hidden_tooltip = {
+			activate_title = { title = e_karling status = no }
+			any_playable_ruler = {
+				limit = {
+					NOT = { character = ROOT }
+					ai = no
+				}
+				narrative_event = { id = moduscarolimagni.3006 }
+			}
+		}
+	}
+}
+
+# Rulers informed of Carolingian Empire's demise
+narrative_event = {
+	id = moduscarolimagni.3006
+	title = EVTNAMEmoduscarolimagni.3005
+	desc = EVTDESCmoduscarolimagni.3005
+	picture = GFX_evt_cathedral
+	border = GFX_event_narrative_frame_diplomacy
+
+	is_triggered_only = yes
+
+	option = {
+		name = "EVTOPTAmoduscarolimagni.3006"
+		trigger = { religion_group = christian }
+		if = {
+			limit = { ai = no }
+			chronicle = {
+				entry = END_OF_CAROLINGIAN_EMPIRE_NEWS
+				picture = GFX_evt_cathedral
+			}
+		}
+	}
+	option = {
+		name = "EVTOPTBmoduscarolimagni.3006"
+		trigger = { NOT = { religion_group = christian } }
+		if = {
+			limit = { ai = no }
+			chronicle = {
+				entry = END_OF_CAROLINGIAN_EMPIRE_NEWS
+				picture = GFX_evt_cathedral
+			}
+		}
+	}
+}
+
+# Demise of Kingdom of Italy
+narrative_event = {
+	id = moduscarolimagni.3007
+	title = EVTNAMEmoduscarolimagni.3007
+	desc = EVTDESCmoduscarolimagni.3007
+	picture = GFX_evt_cathedral
+	border = GFX_event_narrative_frame_diplomacy
+	
+	trigger = {
+		has_landed_title = k_italy
+		NOT = { dynasty = 25061 }
+		has_global_flag = charlemagne_hre
+		NOT = {
+		year = 1065
+		}
+	}
+	
+	mean_time_to_happen = {
+	days = 2
+	}
+	
+	option = {
+		name = EVTOPTAmoduscarolimagni.3007
+		set_character_flag = former_italian_king
+		k_italy = {
+			destroy_landed_title = THIS
+		}
+		set_global_flag = carolingian_italy_fallen
+		
+	}
+}
+
+# Informed of Demise of Kingdom of Italy
+narrative_event = {
+	id = moduscarolimagni.3008
+	title = EVTNAMEmoduscarolimagni.3008
+	desc = EVTDESCmoduscarolimagni.3008
+	picture = GFX_evt_cathedral
+	border = GFX_event_narrative_frame_diplomacy
+	
+	major = yes
+	
+	trigger = {
+		has_global_flag = carolingian_italy_fallen
+		has_landed_title = c_pavia
+		NOT = {
+		has_global_flag = carolingian_italy_fallen_announcement
+		}
+	}
+	
+	major_trigger = {
+	is_ruler = yes
+	NOT = {
+		has_global_flag = carolingian_italy_fallen_announcement
+		}
+		capital_scope = {
+			NOT = {
+				distance = {
+					where = 333 # Rome
+					value = 600	# Same part of the world
+				}
+			}
+		}
+	}
+	mean_time_to_happen = {
+	days = 1
+	}
+	
+	option = {
+		name = OK
+		set_global_flag = carolingian_italy_fallen_announcement
+	}
+}
+
+# Informed of Vassal Independance
+character_event = {
+id = moduscarolimagni.3009
+desc = EVTDESCmoduscarolimagni.3009
+is_triggered_only = yes
+option = {
+name = OK
+}
+}
+
+### EVENTS TO FORM THE HRE AFTER CAROLINGIAN EMPIRE'S END. 3050-3099
+
+# Asking the pope for blessing to form the HRE
+character_event = {
+	id = moduscarolimagni.3050
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTAmoduscarolimagni.3050
+		set_character_flag = approached_for_coronation_two
+		FROM = {
+			character_event = { id = moduscarolimagni.3052 days = 30 }
+		}
+		
+	}
+}
+
+# The pope refuses the coronation
+letter_event = {
+	id = moduscarolimagni.3051
+	desc = "EVTDESCmoduscarolimagni.3051"
+
+	is_triggered_only = yes
+
+	option = {
+		name = "EVTOPTAmoduscarolimagni.3051"	# Maybe we should try again later
+		prestige = -50
+	}
+}
+
+# The pope agrees to the coronation -- the HRE is formed
+character_event = {
+	id = moduscarolimagni.3052
+	title = "EVTNAMEmoduscarolimagni.3052"
+	desc = "EVTDESCmoduscarolimagni.3052"
+	picture = "GFX_evt_holy_emperor"
+	sound = church_bells
+
+	is_triggered_only = yes
+
+	option = {
+		name = "EVTOPTAmoduscarolimagni.3052"	# This is the happiest day of my life
+		set_global_flag = hre_formed
+		k_germany = {
+		de_jure_liege = e_hre
+		}
+		k_burgundy = {
+		de_jure_liege = e_hre
+		}
+		k_italy = {
+		de_jure_liege = e_hre
+		}
+		e_karling = {
+		any_de_jure_vassal_title = {
+		limit = {
+		tier = king
+		}
+		de_jure_liege = 0
+		}
+		}
+		if = {
+			limit = { ai = no }
+			chronicle = {
+				entry = CHRONICLE_FOUNDED_HRE
+				picture = GFX_evt_coronation
+			}
+		}
+		give_nickname = nick_the_great
+		prestige = 500
+		activate_title = { title = e_hre status = yes }
+		e_hre = { grant_title = ROOT }
+		
+		hidden_tooltip = {
+			if = {
+				limit = {
+					NOT = { has_global_flag = carolingian_empire_fallen }
+				}
+				set_global_flag = carolingian_empire_fallen
+			}
+			# reset East Francia to Germany
+			k_germany = {
+				set_name = ""
+				adjective = ""
+			}
+			# rename West Francia if it hasn't been already
+			if = {
+				limit = { NOT = { has_global_flag = west_francia_renamed } }
+				set_global_flag = west_francia_renamed
+				k_france = {
+					set_name = ""
+					adjective = ""
+				}
+			}
+			# reset Middle Francia to Lotharingia
+			k_lotharingia = {
+				set_name = ""
+				adjective = ""
+			}
+
+			# copy primary title laws but make HRE have feudal elective & no CA
+			primary_title = {
+				e_hre = {
+					copy_title_laws = PREV
+					add_law_w_cooldown = crown_authority_0
+					add_law = succ_feudal_elective
+					set_title_flag = do_not_destroy
+				}
+			}
+			# send notification to potential HRE vassals
+			any_independent_ruler = {
+				limit = {
+					religion = ROOT
+					holy_order = no
+					mercenary = no
+					capital_scope = {
+						OR = {
+							kingdom = { title = k_germany }
+							kingdom = { title = k_bavaria }
+							kingdom = { title = k_frisia }
+							kingdom = { title = k_lotharingia }
+							kingdom = { title = k_italy }
+							kingdom = { title = k_burgundy }
+						}
+					}
+				}
+				narrative_event = { id = moduscarolimagni.3054 days = 10 }
+			}
+			# send notification to everyone else
+			any_independent_ruler = {
+				limit = {
+					OR = {
+						NOT = { religion = ROOT }
+						holy_order = yes
+						mercenary = yes
+						capital_scope = {
+							NOT = {
+								kingdom = { title = k_germany }
+							kingdom = { title = k_bavaria }
+							kingdom = { title = k_frisia }
+							kingdom = { title = k_lotharingia }
+							kingdom = { title = k_italy }
+							kingdom = { title = k_burgundy }
+							}
+						}
+					}
+				}
+				narrative_event = { id = moduscarolimagni.3053 days = 10 }
+			}
+		}
+		any_demesne_title = {
+				limit = {
+					tier = KING
+				}
+				destroy_landed_title = THIS
+			}
+	}
+}
+
+# Rulers not within the traditional HRE boundaries informed of the coronation
+narrative_event = {
+	id = moduscarolimagni.3053
+	title = "EVTNAMEmoduscarolimagni.3052"
+	desc = "EVTDESC_CM_510"
+	picture = "GFX_evt_holy_emperor"
+	border = "GFX_event_narrative_frame_religion"
+
+	is_triggered_only = yes
+
+	option = {
+		name = OK
+		if = {
+			limit = { ai = no }
+			chronicle = {
+				entry = CHRONICLE_FOUNDED_HRE_NEWS
+				picture = GFX_evt_coronation
+			}
+		}
+	}
+}
+
+# Rulers within the traditional HRE boundaries informed of the coronation
+narrative_event = {
+	id = moduscarolimagni.3054
+	title = "EVTNAMEmoduscarolimagni.3052"
+	desc = "EVTDESC_CM_510"
+	picture = "GFX_evt_holy_emperor"
+	border = "GFX_event_narrative_frame_religion"
+
+	is_triggered_only = yes
+
+	option = {
+		name = EVTOPTAmoduscarolimagni.3054 # Offer to become his vassal
+		trigger = {
+			lower_tier_than = FROM
+			OR = {
+				lower_tier_than = king
+				has_landed_title = k_lotharingia
+				has_landed_title = k_italy
+				has_landed_title = k_frisia
+				has_landed_title = k_bavaria
+			}
+		}
+		ai_chance = {
+			factor = 50
+			modifier = {
+				factor = 3
+				capital_scope = {
+					empire = { title = e_hre }
+				}
+			}
+			modifier = {
+				factor = 0.5
+				tier = KING
+			}
+			modifier = {
+				factor = 0
+				controls_religion = yes
+			}
+			modifier = {
+				factor = 0
+				num_of_king_titles = 2
+			}
+			modifier = {
+				factor = 1.5
+				tier = COUNT
+			}
+			modifier = {
+				factor = 1.5
+				trait = zealous
+			}
+			modifier = {
+				factor = 1.5
+				any_realm_province = {
+					has_province_flag = contingent_territory
+					any_neighbor_province = {
+						owner = {
+							OR = {
+								character = FROM
+								any_liege = { character = FROM }
+							}
+						}
+					}
+				}
+			}
+			modifier = {
+				factor = 1.2
+				opinion = { who = FROM value = 25 }
+			}
+			modifier = {
+				factor = 1.2
+				opinion = { who = FROM value = 50 }
+			}
+			modifier = {
+				factor = 1.5
+				opinion = { who = FROM value = 75 }
+			}
+			modifier = {
+				factor = 1.2
+				dynasty = FROM
+			}
+			modifier = {
+				factor = 0.1
+				reverse_has_truce = FROM
+			}
+			modifier = {
+				factor = 0
+				trait = excommunicated
+			}
+			modifier = {
+				factor = 1.5
+				OR = {
+					is_friend = FROM
+					any_allied_character = { character = FROM }
+				}
+			}		
+		}
+		if = {
+			limit = { ai = no }
+			chronicle = {
+				entry = CHRONICLE_FOUNDED_HRE_NEWS
+				picture = GFX_evt_coronation
+			}
+		}
+		FROM = {
+			letter_event = { id = moduscarolimagni.3055 tooltip = offer_to_become_vassal }
+		}
+	}
+	option = {
+		name = EVTOPTBmoduscarolimagni.3054 # Wish him well
+		ai_chance = {
+			factor = 50
+			modifier = {
+				factor = 3
+				tier = KING
+			}
+			modifier = {
+				factor = 3
+				capital_scope = {
+					NOT = { empire = { title = e_hre } }
+				}
+			}
+			modifier = {
+				factor = 2
+				NOT = {
+					any_realm_province = {
+						has_province_flag = contingent_territory
+						any_neighbor_province = {
+							owner = {
+								OR = {
+									character = FROM
+									any_liege = { character = FROM }
+								}
+							}
+						}
+					}
+				}
+			}
+			modifier = {
+				factor = 1.5
+				NOT = { culture = FROM }
+			}
+			modifier = {
+				factor = 1.5
+				trait = cynical
+			}
+			modifier = {
+				factor = 1.5
+				trait = ambitious
+			}
+			modifier = {
+				factor = 1.5
+				NOT = { opinion = { who = FROM value = 0 } }
+			}
+			modifier = {
+				factor = 1.5
+				NOT = { opinion = { who = FROM value = -25 } }
+			}
+			modifier = {
+				factor = 2
+				NOT = { opinion = { who = FROM value = -50 } }
+			}
+			modifier = {
+				factor = 2
+				NOT = { opinion = { who = FROM value = -75 } }
+			}
+			modifier = {
+				factor = 0.5
+				is_rival = FROM
+			}
+			modifier = {
+				factor = 2
+				realm_size = 50
+			}
+			modifier = {
+				factor = 3
+				realm_size = 75
+			}
+		}
+		if = {
+			limit = { ai = no }
+			chronicle = {
+				entry = CHRONICLE_FOUNDED_HRE_NEWS
+				picture = GFX_evt_coronation
+			}
+		}	
+	}
+}
+
+# The ruler offers to become the new emperor's vassal
+letter_event = {
+	id = moduscarolimagni.3055
+	desc = "EVTDESCmoduscarolimagni.3055"
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTAmoduscarolimagni.3055 # Accept
+		FROM = {
+			set_defacto_liege = ROOT
+			any_demesne_title = {
+				limit = {
+					tier = KING
+					NOT = { de_jure_liege = e_hre }
+				}
+				de_jure_liege = e_hre
+			}
+		}
+	}
+	option = {
+		name = EVTOPTBmoduscarolimagni.3055 # Refuse
+		trigger = { ai = no }
+	}
+}

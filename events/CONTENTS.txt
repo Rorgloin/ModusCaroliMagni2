@@ -1,0 +1,11 @@
+CONTENTS
+# Golden Bull Main Evts	1    - 999
+# Magyar Invasion Evts	1000 - 1999
+# Miscellaneous Events 	2000 - 2999
+# Karling Empire Events	3000 - 3099
+# England Kingdom Events3100 - 3199
+# France Kingdom Events	3200-3299
+# Charlemagne events	5000 - 5999 
+# Arabia Events 		6000 - 6999 
+# Maintenance Events 	7000 - 7999  
+# MCM Religious events  8000 - 8999

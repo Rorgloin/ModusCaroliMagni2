@@ -1,0 +1,427 @@
+
+###########################################
+#                                         #
+# Arabian Empire Events                   #             
+#                                         #
+# ID moduscarolimagni 6000-6999           #
+#                                         #
+###########################################
+
+# Written by Carolus Magnus
+namespace = moduscarolimagni
+##################################
+# Arabian Empire Events 6000-7999. Most adapted from CKII Plus
+##################################
+# Upon a new Arabian emperor ascending to the throne
+character_event = {
+	id = moduscarolimagni.6000
+	
+	hide_window = yes
+	only_playable = yes
+	trigger = {
+		has_landed_title = e_arabia
+		year = 800
+		NOT = {
+		has_character_flag = arabian_succession
+		year = 1000
+		}
+	}
+	
+	mean_time_to_happen = {
+	days = 1
+	}
+	
+	immediate = {
+		character_event = { id = moduscarolimagni.6001 days = 2 }
+		set_character_flag = arabian_succession
+	}
+	
+}
+
+character_event = {
+	id = moduscarolimagni.6001
+	
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		has_landed_title = e_arabia
+	}
+	
+	immediate = {		
+		# Send an acceptance event to all duke & king vassals
+		any_vassal = {
+			limit = { higher_tier_than = COUNT }
+			character_event = { id = moduscarolimagni.6002 days = 3 }
+		}		
+		# Follow-up succeed-or-fail events (only one will be valid}
+		narrative_event = { id = moduscarolimagni.6004 days = 15 } # become Emperor Caliph
+		narrative_event = { id = moduscarolimagni.6005 days = 15 } # empire dissolves
+	}
+}
+
+# Event to Arabian vassals -- do you accept the new emperor or declare independence?
+character_event = {
+	id = moduscarolimagni.6002
+	title = EVTNAMEmoduscarolimagni.6002
+	desc = EVTDESCmoduscarolimagni.6002
+	picture = GFX_evt_council
+	border = GFX_event_normal_frame_diplomacy
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		vassal_of = FROM
+	}
+	
+	option = {
+		name = EVTOPTAmoduscarolimagni.6002 # declare independence
+		trigger = {
+			prisoner = no
+			is_adult = yes
+			NOT = { trait = incapable }
+		}
+		ai_chance = {
+			factor = 50
+			modifier = {
+				factor = 0
+				religion = FROM
+				is_close_relative = FROM
+			}
+			modifier = {
+				factor = 0.5
+				OR = {
+					dynasty = FROM
+					is_allied_with = FROM
+				}
+			}
+			modifier = {
+				factor = 3
+				#the emperor is not Sayyid
+				FROM = { NOT = { trait = sayyid } }
+			}
+			modifier = {
+				factor = 3
+				NOT = { religion = FROM }
+			}
+			modifier = {
+				factor = 1.25
+				NOT = { culture = FROM }
+			}
+			modifier = {
+				factor = 1.25
+				NOT = { culture_group = FROM }
+			}
+			modifier = {
+				factor = 10
+				in_faction = faction_separatist
+			}
+			modifier = {
+				factor = 0.5
+				NOT = { year = 880 }
+			}
+			modifier = {
+				factor = 1.25
+				year = 900
+			}
+			modifier = {
+				factor = 1.25
+				year = 925
+			}
+			modifier = {
+				factor = 1.25
+				year = 950
+			}
+			modifier = {
+				factor = 1.25
+				year = 975
+			}
+			modifier = {
+				factor = 1.25
+				year = 1000
+			}
+			modifier = {
+				factor = 1.5
+				NOT = { opinion = { who = FROM value = 0 } }
+			}
+			modifier = {
+				factor = 1.5
+				NOT = { opinion = { who = FROM value = -25 } }
+			}
+			modifier = {
+				factor = 1.5
+				NOT = { opinion = { who = FROM value = -50 } }
+			}
+			modifier = {
+				factor = 1.5
+				NOT = { opinion = { who = FROM value = -75 } }
+			}
+			modifier = {
+				factor = 1.5
+				relative_power = { who = FROM power = 1.0 }
+			}
+			modifier = {
+				factor = 2
+				relative_power = { who = FROM power = 1.5 }
+			}
+			modifier = {
+				factor = 2.5
+				relative_power = { who = FROM power = 2.0 }
+			}
+			modifier = {
+				factor = 1.5
+				any_allied_character = {
+					war = no
+					independent = yes
+					is_ruler = yes
+					NOT = { same_realm = ROOT }
+					higher_tier_than = DUKE
+				}
+			}
+			modifier = {
+				factor = 2
+				trait = ambitious
+			}
+			modifier = {
+				factor = 1.5
+				trait = envious
+			}
+			modifier = {
+				factor = 1.5
+				trait = greedy
+			}
+			modifier = {
+				factor = 10
+				trait = lunatic
+			}
+			modifier = {
+				factor = 0.1
+				trait = possessed
+				has_character_modifier = voice_of_jesus
+			}
+			modifier = {
+				factor = 10
+				trait = possessed
+				has_character_modifier = voice_of_satan
+			}
+		}
+		set_defacto_liege = ROOT
+		hidden_tooltip = {
+			FROM = { letter_event = { id = moduscarolimagni.6003 } } # I AM A BUG BUT DO NOT APPEAR TO CURRENTLY BE A PROBLEM
+		}
+	}
+	option = {
+		name = EVTOPTBmoduscarolimagni.6002 # remain loyal vassal
+		ai_chance = {
+			factor = 50
+			modifier = {
+				factor = 2
+				OR = {
+					dynasty = FROM
+					is_allied_with = FROM
+				}
+			}
+			modifier = {
+				factor = 3
+				tier = DUKE
+			}
+			modifier = {
+				factor = 2
+				e_arabia = { has_law = crown_authority_1 }
+			}
+			modifier = {
+				factor = 2
+				in_faction = faction_court
+			}
+			modifier = {
+				factor = 2
+				NOT = { year = 880 }
+			}
+			modifier = {
+				factor = 1.5
+				opinion = { who = FROM value = 25 }
+			}
+			modifier = {
+				factor = 1.5
+				opinion = { who = FROM value = 50 }
+			}
+			modifier = {
+				factor = 2
+				opinion = { who = FROM value = 75 }
+			}
+			modifier = {
+				factor = 1.5
+				NOT = { relative_power = { who = FROM power = 0.5 } }
+			}
+			modifier = {
+				factor = 1.5
+				NOT = { relative_power = { who = FROM power = 0.25 } }
+			}
+			modifier = {
+				factor = 1.5
+				NOT = { relative_power = { who = FROM power = 0.1 } }
+			}
+			modifier = {
+				factor = 2
+				trait = content
+			}
+			modifier = {
+				factor = 1.5
+				trait = slothful
+			}
+			modifier = {
+				factor = 1.5
+				trait = patient
+			}
+			modifier = {
+				factor = 1.5
+				trait = humble
+			}
+		}
+	}
+}
+
+# Notification to the new Arabian emperor of a declaration of independence
+letter_event = {
+	id = moduscarolimagni.6003
+	desc = EVTDESCmoduscarolimagni.6003
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTAmoduscarolimagni.6003
+		FROM = {
+			any_demesne_title = {
+				limit = {
+					higher_tier_than = COUNT
+					NOT = { ROOT = { has_claim = PREV } }
+				}
+				add_claim = ROOT
+			}
+			reverse_opinion = {
+				modifier = opinion_traitor
+				who = FROM
+				multiplier = 2
+				years = 25
+			}
+		}
+	}
+}
+
+# Arabian Emperor has a large enough empire
+narrative_event = {
+	id = moduscarolimagni.6004
+	title = EVTNAMEmoduscarolimagni.6004
+	desc = EVTDESCmoduscarolimagni.6004
+	picture = GFX_evt_cathedral
+	border = GFX_event_narrative_frame_diplomacy
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		has_landed_title = e_arabia
+		any_realm_title = {
+			tier = count
+			count = 50
+		}
+	}
+	
+	option = {
+		name = OK
+		prestige = 100
+	}
+}
+
+# Arabian Emperor has a too-small domain, and the empire is dissolved
+narrative_event = {
+	id = moduscarolimagni.6005
+	title = EVTNAMEmoduscarolimagni.6005
+	desc = EVTDESCmoduscarolimagni.6005
+	picture = GFX_evt_cathedral
+	border = GFX_event_narrative_frame_diplomacy
+
+	is_triggered_only = yes
+	
+	trigger = {
+		has_landed_title = e_arabia
+		
+		OR = {
+		NOT = {
+			any_realm_title = {
+				tier = count
+				count = 50
+			}
+		}
+		NOT = {
+		completely_controls = c_mecca
+		completely_controls = c_jerusalem
+		}
+		NOT = {
+		completely_controls = c_mecca
+		completely_controls = c_baghdad
+		}
+		NOT = {
+		completely_controls = c_jerusalem
+		completely_controls = c_baghdad
+		}
+		}
+		
+		
+	}
+	
+	option = {
+		name = EVTOPTAmoduscarolimagni.6005
+		set_character_flag = former_arabian_emperor
+		
+		e_arabia = {
+			destroy_landed_title = THIS
+		}
+		set_global_flag = arabian_empire_fallen
+		
+		hidden_tooltip = {
+			
+			any_playable_ruler = {
+				limit = {
+					NOT = { character = ROOT }
+					ai = no
+				}
+				narrative_event = { id = moduscarolimagni.6006 } # I WAS A BUG
+			}
+		}
+	}
+}
+
+# Rulers informed of Arabian Empire's demise
+narrative_event = {
+	id = moduscarolimagni.6006
+	title = EVTNAMEmoduscarolimagni.6005
+	desc = EVTDESCmoduscarolimagni.6006
+	picture = GFX_evt_cathedral
+	border = GFX_event_narrative_frame_diplomacy
+
+	is_triggered_only = yes
+
+	option = {
+		name = "EVTOPTAmoduscarolimagni.6006"
+		trigger = { religion_group = muslim }
+		if = {
+			limit = { ai = no }
+			chronicle = {
+				entry = END_OF_CAROLINGIAN_EMPIRE_NEWS
+				picture = GFX_evt_cathedral
+			}
+		}
+	}
+	option = {
+		name = "EVTOPTBmoduscarolimagni.6006"
+		trigger = { NOT = { religion_group = muslim } }
+		if = {
+			limit = { ai = no }
+			chronicle = {
+				entry = END_OF_CAROLINGIAN_EMPIRE_NEWS
+				picture = GFX_evt_cathedral
+			}
+		}
+	}
+}
+

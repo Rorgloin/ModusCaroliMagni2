@@ -1,0 +1,31 @@
+split_lorraine;Divide Lorraine;
+split_lorraine_desc;I can issue an edict dividing the Duchy of Lorraine into two parts by law: Upper and Lower.;
+form_holland;Elevate Holland;
+form_holland_desc;I can elevate the County of Holland, giving it rights to its lands under the law.;
+form_brabant;Form Brabant;
+form_brabant_desc;I can create the Duchy of Brabant, giving it rights to its lands under the law.;
+form_gelre;Form Gelre;
+form_gelre_desc;I can create the Duchy of Gelre, giving it rights to its lands under the law.;
+form_osterreich;Form Austria;
+form_osterreich_desc;I can create the Duchy of Austria, giving it rights to its lands under the law.;
+meissen_march;Form Meissen March;
+meissen_march_desc;I can form the March of Meissen, integrating it into the Kingdom of Germany.;
+form_tyrol;Elevate Tyrol;
+form_tyrol_desc;I can elevate the County of Tyrol, giving it rights to its lands under the law.;
+form_baden;Form Baden March;
+form_baden_desc;I can elevate the County of Baden to a March, giving it rights to its lands under the law.;
+form_alsace;Create Alsace;
+form_alsace_desc;I can create the County of Alsace, giving it rights to its lands under the law.;
+form_brunswick;Create Brunswick;
+form_brunswick_desc;I can create the Duchy of Brunswick, giving it rights to its lands under the law.;
+form_luxembourg;Elevate Luxembourg;
+form_luxembourg_desc;I can elevate the County of Luxembourg, giving it rights to its lands under the law.;
+form_munster;Elevate Munster;
+form_munster_desc;I can elevate the Principality of Munster, giving it rights to its lands under the law.;
+form_bremen;Elevate Bremen;
+form_bremen_desc;I can elevate Bremen, giving it rights to its lands under the law.;
+form_palatinate;Form County Palatine of the Rhine;
+form_palatinate_desc;I can form a County Palatine of the Rhine with immediate powers equal to the greatest of my Dukes.;
+
+
+

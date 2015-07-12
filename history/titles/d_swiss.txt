@@ -1,0 +1,9 @@
+1291.7.15=
+{
+liege="e_hre"
+set_global_flag = switzerland_formed
+}
+1291.7.15=
+{
+holder=462085
+}

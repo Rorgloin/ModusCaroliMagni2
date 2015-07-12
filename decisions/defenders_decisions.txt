@@ -1,0 +1,527 @@
+###########################################
+#                                         #
+# Modus Caroli Magni Decisions            #             
+#                                         #
+#                                         #
+#                                         #
+###########################################
+
+# Written by CMG
+
+
+
+decisions = {
+
+	
+	# Asturias Defenders
+	asturias_defenders = {
+	is_high_prio = yes
+	potential = {
+	has_landed_title = k_asturias
+
+	OR = {
+	k_andalusia = {
+	holder_scope = {
+	war_with = ROOT
+	}
+	}
+	k_andalusia = {
+	holder_scope = {
+	any_vassal = {
+	war_with = ROOT
+	}
+	}
+	}
+	}
+
+	NOT = {year = 1000}
+	NOT = {has_character_flag = asturias_defenders}
+	}
+	allow = {
+	is_primary_war_defender = yes
+	}
+	effect = {
+	wealth = 500
+	spawn_unit = {
+	owner = ROOT
+	province = ROOT
+	home = ROOT
+	 troops = {
+    archers = { 1000 1000 }
+    light_infantry = { 2000 2000 }
+    heavy_infantry = { 5000 5000 }
+    knights = { 2000 2000 }
+  }
+  attrition = 0
+  disband_on_peace = yes
+  maintenance_multiplier = 0.01
+  
+}
+set_character_flag = asturias_defenders
+	}
+	revoke_allowed = {
+    always = no #Not used in vanilla
+  }
+  ai_will_do = {
+    factor = 1
+  }
+	
+	}
+	
+	# Remove asturias_defenders at peace
+	remove_asturias_defenders = {
+	potential = {
+	has_landed_title = k_papal_state
+	NOT = {year = 867}
+	}
+	allow = {
+	k_asturias = {
+	holder_scope = {
+	has_character_flag = asturias_defenders
+	war = no
+	}
+	}
+	}
+	effect = {
+	set_character_flag = removed_asturias_defenders
+	k_asturias = {
+	holder_scope = {
+	clr_character_flag = asturias_defenders
+	}
+	}
+	}
+	revoke_allowed = {
+    always = no #Not used in vanilla
+  }
+  ai_will_do = {
+    factor = 1
+  }
+	
+	}
+	
+	# Spanish Galicia Defenders
+	galicia_defenders = {
+	is_high_prio = yes
+	potential = {
+	has_landed_title = k_spanish_galicia
+
+	OR = {
+	k_andalusia = {
+	holder_scope = {
+	war_with = ROOT
+	}
+	}
+	k_andalusia = {
+	holder_scope = {
+	any_vassal = {
+	war_with = ROOT
+	}
+	}
+	}
+	}
+
+	NOT = {year = 1000}
+	NOT = {has_character_flag = galicia_defenders}
+	}
+	allow = {
+	is_primary_war_defender = yes
+	}
+	effect = {
+	wealth = 500
+	spawn_unit = {
+	owner = ROOT
+	province = ROOT
+	home = ROOT
+	 troops = {
+    archers = { 1000 1000 }
+    light_infantry = { 2000 2000 }
+    heavy_infantry = { 5000 5000 }
+    knights = { 2000 2000 }
+  }
+  attrition = 0
+  disband_on_peace = yes
+  maintenance_multiplier = 0.01
+  
+}
+set_character_flag = galicia_defenders
+	}
+	revoke_allowed = {
+    always = no #Not used in vanilla
+  }
+  ai_will_do = {
+    factor = 1
+  }
+	
+	}
+	
+	# Remove galicia_defenders at peace
+	remove_galicia_defenders = {
+	potential = {
+	has_landed_title = k_papal_state
+	NOT = {year = 867}
+	}
+	allow = {
+	k_asturias = {
+	holder_scope = {
+	has_character_flag = galicia_defenders
+	war = no
+	}
+	}
+	}
+	effect = {
+	set_character_flag = removed_galicia_defenders
+	k_spanis_galicia = {
+	holder_scope = {
+	clr_character_flag = galicia_defenders
+	}
+	}
+	}
+	revoke_allowed = {
+    always = no #Not used in vanilla
+  }
+  ai_will_do = {
+    factor = 1
+  }
+	
+	}
+	
+	# Castille Defenders
+	castile_defenders = {
+	is_high_prio = yes
+	potential = {
+	has_landed_title = k_castile
+
+	OR = {
+	k_andalusia = {
+	holder_scope = {
+	war_with = ROOT
+	}
+	}
+	k_andalusia = {
+	holder_scope = {
+	any_vassal = {
+	war_with = ROOT
+	}
+	}
+	}
+	}
+
+	NOT = {year = 1000}
+	NOT = {has_character_flag = castile_defenders}
+	}
+	allow = {
+	is_primary_war_defender = yes
+	}
+	effect = {
+	wealth = 500
+	spawn_unit = {
+	owner = ROOT
+	province = ROOT
+	home = ROOT
+	 troops = {
+    archers = { 1000 1000 }
+    light_infantry = { 2000 2000 }
+    heavy_infantry = { 5000 5000 }
+    knights = { 2000 2000 }
+  }
+  attrition = 0
+  disband_on_peace = yes
+  maintenance_multiplier = 0.01
+  
+}
+set_character_flag = castile_defenders
+	}
+	revoke_allowed = {
+    always = no #Not used in vanilla
+  }
+  ai_will_do = {
+    factor = 1
+  }
+	
+	}
+	
+	# Remove castile_defenders at peace
+	remove_castile_defenders = {
+	potential = {
+	has_landed_title = k_papal_state
+	NOT = {year = 867}
+	}
+	allow = {
+	k_castile = {
+	holder_scope = {
+	has_character_flag = castile_defenders
+	war = no
+	}
+	}
+	}
+	effect = {
+	set_character_flag = removed_castile_defenders
+	k_castile = {
+	holder_scope = {
+	clr_character_flag = castile_defenders
+	}
+	}
+	}
+	revoke_allowed = {
+    always = no #Not used in vanilla
+  }
+  ai_will_do = {
+    factor = 1
+  }
+	
+	}
+	
+	# Navarra Defenders
+	navarra_defenders = {
+	is_high_prio = yes
+	potential = {
+	has_landed_title = k_navarra
+
+	OR = {
+	k_andalusia = {
+	holder_scope = {
+	war_with = ROOT
+	}
+	}
+	k_andalusia = {
+	holder_scope = {
+	any_vassal = {
+	war_with = ROOT
+	}
+	}
+	}
+	}
+
+	NOT = {year = 1000}
+	NOT = {has_character_flag = navarra_defenders}
+	}
+	allow = {
+	is_primary_war_defender = yes
+	}
+	effect = {
+	wealth = 500
+	spawn_unit = {
+	owner = ROOT
+	province = ROOT
+	home = ROOT
+	 troops = {
+    archers = { 1000 1000 }
+    light_infantry = { 2000 2000 }
+    heavy_infantry = { 5000 5000 }
+    knights = { 2000 2000 }
+  }
+  attrition = 0
+  disband_on_peace = yes
+  maintenance_multiplier = 0.01
+  
+}
+set_character_flag = navarra_defenders
+	}
+	revoke_allowed = {
+    always = no #Not used in vanilla
+  }
+  ai_will_do = {
+    factor = 1
+  }
+	
+	}
+	
+	# Remove navarra_defenders at peace
+	remove_navarra_defenders = {
+	potential = {
+	has_landed_title = k_papal_state
+	NOT = {year = 867}
+	}
+	allow = {
+	k_navarra = {
+	holder_scope = {
+	has_character_flag = navarra_defenders
+	war = no
+	}
+	}
+	}
+	effect = {
+	set_character_flag = removed_navarra_defenders
+	k_navarra = {
+	holder_scope = {
+	clr_character_flag = navarra_defenders
+	}
+	}
+	}
+	revoke_allowed = {
+    always = no #Not used in vanilla
+  }
+  ai_will_do = {
+    factor = 1
+  }
+	
+	}
+	
+	# Bulgaria Defenders
+	bulgaria_defenders = {
+	is_high_prio = yes
+	potential = {
+	has_landed_title = k_bulgaria
+	OR = {
+	e_byzantium = {
+	holder_scope = {
+	war_with = ROOT
+	}
+	}
+	e_byzantium = {
+	holder_scope = {
+	any_vassal = {
+	war_with = ROOT
+	}
+	}
+	}
+	}
+	NOT = {year = 950}
+	NOT = {has_character_flag = bulgaria_defenders}
+	}
+	allow = {
+	prestige = 10
+	}
+	effect = {
+	prestige = -10
+	wealth = 500
+	spawn_unit = {
+	owner = ROOT
+	province = ROOT
+	home = ROOT
+	 troops = {
+    light_cavalry = { 10000 10000 }
+  }
+  attrition = 0
+  disband_on_peace = yes
+  maintenance_multiplier = 0.01
+  
+}
+set_character_flag = bulgaria_defenders
+	}
+	revoke_allowed = {
+    always = no #Not used in vanilla
+  }
+  ai_will_do = {
+    factor = 1
+  }
+	
+	}
+	
+	# Remove bulgaria_defenders at peace
+	remove_bulgaria_defenders = {
+	potential = {
+	has_landed_title = k_papal_state
+	NOT = {year = 867}
+	}
+	allow = {
+	k_bulgaria = {
+	holder_scope = {
+	has_character_flag = bulgaria_defenders
+	war = no
+	}
+	}
+	}
+	effect = {
+	set_character_flag = removed_bulgaria_defenders
+	k_bulgaria = {
+	holder_scope = {
+	clr_character_flag = bulgaria_defenders
+	}
+	}
+	}
+	revoke_allowed = {
+    always = no #Not used in vanilla
+  }
+  ai_will_do = {
+    factor = 1
+  }
+	
+	}
+	
+	
+	# France Defenders
+	france_defenders = {
+	is_high_prio = yes
+	potential = {
+	has_landed_title = k_france
+	OR = {
+	k_andalusia = {
+	holder_scope = {
+	war_with = ROOT
+	}
+	}
+	k_andalusia = {
+	holder_scope = {
+	any_vassal = {
+	war_with = ROOT
+	}
+	}
+	}
+	}
+	NOT = {year = 1000}
+	NOT = {has_character_flag = france_defenders}
+	}
+	allow = {
+	is_primary_war_defender = yes
+	}
+	effect = {
+	wealth = 500
+	spawn_unit = {
+	owner = ROOT
+	province = ROOT
+	home = ROOT
+	 troops = {
+    knights = { 10000 10000 }
+  }
+  attrition = 0
+  disband_on_peace = yes
+  maintenance_multiplier = 0.01
+  
+}
+set_character_flag = france_defenders
+	}
+	revoke_allowed = {
+    always = no #Not used in vanilla
+  }
+  ai_will_do = {
+    factor = 1
+  }
+	
+	}
+	
+	# Remove france_defenders at peace
+	remove_france_defenders = {
+	potential = {
+	has_landed_title = k_papal_state
+	NOT = {year = 867}
+	}
+	allow = {
+	k_france = {
+	holder_scope = {
+	has_character_flag = france_defenders
+	war = no
+	}
+	}
+	}
+	effect = {
+	set_character_flag = removed_france_defenders
+	k_france = {
+	holder_scope = {
+	clr_character_flag = france_defenders
+	}
+	}
+	}
+	revoke_allowed = {
+    always = no #Not used in vanilla
+  }
+  ai_will_do = {
+    factor = 1
+  }
+	
+	}
+
+	}
+
+	
+

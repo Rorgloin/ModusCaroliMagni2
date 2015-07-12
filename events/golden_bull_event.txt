@@ -1,0 +1,1110 @@
+
+###########################################
+#                                         #
+# Golden Bull Major Events                #             
+#                                         #
+# ID moduscarolimagni 0001-0024           #
+#                                         #
+###########################################
+
+# Written by Carolus Magnus
+namespace = moduscarolimagni
+#Golden Bull Event
+narrative_event = {
+id = moduscarolimagni.0001
+title = EVTTITLEmoduscarolimagni.0001
+desc = {
+text = EVTDESCmoduscarolimagni.0001
+}
+is_triggered_only = yes
+	
+	option = {
+			name = "EVTOPTAmoduscarolimagni.0001"
+			set_global_flag = golden_bull
+			e_hre = {
+			owner = {
+			character_event = {id = moduscarolimagni.0002 days = 17}
+			}
+			}
+		}
+}
+# Golden Bull Version 1: Electors Saxony, Brandenburg, Palatinate, Bohemia, Mainz, Trier, Koln
+character_event = {
+id = moduscarolimagni.0002
+desc = {
+text = EVTDESCmoduscarolimagni.0002
+}
+is_triggered_only = yes
+option = {
+name = "EVTOPTAmoduscarolimagni.0002"
+set_global_flag = golden_bull_one
+ai_chance = {
+	factor = 75
+	modifier = {
+		factor = .3
+		OR = {
+			trait = zealous
+			trait = arbitrary
+			trait = cynical
+		}
+	}
+}
+trigger = {
+AND = {
+			k_germany = {
+			de_jure_liege = e_hre
+			}
+			d_saxony = {
+			de_jure_liege = k_germany
+			has_holder = yes
+			}
+			d_palatinate = {
+			de_jure_liege = k_germany
+			has_holder = yes
+			}
+			d_brandenburg = {
+			de_jure_liege = k_germany
+			has_holder = yes
+			}
+			k_bohemia = {
+			de_jure_liege = e_hre
+			has_holder = yes
+			}
+			d_trier = {
+			de_jure_liege = k_germany
+			has_holder = yes
+			}
+			d_mainz = {
+			de_jure_liege = k_germany
+			has_holder = yes
+			}
+			d_koln = {
+			de_jure_liege = k_germany
+			has_holder = yes
+			}
+			}}
+
+			e_hre = {
+			any_direct_de_jure_vassal_title = {
+				limit = { tier = KING }
+				de_jure_liege = 0
+			}
+			d_saxony = {
+			owner = {
+			character_event = {id = moduscarolimagni.0003 days = 17}
+			}
+			}
+			d_brandenburg = {
+			owner = {
+			character_event = {id = moduscarolimagni.0004 days = 17}
+			}
+			}
+			d_palatinate = {
+			owner = {
+			character_event = {id = moduscarolimagni.0005 days = 17}
+			}
+			}
+			k_bohemia = {
+			owner = {
+			character_event = {id = moduscarolimagni.0006 days = 17}
+			}
+			}
+			b_mainz = {
+			owner = {
+			character_event = {id = moduscarolimagni.0007 days = 17}
+			}
+			}
+			b_trier = {
+			owner = {
+			character_event = {id = moduscarolimagni.0008 days = 17}
+			}
+			}
+			b_koln = {
+			owner = {
+			character_event = {id = moduscarolimagni.0009 days = 17}
+			}
+			}
+			
+		}
+}
+option = {
+name = "EVTOPTBmoduscarolimagni.0002"
+set_global_flag = golden_bull_two
+ai_chance = {
+	factor = 10
+	modifier = {
+		factor = 10
+		
+			trait = just
+	}
+}
+trigger = {
+AND = {
+			k_germany = {
+			de_jure_liege = e_hre
+			}
+			d_saxony = {
+			de_jure_liege = k_germany
+			has_holder = yes
+			}
+			d_bavaria = {
+			de_jure_liege = k_germany
+			has_holder = yes
+			}
+			d_swabia = {
+			de_jure_liege = k_germany
+			has_holder = yes
+			}
+			d_franconia = {
+			de_jure_liege = k_germany
+			has_holder = yes
+			}
+			d_trier = {
+			de_jure_liege = k_germany
+			has_holder = yes
+			}
+			d_mainz = {
+			de_jure_liege = k_germany
+			has_holder = yes
+			}
+			d_koln = {
+			de_jure_liege = k_germany
+			has_holder = yes
+			}
+			}
+}
+e_hre = {
+			any_direct_de_jure_vassal_title = {
+				limit = { tier = KING }
+				de_jure_liege = 0
+			}
+		d_saxony = {
+			owner = {
+			character_event = {id = moduscarolimagni.0003 days = 17}
+			}
+			}
+			d_swabia = {
+			owner = {
+			character_event = {id = moduscarolimagni.0015 days = 17}
+			}
+			}
+			d_franconia = {
+			owner = {
+			character_event = {id = moduscarolimagni.0016 days = 17}
+			}
+			}
+			d_bavaria = {
+			owner = {
+			character_event = {id = moduscarolimagni.0014 days = 17}
+			}
+			}
+			b_mainz = {
+			owner = {
+			character_event = {id = moduscarolimagni.0007 days = 17}
+			}
+			}
+			b_trier = {
+			owner = {
+			character_event = {id = moduscarolimagni.0008 days = 17}
+			}
+			}
+			b_koln = {
+			owner = {
+			character_event = {id = moduscarolimagni.0009 days = 17}
+			}
+			}
+			
+		}
+}
+option = {
+name = "EVTOPTCmoduscarolimagni.0002"
+set_global_flag = golden_bull_three
+tooltip_info = learning
+ai_chance = {
+	factor = 1
+	modifier = {
+		factor = 100
+			trait = zealous
+	}
+	modifier = {
+	factor = 25
+	trait = arbitrary
+	}
+}
+trigger = {
+AND = {
+			k_germany = {
+			de_jure_liege = e_hre
+			}
+			b_magdeburg = {
+			has_holder = yes
+			}
+			b_bremen = {
+			has_holder = yes
+			}
+			b_salzburg = {
+			has_holder = yes
+			}
+			b_bamberg = {
+			has_holder = yes
+			}
+			b_trier = {
+
+			has_holder = yes
+			}
+			b_mainz = {
+
+			has_holder = yes
+			}
+			b_koln = {
+
+			has_holder = yes
+			}
+			learning = 10
+			}
+}
+e_hre = {
+			any_direct_de_jure_vassal_title = {
+				limit = { tier = KING }
+				de_jure_liege = 0
+			}
+		b_bamberg = {
+			owner = {
+			character_event = {id = moduscarolimagni.0010 days = 17}
+			}
+			}
+			b_magdeburg = {
+			owner = {
+			character_event = {id = moduscarolimagni.0011 days = 17}
+			}
+			}
+			b_salzburg = {
+			owner = {
+			character_event = {id = moduscarolimagni.0013 days = 17}
+			}
+			}
+			b_bremen = {
+			owner = {
+			character_event = {id = moduscarolimagni.0012 days = 17}
+			}
+			}
+			b_mainz = {
+			owner = {
+			character_event = {id = moduscarolimagni.0007 days = 17}
+			}
+			}
+			b_trier = {
+			owner = {
+			character_event = {id = moduscarolimagni.0008 days = 17}
+			}
+			}
+			b_koln = {
+			owner = {
+			character_event = {id = moduscarolimagni.0009 days = 17}
+			}
+			}
+			
+			}
+}
+			option = {
+name = "EVTOPTDmoduscarolimagni.0002"
+set_global_flag = golden_bull_four
+trigger = {
+AND = {
+			k_germany = {
+			de_jure_liege = e_hre
+			}
+			d_saxony = {
+			de_jure_liege = k_germany
+			has_holder = yes
+			}
+			d_bavaria = {
+			de_jure_liege = k_germany
+			has_holder = yes
+			}
+			d_brandenburg = {
+			de_jure_liege = k_germany
+			has_holder = yes
+			}
+			d_swabia = {
+			de_jure_liege = k_germany
+			has_holder = yes
+			}
+			d_osterreich = {
+			de_jure_liege = k_germany
+			has_holder = yes
+			}
+			d_thuringia = {
+			de_jure_liege = k_germany
+			has_holder = yes
+			}
+			d_franconia = {
+			de_jure_liege = k_germany
+			has_holder = yes
+			}
+			trait = cynical
+			}
+}
+tooltip_info = cynical
+ai_chance = {
+	factor = 20
+	modifier = {
+		factor = 5
+			trait = arbitrary
+	}
+}
+e_hre = {
+			any_direct_de_jure_vassal_title = {
+				limit = { tier = KING }
+				de_jure_liege = 0
+			}
+			d_saxony = {
+			owner = {
+			character_event = {id = moduscarolimagni.0003 days = 17}
+			}
+			}
+			d_swabia = {
+			owner = {
+			character_event = {id = moduscarolimagni.0015 days = 17}
+			}
+			}
+			d_franconia = {
+			owner = {
+			character_event = {id = moduscarolimagni.0016 days = 17}
+			}
+			}
+			d_bavaria = {
+			owner = {
+			character_event = {id = moduscarolimagni.0014 days = 17}
+			}
+			}
+			d_brandenburg = {
+			owner = {
+			character_event = {id = moduscarolimagni.0004 days = 17}
+			}
+			}
+			d_thuringia = {
+			owner = {
+			character_event = {id = moduscarolimagni.0017 days = 17}
+			}
+			}
+			d_osterreich = {
+			owner = {
+			character_event = {id = moduscarolimagni.0018 days = 17}
+			}
+		
+			k_hansa = {
+			de_jure_liege = 0
+			}
+		}
+			
+			
+		}
+}
+}
+# Saxony Elector Event
+character_event = {
+	id = moduscarolimagni.0003
+	#title = EVTNAME62920
+	desc = {
+	text = EVTDESCmoduscarolimagni.0003
+	}
+	
+	#picture = GFX_evt_council
+	#border = GFX_event_normal_frame_diplomacy
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTAmoduscarolimagni.0003
+		
+		k_saxonyelectorate = {
+			grant_title = ROOT
+			copy_title_laws = d_saxony
+			copy_title_history = d_saxony
+			de_jure_liege = e_hre
+		}
+		d_saxony = {
+			de_jure_liege = k_saxonyelectorate
+			destroy_landed_title = THIS
+		}
+	set_defacto_liege = FROM
+	e_karling = {
+			any_direct_de_jure_vassal_title = {
+				limit = { tier = KING }
+				de_jure_liege = 0
+			}
+			
+			}
+	}
+}
+
+# Brandenburg Elector Event
+character_event = {
+	id = moduscarolimagni.0004
+	#title = EVTNAME62920
+	desc = {
+	text = EVTDESCmoduscarolimagni.0004
+	}
+	
+	#picture = GFX_evt_council
+	#border = GFX_event_normal_frame_diplomacy
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTAmoduscarolimagni.0004
+		
+		k_brandenburg = {
+			grant_title = ROOT
+			copy_title_laws = d_brandenburg
+			copy_title_history = d_brandenburg
+			de_jure_liege = e_hre
+		}
+		d_brandenburg = {
+			de_jure_liege = k_brandenburg
+			destroy_landed_title = THIS
+		}
+	set_defacto_liege = FROM
+	e_karling = {
+			any_direct_de_jure_vassal_title = {
+				limit = { tier = KING }
+				de_jure_liege = 0
+			}
+			
+			}
+	}
+}
+
+# Palatinate Elector Event
+character_event = {
+	id = moduscarolimagni.0005
+	#title = EVTNAME62920
+	desc = {
+	text = EVTDESCmoduscarolimagni.0005
+	}
+	
+	#picture = GFX_evt_council
+	#border = GFX_event_normal_frame_diplomacy
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTAmoduscarolimagni.0005
+		
+		c_pfalz = {
+		de_jure_liege = d_palatinate
+		}
+		k_palatinate = {
+			grant_title = ROOT
+			copy_title_laws = d_palatinate
+			copy_title_history = d_palatinate
+			de_jure_liege = e_hre
+		}
+		d_palatinate = {
+			de_jure_liege = k_palatinate
+			destroy_landed_title = THIS
+		}
+	set_defacto_liege = FROM
+	e_karling = {
+			any_direct_de_jure_vassal_title = {
+				limit = { tier = KING }
+				de_jure_liege = 0
+			}
+			
+			}
+	}
+}
+
+# Bohemia Elector Event
+character_event = {
+	id = moduscarolimagni.0006
+	#title = EVTNAME62920
+	desc = {
+	text = EVTDESCmoduscarolimagni.0006
+	}
+	
+	#picture = GFX_evt_council
+	#border = GFX_event_normal_frame_diplomacy
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTAmoduscarolimagni.0006
+		
+		k_bohemiaelectorate = {
+			grant_title = ROOT
+			copy_title_laws = k_bohemia
+			copy_title_history = k_bohemia
+			de_jure_liege = e_hre
+		}
+		d_bohemia = {
+		de_jure_liege = k_bohemiaelectorate
+		}
+		d_moravia = {
+		de_jure_liege = k_bohemiaelectorate
+		}
+		k_bohemia = {
+			destroy_landed_title = THIS
+		}
+	set_defacto_liege = FROM
+	e_karling = {
+			any_direct_de_jure_vassal_title = {
+				limit = { tier = KING }
+				de_jure_liege = 0
+			}
+			
+			}
+	}
+}
+
+# Mainz Elector Event
+character_event = {
+	id = moduscarolimagni.0007
+	#title = EVTNAME62920
+	desc = {
+	text = EVTDESCmoduscarolimagni.0007
+	}
+	
+	#picture = GFX_evt_council
+	#border = GFX_event_normal_frame_diplomacy
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTAmoduscarolimagni.0007
+		
+		
+		d_mainz = {
+			destroy_landed_title = THIS
+			de_jure_liege = k_mainz
+		}
+		k_mainz = {
+			grant_title = ROOT
+			de_jure_liege = e_hre
+			
+		}
+		c_mainz = {
+		grant_title = ROOT
+		}
+		set_defacto_liege = FROM
+		e_karling = {
+			any_direct_de_jure_vassal_title = {
+				limit = { tier = KING }
+				de_jure_liege = 0
+			}
+			
+			}
+	}
+}
+
+# Trier Elector Event
+character_event = {
+	id = moduscarolimagni.0008
+	#title = EVTNAME62920
+	desc = {
+	text = EVTDESCmoduscarolimagni.0008
+	}
+	
+	#picture = GFX_evt_council
+	#border = GFX_event_normal_frame_diplomacy
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTAmoduscarolimagni.0008
+		
+		k_trier = {
+			grant_title = ROOT
+			de_jure_liege = e_hre
+		}
+		d_trier = {
+			de_jure_liege = k_trier
+			destroy_landed_title = THIS
+		}
+		c_trier = {
+		grant_title = ROOT
+		}
+	set_defacto_liege = FROM
+	e_karling = {
+			any_direct_de_jure_vassal_title = {
+				limit = { tier = KING }
+				de_jure_liege = 0
+			}
+			
+			}
+	}
+}
+
+# Koln Elector Event
+character_event = {
+	id = moduscarolimagni.0009
+	#title = EVTNAME62920
+	desc = {
+	text = EVTDESCmoduscarolimagni.0009
+	}
+	
+	#picture = GFX_evt_council
+	#border = GFX_event_normal_frame_diplomacy
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTAmoduscarolimagni.0009
+		
+		k_koln = {
+			grant_title = ROOT
+			de_jure_liege = e_hre
+		}
+		d_koln = {
+			de_jure_liege = k_koln
+			destroy_landed_title = THIS
+		}
+		c_koln = {
+		grant_title = ROOT
+		}
+	set_defacto_liege = FROM
+	e_karling = {
+			any_direct_de_jure_vassal_title = {
+				limit = { tier = KING }
+				de_jure_liege = 0
+			}
+			
+			}
+	}
+}
+
+# Bamberg Elector Event
+character_event = {
+	id = moduscarolimagni.0010
+	#title = EVTNAME62920
+	desc = {
+	text = EVTDESCmoduscarolimagni.0010
+	}
+	
+	#picture = GFX_evt_council
+	#border = GFX_event_normal_frame_diplomacy
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTAmoduscarolimagni.0010
+		
+		k_bamberg = {
+			grant_title = ROOT
+			de_jure_liege = e_hre
+		}
+		c_bamberg = {
+			de_jure_liege = d_bamberg
+			grant_title = ROOT
+		}
+		d_bamberg = {
+			de_jure_liege = k_bamberg
+		}
+	set_defacto_liege = FROM
+	e_karling = {
+			any_direct_de_jure_vassal_title = {
+				limit = { tier = KING }
+				de_jure_liege = 0
+			}
+			
+			}
+	}
+}
+
+# Magdeburg Elector Event
+character_event = {
+	id = moduscarolimagni.0011
+	#title = EVTNAME62920
+	desc = {
+	text = EVTDESCmoduscarolimagni.0011
+	}
+	
+	#picture = GFX_evt_council
+	#border = GFX_event_normal_frame_diplomacy
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTAmoduscarolimagni.0011
+		
+		k_magdeburg = {
+			grant_title = ROOT
+			de_jure_liege = e_hre
+		}
+		d_magdeburg = {
+			de_jure_liege = k_magdeburg
+
+		}
+		c_anhalt = {
+		de_jure_liege = d_magdeburg
+		grant_title = ROOT
+		}
+	set_defacto_liege = FROM
+	e_karling = {
+			any_direct_de_jure_vassal_title = {
+				limit = { tier = KING }
+				de_jure_liege = 0
+			}
+			
+			}
+	}
+}
+
+# Bremen Elector Event
+character_event = {
+	id = moduscarolimagni.0012
+	#title = EVTNAME62920
+	desc = {
+	text = EVTDESCmoduscarolimagni.0012
+	}
+	
+	#picture = GFX_evt_council
+	#border = GFX_event_normal_frame_diplomacy
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTAmoduscarolimagni.0012
+		
+		k_bremen = {
+			grant_title = ROOT
+			de_jure_liege = e_hre
+		}
+		d_bremen = {
+			de_jure_liege = k_bremen
+
+		}
+		c_bremen = {
+		de_jure_liege = d_bremen
+		grant_title = ROOT
+		}
+	set_defacto_liege = FROM
+	e_karling = {
+			any_direct_de_jure_vassal_title = {
+				limit = { tier = KING }
+				de_jure_liege = 0
+			}
+			
+			}
+	}
+
+	}
+
+# Salzburg Elector Event
+character_event = {
+	id = moduscarolimagni.0013
+	#title = EVTNAME62920
+	desc = {
+	text = EVTDESCmoduscarolimagni.0013
+	}
+	
+	#picture = GFX_evt_council
+	#border = GFX_event_normal_frame_diplomacy
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTAmoduscarolimagni.0013
+		
+		k_salzburg = {
+			grant_title = ROOT
+			de_jure_liege = e_hre
+		}
+		d_salzburg = {
+			de_jure_liege = k_salzburg
+
+		}
+		c_salzburg = {
+		de_jure_liege = d_salzburg
+		grant_title = ROOT
+		}
+	set_defacto_liege = FROM
+	e_karling = {
+			any_direct_de_jure_vassal_title = {
+				limit = { tier = KING }
+				de_jure_liege = 0
+			}
+			
+			}
+	}
+}
+
+# Bavaria Elector Event
+character_event = {
+	id = moduscarolimagni.0014
+	#title = EVTNAME62920
+	desc = {
+	text = EVTDESCmoduscarolimagni.0014
+	}
+	
+	#picture = GFX_evt_council
+	#border = GFX_event_normal_frame_diplomacy
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTAmoduscarolimagni.0014
+		
+		k_bavariaelectorate = {
+			grant_title = ROOT
+			copy_title_laws = d_bavaria
+			copy_title_history = d_bavaria
+			de_jure_liege = e_hre
+		}
+		d_bavaria = {
+			de_jure_liege = k_bavariaelectorate
+
+		}
+set_defacto_liege = FROM
+e_karling = {
+			any_direct_de_jure_vassal_title = {
+				limit = { tier = KING }
+				de_jure_liege = 0
+			}
+			
+			}
+		}
+}
+
+# Swabia Elector Event
+character_event = {
+	id = moduscarolimagni.0015
+	#title = EVTNAME62920
+	desc = {
+	text = EVTDESCmoduscarolimagni.0015
+	}
+	
+	#picture = GFX_evt_council
+	#border = GFX_event_normal_frame_diplomacy
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTAmoduscarolimagni.0015
+		
+		k_swabia = {
+			grant_title = ROOT
+			copy_title_laws = d_swabia
+			copy_title_history = d_swabia
+			de_jure_liege = e_hre
+		}
+		d_swabia = {
+			de_jure_liege = k_swabia
+
+		}
+	set_defacto_liege = FROM
+	e_karling = {
+			any_direct_de_jure_vassal_title = {
+				limit = { tier = KING }
+				de_jure_liege = 0
+			}
+			
+			}
+	}
+}
+
+# Franconia Elector Event
+character_event = {
+	id = moduscarolimagni.0016
+	#title = EVTNAME62920
+	desc = {
+	text = EVTDESCmoduscarolimagni.0016
+	}
+	
+	#picture = GFX_evt_council
+	#border = GFX_event_normal_frame_diplomacy
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTAmoduscarolimagni.0016
+		
+		k_franconia = {
+			grant_title = ROOT
+			copy_title_laws = d_franconia
+			copy_title_history = d_franconia
+			de_jure_liege = e_hre
+		}
+		d_franconia = {
+			de_jure_liege = k_franconia
+
+		}
+	set_defacto_liege = FROM
+	e_karling = {
+			any_direct_de_jure_vassal_title = {
+				limit = { tier = KING }
+				de_jure_liege = 0
+			}
+			
+			}
+	}
+}
+
+# Thuringia Elector Event
+character_event = {
+	id = moduscarolimagni.0017
+	#title = EVTNAME62920
+	desc = {
+	text = EVTDESCmoduscarolimagni.0017
+	}
+	
+	#picture = GFX_evt_council
+	#border = GFX_event_normal_frame_diplomacy
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTAmoduscarolimagni.0017
+		
+		k_thuringia = {
+			grant_title = ROOT
+			copy_title_laws = d_thuringia
+			copy_title_history = d_thuringia
+			de_jure_liege = e_hre
+		}
+		d_thuringia = {
+			de_jure_liege = k_thuringia
+		}
+	set_defacto_liege = FROM
+	e_karling = {
+			any_direct_de_jure_vassal_title = {
+				limit = { tier = KING }
+				de_jure_liege = 0
+			}
+			
+			}
+	}
+}
+
+# Austria Elector Event
+character_event = {
+	id = moduscarolimagni.0018
+	#title = EVTNAME62920
+	desc = {
+	text = EVTDESCmoduscarolimagni.0018
+	}
+	
+	#picture = GFX_evt_council
+	#border = GFX_event_normal_frame_diplomacy
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTAmoduscarolimagni.0018
+		
+		k_osterreich = {
+			grant_title = ROOT
+			copy_title_laws = d_osterreich
+			copy_title_history = d_osterreich
+			de_jure_liege = e_hre
+		}
+		d_osterreich = {
+			de_jure_liege = k_osterreich
+		}
+	set_defacto_liege = FROM
+	e_karling = {
+			any_direct_de_jure_vassal_title = {
+				limit = { tier = KING }
+				de_jure_liege = 0
+			}
+			
+			}
+	}
+}
+
+# Austria Archduchy One
+character_event = {
+id = moduscarolimagni.0020
+	#title = EVTNAME62920
+	desc = {
+	text = EVTDESCmoduscarolimagni.0020
+	}
+	
+	#picture = GFX_evt_council
+	#border = GFX_event_normal_frame_diplomacy
+	
+	is_triggered_only = yes
+	option = {
+	name = EVTOPTAmoduscarolimagni.0020
+	d_osterreich = {
+	owner = {
+	character_event = {id = moduscarolimagni.0021 days = 17}
+	}
+	}
+	
+	}
+}
+# Austria Archduchy Two
+character_event = {
+id = moduscarolimagni.0021
+desc = {
+text = EVTDESCmoduscarolimagni.0021
+}
+is_triggered_only = yes
+option = {
+name = EVTOPTAmoduscarolimagni.0021
+k_osterreich = {
+			grant_title = ROOT
+			copy_title_laws = d_osterreich
+			copy_title_history = d_osterreich
+			de_jure_liege = e_hre
+		}
+		d_osterreich = {
+			de_jure_liege = k_osterreich
+		}
+		
+		set_defacto_liege = FROM
+	
+}
+}
+# Karling Breakup
+# character_event= {
+# id = moduscarolimagni.0022
+# trigger = {
+# has_landed_title = k_papal_state
+# has_global_flag = charlemagne_hre
+# OR = {
+# k_france = {
+# independent = yes
+# }
+# k_germany = {
+# independent = yes
+# }
+# }
+# e_hre = {
+# has_laws = succ_gavelkind
+# }
+# }
+# mean_time_to_happen = {
+# months = 1
+# }
+# option = {
+# e_hre = {
+# destroy_landed_title = THIS
+# }
+# }
+# }
+
+#Seljuk Prep
+character_event = {
+id = moduscarolimagni.0024
+desc = {
+	text = EVTDESCmoduscarolimagni.0024
+}
+trigger = {
+has_landed_title = {d_merv}
+year = 960
+NOT = {year = 1000}
+NOT = {culture = turkish}
+}
+mean_time_to_happen = {
+days = 1
+}
+	option = {
+	name = EVTOPTAmoduscarolimagni.0024
+	ROOT = {
+	culture = turkish
+	}
+	}
+}

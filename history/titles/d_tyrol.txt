@@ -1,0 +1,7 @@
+1241.1.1 = {
+	holder = 212382
+	set_global_flag = tyrol_formed
+}
+1253.7.22 = {
+	holder = 0
+}

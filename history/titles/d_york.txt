@@ -1,0 +1,17 @@
+383.1.1={
+	holder=159038 #Coel Hen
+}
+420.1.1={
+	holder=159037 #Ceneu ap Coel
+}
+500.1.1={
+	holder = 0
+}
+866.11.1={
+	holder = 163112 # Halfdan Ragnarsson, first "king" of Jorvik
+}
+875.1.1 = {
+	holder = 0
+}
+
+

@@ -1,0 +1,758 @@
+###########################################
+#                                         #
+# MCM Evangelism Decisions                #             
+#                                         #
+#                                         #
+#                                         #
+###########################################
+
+# Written by CMG
+
+
+
+decisions = {
+	#Papal Decisions
+	# Bulgaria Conversion
+	catholic_bulgaria_conversion = {
+	is_high_prio = no # Will show an alert once decision is enabled
+	potential = {
+	has_landed_title = k_papal_state
+	NOT = {
+	year = 1000
+	}
+	year = 850
+	}
+	allow = {
+	wealth = 1000
+	k_bulgaria = {
+	holder_scope = {
+	NOT = {
+	religion_group = christian
+	has_character_flag = asked_to_be_baptized_catholic
+	}
+	}
+	}
+	
+	}
+	effect = {
+	wealth = -1000
+	set_character_flag = evangelized_bulgaria
+	k_bulgaria = {
+	holder_scope = {
+	character_event = { id = moduscarolimagni.2300 days = 2 }
+	set_character_flag = asked_to_be_baptized_catholic
+	}
+	}
+	}
+	revoke_allowed = {
+	always = no #Not used in vanilla
+	}
+	ai_will_do = {
+    factor = 1
+  }
+	
+	}
+	
+	# Bohemia Conversion
+	catholic_bohemia_conversion = {
+	is_high_prio = no # Will show an alert once decision is enabled
+	potential = {
+	has_landed_title = k_papal_state
+	NOT = {
+	year = 1000
+	}
+	year = 850
+	}
+	allow = {
+	wealth = 1000
+	k_bohemia = {
+	holder_scope = {
+	NOT = {
+	religion_group = christian
+	has_character_flag = asked_to_be_baptized_catholic
+	}
+	}
+	}
+	
+	}
+	effect = {
+	wealth = -1000
+	set_character_flag = evangelized_bohemia
+	k_bohemia = {
+	holder_scope = {
+	character_event = { id = moduscarolimagni.2300 days = 2 }
+	set_character_flag = asked_to_be_baptized_catholic
+	}
+	}
+	}
+	revoke_allowed = {
+	always = no #Not used in vanilla
+	}
+	ai_will_do = {
+    factor = 1
+  }
+	
+	}
+	
+	# Moravia Conversion
+	catholic_moravia_conversion = {
+	is_high_prio = no # Will show an alert once decision is enabled
+	potential = {
+	has_landed_title = k_papal_state
+	NOT = {
+	year = 1000
+	}
+	year = 850
+	}
+	allow = {
+	wealth = 1000
+	k_moravia = {
+	holder_scope = {
+	NOT = {
+	religion_group = christian
+	has_character_flag = asked_to_be_baptized_catholic
+	}
+	}
+	}
+	
+	}
+	effect = {
+	wealth = -1000
+	set_character_flag = evangelized_moravia
+	k_moravia = {
+	holder_scope = {
+	character_event = { id = moduscarolimagni.2300 days = 2 }
+	set_character_flag = asked_to_be_baptized_catholic
+	}
+	}
+	}
+	revoke_allowed = {
+	always = no #Not used in vanilla
+	}
+	ai_will_do = {
+    factor = 1
+  }
+	
+	}
+	
+	# Russia Conversion
+	catholic_russia_conversion = {
+	is_high_prio = no # Will show an alert once decision is enabled
+	potential = {
+	has_landed_title = k_papal_state
+	NOT = {
+	year = 1100
+	}
+	year = 980
+	}
+	allow = {
+	wealth = 1000
+	k_ruthenia = {
+	holder_scope = {
+	NOT = {
+	religion_group = christian
+	has_character_flag = asked_to_be_baptized_catholic
+	}
+	}
+	}
+	
+	}
+	effect = {
+	wealth = -1000
+	set_character_flag = evangelized_ruthenia
+	k_ruthenia = {
+	holder_scope = {
+	character_event = { id = moduscarolimagni.2300 days = 2 }
+	set_character_flag = asked_to_be_baptized_catholic
+	}
+	}
+	}
+	revoke_allowed = {
+	always = no #Not used in vanilla
+	}
+	ai_will_do = {
+    factor = 1
+  }
+  
+ 
+	}
+	# Poland Conversion
+	catholic_poland_conversion = {
+	is_high_prio = no # Will show an alert once decision is enabled
+	potential = {
+	has_landed_title = k_papal_state
+	NOT = {
+	year = 1100
+	}
+	year = 966
+	}
+	allow = {
+	wealth = 1000
+	k_poland = {
+	holder_scope = {
+	NOT = {
+	religion_group = christian
+	has_character_flag = asked_to_be_baptized_catholic
+	}
+	}
+	}
+	
+	}
+	effect = {
+	wealth = -1000
+	set_character_flag = evangelized_poland
+	k_poland = {
+	holder_scope = {
+	character_event = { id = moduscarolimagni.2300 days = 2 }
+	set_character_flag = asked_to_be_baptized_catholic
+	}
+	}
+	}
+	revoke_allowed = {
+	always = no #Not used in vanilla
+	}
+	ai_will_do = {
+    factor = 1
+  }
+	
+	}
+	
+	# Khazar Conversion
+	catholic_khazaria_conversion = {
+	is_high_prio = no # Will show an alert once decision is enabled
+	potential = {
+	has_landed_title = k_papal_state
+	NOT = {
+	year = 1000
+	}
+	year = 850
+	}
+	allow = {
+	wealth = 1000
+	k_khazaria = {
+	holder_scope = {
+	NOT = {
+	religion_group = christian
+	has_character_flag = asked_to_be_baptized_catholic
+	}
+	}
+	}
+	
+	}
+	effect = {
+	wealth = -1000
+	set_character_flag = evangelized_khazaria
+	k_khazaria = {
+	holder_scope = {
+	character_event = { id = moduscarolimagni.2300 days = 2 }
+	set_character_flag = asked_to_be_baptized_catholic
+	}
+	}
+	}
+	revoke_allowed = {
+	always = no #Not used in vanilla
+	}
+	ai_will_do = {
+    factor = 1
+  }
+	
+	}
+	
+	# Hungary Conversion
+	catholic_hungary_conversion = {
+	is_high_prio = no # Will show an alert once decision is enabled
+	potential = {
+	has_landed_title = k_papal_state
+	NOT = {
+	year = 1100
+	}
+	year = 950
+	}
+	allow = {
+	wealth = 1000
+	k_hungary = {
+	holder_scope = {
+	NOT = {
+	religion_group = christian
+	has_character_flag = asked_to_be_baptized_catholic
+	}
+	}
+	}
+	
+	}
+	effect = {
+	wealth = -1000
+	set_character_flag = evangelized_hungary
+	k_hungary = {
+	holder_scope = {
+	character_event = { id = moduscarolimagni.2300 days = 2 }
+	set_character_flag = asked_to_be_baptized_catholic
+	}
+	}
+	}
+	revoke_allowed = {
+	always = no #Not used in vanilla
+	}
+	ai_will_do = {
+    factor = 1
+  }
+	
+	}
+	
+	# Serbia Conversion
+	catholic_serbia_conversion = {
+	is_high_prio = no # Will show an alert once decision is enabled
+	potential = {
+	has_landed_title = k_papal_state
+	NOT = {
+	year = 1000
+	}
+	year = 850
+	}
+	allow = {
+	wealth = 1000
+	k_serbia = {
+	holder_scope = {
+	NOT = {
+	religion_group = christian
+	has_character_flag = asked_to_be_baptized_catholic
+	}
+	}
+	}
+	
+	}
+	effect = {
+	wealth = -1000
+	set_character_flag = evangelized_serbia
+	k_serbia = {
+	holder_scope = {
+	character_event = { id = moduscarolimagni.2300 days = 2 }
+	set_character_flag = asked_to_be_baptized_catholic
+	}
+	}
+	}
+	revoke_allowed = {
+	always = no #Not used in vanilla
+	}
+	ai_will_do = {
+    factor = 1
+  }
+	
+	}
+	
+	# Croatia Conversion
+	catholic_croatia_conversion = {
+	is_high_prio = no # Will show an alert once decision is enabled
+	potential = {
+	has_landed_title = k_papal_state
+	NOT = {
+	year = 1000
+	}
+	year = 850
+	}
+	allow = {
+	wealth = 1000
+	k_croatia = {
+	holder_scope = {
+	NOT = {
+	religion_group = christian
+	has_character_flag = asked_to_be_baptized_catholic
+	}
+	}
+	}
+	
+	}
+	effect = {
+	wealth = -1000
+	set_character_flag = evangelized_croatia
+	k_croatia = {
+	holder_scope = {
+	character_event = { id = moduscarolimagni.2300 days = 2 }
+	set_character_flag = asked_to_be_baptized_catholic
+	}
+	}
+	}
+	revoke_allowed = {
+	always = no #Not used in vanilla
+	}
+	ai_will_do = {
+    factor = 1
+  }
+	
+	}
+	
+	#Patriarchal Decisions
+	
+	
+	orthodox_bulgaria_conversion = {
+	is_high_prio = no # Will show an alert once decision is enabled
+	potential = {
+	has_landed_title = k_orthodox
+	NOT = {
+	year = 1000
+	}
+	year = 850
+	}
+	allow = {
+	wealth = 100
+	k_bulgaria = {
+	holder_scope = {
+	NOT = {
+	religion_group = christian
+	has_character_flag = asked_to_be_baptized_orthodox
+	}
+	}
+	}
+	
+	}
+	effect = {
+	wealth = -100
+	set_character_flag = evangelized_bulgaria
+	k_bulgaria = {
+	holder_scope = {
+	character_event = { id = moduscarolimagni.2301 days = 2 }
+	set_character_flag = asked_to_be_baptized_orthodox
+	}
+	}
+	}
+	revoke_allowed = {
+	always = no #Not used in vanilla
+	}
+	ai_will_do = {
+    factor = 1
+  }
+	
+	}
+	
+	# Bohemia Conversion
+	orthodox_bohemia_conversion = {
+	is_high_prio = no # Will show an alert once decision is enabled
+	potential = {
+	has_landed_title = k_orthodox
+	NOT = {
+	year = 1000
+	}
+	year = 850
+	}
+	allow = {
+	wealth = 1000
+	k_bohemia = {
+	holder_scope = {
+	NOT = {
+	religion_group = christian
+	has_character_flag = asked_to_be_baptized_orthodox
+	}
+	}
+	}
+	
+	}
+	effect = {
+	wealth = -1000
+	set_character_flag = evangelized_bohemia
+	k_bohemia = {
+	holder_scope = {
+	character_event = { id = moduscarolimagni.2301 days = 2 }
+	set_character_flag = asked_to_be_baptized_orthodox
+	}
+	}
+	}
+	revoke_allowed = {
+	always = no #Not used in vanilla
+	}
+	ai_will_do = {
+    factor = 1
+  }
+	
+	}
+	
+	# Moravia Conversion
+	orthodox_moravia_conversion = {
+	is_high_prio = no # Will show an alert once decision is enabled
+	potential = {
+	has_landed_title = k_orthodox
+	NOT = {
+	year = 1000
+	}
+	year = 850
+	}
+	allow = {
+	wealth = 100
+	k_moravia = {
+	holder_scope = {
+	NOT = {
+	religion_group = christian
+	has_character_flag = asked_to_be_baptized_orthodox
+	}
+	}
+	}
+	
+	}
+	effect = {
+	wealth = -1000
+	set_character_flag = evangelized_moravia
+	k_moravia = {
+	holder_scope = {
+	character_event = { id = moduscarolimagni.2301 days = 2 }
+	set_character_flag = asked_to_be_baptized_orthodox
+	}
+	}
+	}
+	revoke_allowed = {
+	always = no #Not used in vanilla
+	}
+	ai_will_do = {
+    factor = 1
+  }
+	
+	}
+	
+	# Russia Conversion
+	orthodox_russia_conversion = {
+	is_high_prio = no # Will show an alert once decision is enabled
+	potential = {
+	has_landed_title = k_orthodox
+	NOT = {
+	year = 1100
+	}
+	year = 980
+	}
+	allow = {
+	wealth = 100
+	k_ruthenia = {
+	holder_scope = {
+	NOT = {
+	religion_group = christian
+	has_character_flag = asked_to_be_baptized_orthodox
+	}
+	}
+	}
+	
+	}
+	effect = {
+	wealth = -100
+	set_character_flag = evangelized_ruthenia
+	k_ruthenia = {
+	holder_scope = {
+	character_event = { id = moduscarolimagni.2301 days = 2 }
+	set_character_flag = asked_to_be_baptized_orthodox
+	}
+	}
+	}
+	revoke_allowed = {
+	always = no #Not used in vanilla
+	}
+	ai_will_do = {
+    factor = 1
+  }
+  
+ 
+	}
+	# Poland Conversion
+	orthodox_poland_conversion = {
+	is_high_prio = no # Will show an alert once decision is enabled
+	potential = {
+	has_landed_title = k_orthodox
+	NOT = {
+	year = 1100
+	}
+	year = 966
+	}
+	allow = {
+	wealth = 100
+	k_poland = {
+	holder_scope = {
+	NOT = {
+	religion_group = christian
+	has_character_flag = asked_to_be_baptized_orthodox
+	}
+	}
+	}
+	
+	}
+	effect = {
+	wealth = -100
+	set_character_flag = evangelized_poland
+	k_poland = {
+	holder_scope = {
+	character_event = { id = moduscarolimagni.2301 days = 2 }
+	set_character_flag = asked_to_be_baptized_orthodox
+	}
+	}
+	}
+	revoke_allowed = {
+	always = no #Not used in vanilla
+	}
+	ai_will_do = {
+    factor = 1
+  }
+	
+	}
+	
+	# Khazar Conversion
+	orthodox_khazaria_conversion = {
+	is_high_prio = no # Will show an alert once decision is enabled
+	potential = {
+	has_landed_title = k_orthodox
+	NOT = {
+	year = 1000
+	}
+	year = 850
+	}
+	allow = {
+	wealth = 100
+	k_khazaria = {
+	holder_scope = {
+	NOT = {
+	religion_group = christian
+	has_character_flag = asked_to_be_baptized_orthodox
+	}
+	}
+	}
+	
+	}
+	effect = {
+	wealth = -100
+	set_character_flag = evangelized_khazaria
+	k_khazaria = {
+	holder_scope = {
+	character_event = { id = moduscarolimagni.2301 days = 2 }
+	set_character_flag = asked_to_be_baptized_orthodox
+	}
+	}
+	}
+	revoke_allowed = {
+	always = no #Not used in vanilla
+	}
+	ai_will_do = {
+    factor = 1
+  }
+	
+	}
+	
+	# Hungary Conversion
+	orthodox_hungary_conversion = {
+	is_high_prio = no # Will show an alert once decision is enabled
+	potential = {
+	has_landed_title = k_orthodox
+	NOT = {
+	year = 1100
+	}
+	year = 950
+	}
+	allow = {
+	wealth = 100
+	k_hungary = {
+	holder_scope = {
+	NOT = {
+	religion_group = christian
+	has_character_flag = asked_to_be_baptized_orthodox
+	}
+	}
+	}
+	
+	}
+	effect = {
+	wealth = -100
+	set_character_flag = evangelized_hungary
+	k_hungary = {
+	holder_scope = {
+	character_event = { id = moduscarolimagni.2301 days = 2 }
+	set_character_flag = asked_to_be_baptized_orthodox
+	}
+	}
+	}
+	revoke_allowed = {
+	always = no #Not used in vanilla
+	}
+	ai_will_do = {
+    factor = 1
+  }
+	
+	}
+	
+	# Serbia Conversion
+	orthodox_serbia_conversion = {
+	is_high_prio = no # Will show an alert once decision is enabled
+	potential = {
+	has_landed_title = k_orthodox
+	NOT = {
+	year = 1000
+	}
+	year = 850
+	}
+	allow = {
+	wealth = 100
+	k_serbia = {
+	holder_scope = {
+	NOT = {
+	religion_group = christian
+	has_character_flag = asked_to_be_baptized_orthodox
+	}
+	}
+	}
+	
+	}
+	effect = {
+	wealth = -100
+	set_character_flag = evangelized_serbia
+	k_serbia = {
+	holder_scope = {
+	character_event = { id = moduscarolimagni.2301 days = 2 }
+	set_character_flag = asked_to_be_baptized_orthodox
+	}
+	}
+	}
+	revoke_allowed = {
+	always = no #Not used in vanilla
+	}
+	ai_will_do = {
+    factor = 1
+  }
+	
+	}
+	
+	# Croatia Conversion
+	orthodox_croatia_conversion = {
+	is_high_prio = no # Will show an alert once decision is enabled
+	potential = {
+	has_landed_title = k_orthodox
+	NOT = {
+	year = 1000
+	}
+	year = 850
+	}
+	allow = {
+	wealth = 100
+	k_croatia = {
+	holder_scope = {
+	NOT = {
+	religion_group = christian
+	has_character_flag = asked_to_be_baptized_orthodox
+	}
+	}
+	}
+	
+	}
+	effect = {
+	wealth = -100
+	set_character_flag = evangelized_croatia
+	k_croatia = {
+	holder_scope = {
+	character_event = { id = moduscarolimagni.2301 days = 2 }
+	set_character_flag = asked_to_be_baptized_orthodox
+	}
+	}
+	}
+	revoke_allowed = {
+	always = no #Not used in vanilla
+	}
+	ai_will_do = {
+    factor = 1
+  }
+	
+	}
+	
+	}
+
+	
+

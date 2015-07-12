@@ -1,0 +1,482 @@
+###########################################
+#                                         #
+# MCM Kingdom of England Decisions        #             
+#                                         #
+#                                         #
+#                                         #
+###########################################
+
+# Written by CMG
+
+
+
+decisions = {
+	#Heptarchy Decisions
+	
+	
+	#Become Bretwalda
+	become_bretwalda = {
+	potential = {
+	NOT = {
+	has_global_flag = england_formed
+	}
+	k_heptarchy = {
+	has_holder = no
+	}
+	culture = saxon
+	}
+	allow = {
+	is_adult = yes
+	prestige = 1000
+	OR = {
+	k_heptarchy = {
+	ROOT = {
+	num_of_realm_counties = { 
+	value = 10 
+	title = prev
+	}
+	}
+	}
+	
+	
+	num_of_duke_titles = 3
+	}
+	}
+	
+	effect = {
+	prestige = 1000
+	set_character_flag = is_bretwalda
+	
+			primary_title = {
+				k_heptarchy = {
+					grant_title = ROOT
+					copy_title_laws = PREV
+					set_coa = PREV
+				}
+			}
+	
+		
+	}
+	
+	revoke_allowed = {
+	always = no
+	}
+	ai_will_do = {
+	factor = 1
+	}
+	}
+	
+	
+	#Form England
+	form_england = {
+	is_high_prio = yes
+	potential = {
+	NOT = {
+	has_global_flag = england_formed
+	}
+	has_landed_title = k_heptarchy
+	}
+	allow = {
+	is_adult = yes
+	culture = saxon
+	ruled_years = 20
+	capital_scope = { TECH_LEGALISM = 2 }
+	}
+	
+	effect = {
+	prestige = 1000
+	set_global_flag = england_formed
+	
+			k_heptarchy = {
+				k_england = {
+					grant_title = ROOT
+					copy_title_laws = PREV
+					set_coa = PREV
+				}
+				destroy_landed_title = this
+			}
+			c_hereford = {
+	de_jure_liege = d_hereford
+	}
+	c_gloucester = {
+	de_jure_liege = d_hereford
+	}
+	c_oxford = {
+	de_jure_liege = d_hereford
+	}
+	c_wiltshire = {
+	de_jure_liege = d_somerset
+	}
+	c_surrey = {
+	de_jure_liege = d_canterbury
+	}
+	c_sussex = {
+	de_jure_liege = d_sussex
+	}
+	c_winchester = {
+	de_jure_liege = d_somerset
+	}
+	c_dorset = {
+	de_jure_liege = d_somerset
+	}
+	c_somerset = {
+	de_jure_liege = d_somerset
+	}
+	c_worcester = {
+	de_jure_liege = d_hereford
+	}
+	c_middlesex = {
+	de_jure_liege = d_bedford
+	}
+	c_northumberland = {
+	de_jure_liege = d_northumberland
+	}
+	c_cumberland = {
+	de_jure_liege = d_northumberland
+	}
+	c_westmorland = {
+	de_jure_liege = d_northumberland
+	}
+	c_durham = {
+	de_jure_liege = d_northumberland
+	}
+	c_york = {
+	de_jure_liege = d_northumberland
+	}
+	c_lancaster = {
+	de_jure_liege = d_northumberland
+	}
+	c_chester = {
+	de_jure_liege = d_hereford
+	}
+	c_lincoln = {
+	de_jure_liege = d_hereford
+	}
+	c_leicester = {
+	de_jure_liege = d_hereford
+	}
+	c_derby = {
+	de_jure_liege = d_hereford
+	}
+	c_shrewsbury = {
+	de_jure_liege = d_hereford
+	}
+	c_warwick = {
+	de_jure_liege = d_hereford
+	}
+	c_northampton = {
+	de_jure_liege = d_hereford
+	}
+	c_bedford = {
+	de_jure_liege = d_hereford
+	}
+	c_norfolk = {
+	de_jure_liege = d_norfolk
+	}
+	c_suffolk = {
+	de_jure_liege = d_norfolk
+	}
+	c_essex = {
+	de_jure_liege = d_bedford
+	}
+	c_kent = {
+	de_jure_liege = d_canterbury
+	}
+	d_hep_northumbria = {
+	holder_scope = {
+	d_northumberland = {
+	grant_title = prev
+	}
+	}
+	destroy_landed_title = this
+	}
+	d_hep_mercia = {
+	holder_scope = {
+	d_hereford = {
+	grant_title = prev
+	}
+	}
+	destroy_landed_title = this
+	}
+	d_hep_east_anglia = {
+	holder_scope = {
+	d_norfolk = {
+	grant_title = prev
+	}
+	}
+	destroy_landed_title = this
+	}
+	d_hep_essex = {
+	holder_scope = {
+	d_bedford = {
+	grant_title = prev
+	}
+	}
+	destroy_landed_title = this
+	}
+	d_hep_kent = {
+	holder_scope = {
+	d_canterbury = {
+	grant_title = prev
+	}
+	}
+	destroy_landed_title = this
+	}
+	d_hep_sussex = {
+	holder_scope = {
+	d_sussex = {
+	grant_title = prev
+	}
+	}
+	destroy_landed_title = this
+	}
+	d_hep_wessex = {
+	holder_scope = {
+	d_somerset = {
+	grant_title = prev
+	}
+	}
+	destroy_landed_title = this
+	}
+	
+		
+	}
+	
+	revoke_allowed = {
+	always = no
+	}
+	ai_will_do = {
+	factor = 1
+	}
+	}
+	
+	#Form England Foreign
+	form_england_foreign = {
+	potential = {
+	NOT = {
+	has_global_flag = england_formed
+	culture = saxon
+	}
+	completely_controls = d_hep_northumbria
+	completely_controls = d_hep_east_anglia
+	completely_controls = d_hep_mercia
+	completely_controls = d_hep_essex
+	completely_controls = d_hep_sussex
+	completely_controls = d_hep_kent
+	completely_controls = d_hep_wessex
+	}
+	allow = {
+	is_adult = yes
+	capital_scope = { TECH_LEGALISM = 2 }
+	}
+	
+	effect = {
+	prestige = 1000
+	set_global_flag = england_formed
+	
+			primary_title = {
+				k_england = {
+					grant_title = ROOT
+					copy_title_laws = PREV
+					set_coa = PREV
+				}
+			}
+	c_hereford = {
+	de_jure_liege = d_hereford
+	}
+	c_gloucester = {
+	de_jure_liege = d_hereford
+	}
+	c_oxford = {
+	de_jure_liege = d_hereford
+	}
+	c_wiltshire = {
+	de_jure_liege = d_somerset
+	}
+	c_surrey = {
+	de_jure_liege = d_canterbury
+	}
+	c_sussex = {
+	de_jure_liege = d_sussex
+	}
+	c_winchester = {
+	de_jure_liege = d_somerset
+	}
+	c_dorset = {
+	de_jure_liege = d_somerset
+	}
+	c_somerset = {
+	de_jure_liege = d_somerset
+	}
+	c_worcester = {
+	de_jure_liege = d_hereford
+	}
+	c_middlesex = {
+	de_jure_liege = d_bedford
+	}
+	c_northumberland = {
+	de_jure_liege = d_northumberland
+	}
+	c_cumberland = {
+	de_jure_liege = d_northumberland
+	}
+	c_westmorland = {
+	de_jure_liege = d_northumberland
+	}
+	c_durham = {
+	de_jure_liege = d_northumberland
+	}
+	c_york = {
+	de_jure_liege = d_northumberland
+	}
+	c_lancaster = {
+	de_jure_liege = d_northumberland
+	}
+	c_chester = {
+	de_jure_liege = d_hereford
+	}
+	c_lincoln = {
+	de_jure_liege = d_hereford
+	}
+	c_leicester = {
+	de_jure_liege = d_hereford
+	}
+	c_derby = {
+	de_jure_liege = d_hereford
+	}
+	c_shrewsbury = {
+	de_jure_liege = d_hereford
+	}
+	c_warwick = {
+	de_jure_liege = d_hereford
+	}
+	c_northampton = {
+	de_jure_liege = d_hereford
+	}
+	c_bedford = {
+	de_jure_liege = d_hereford
+	}
+	c_norfolk = {
+	de_jure_liege = d_norfolk
+	}
+	c_suffolk = {
+	de_jure_liege = d_norfolk
+	}
+	c_essex = {
+	de_jure_liege = d_bedford
+	}
+	c_kent = {
+	de_jure_liege = d_canterbury
+	}
+	d_hep_northumbria = {
+	holder_scope = {
+	d_northumberland = {
+	grant_title = prev
+	}
+	}
+	destroy_landed_title = this
+	}
+	d_hep_mercia = {
+	holder_scope = {
+	d_hereford = {
+	grant_title = prev
+	}
+	}
+	destroy_landed_title = this
+	}
+	d_hep_east_anglia = {
+	holder_scope = {
+	d_norfolk = {
+	grant_title = prev
+	}
+	}
+	destroy_landed_title = this
+	}
+	d_hep_essex = {
+	holder_scope = {
+	d_bedford = {
+	grant_title = prev
+	}
+	}
+	destroy_landed_title = this
+	}
+	d_hep_kent = {
+	holder_scope = {
+	d_canterbury = {
+	grant_title = prev
+	}
+	}
+	destroy_landed_title = this
+	}
+	d_hep_sussex = {
+	holder_scope = {
+	d_sussex = {
+	grant_title = prev
+	}
+	}
+	destroy_landed_title = this
+	}
+	d_hep_wessex = {
+	holder_scope = {
+	d_somerset = {
+	grant_title = prev
+	}
+	}
+	destroy_landed_title = this
+	}
+	
+		
+	}
+	
+	revoke_allowed = {
+	always = no
+	}
+	ai_will_do = {
+	factor = 1
+	}
+	}
+
+	
+	
+	#Reorganize England
+	reorganize_england = {
+	potential = {
+	has_landed_title = k_england
+	NOT = {
+	culture = saxon
+	culture = norse
+	}
+	has_global_flag = england_formed
+	}
+	allow = {
+	is_adult = yes
+	}
+	
+	effect = {
+	set_global_flag = england_reorganized
+	k_england = {
+	any_de_jure_vassal_title = {
+	limit = {
+	tier = count
+	}
+	de_jure_liege = d_england
+	}
+	any_de_jure_vassal_title = {
+	limit ={
+	tier = duke
+	}
+	destroy_landed_title = this
+	}
+	}
+	}
+	
+	revoke_allowed = {
+	always = no
+	}
+	ai_will_do = {
+	factor = 1
+	}
+	}
+	}
+	
+

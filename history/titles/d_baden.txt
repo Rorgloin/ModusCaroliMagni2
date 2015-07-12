@@ -1,0 +1,12 @@
+
+1268.10.29={
+	liege="e_hre"
+	holder = 462316
+	set_global_flag = baden_formed
+}
+1288.1.1={
+	holder = 462314
+}
+1297.1.1={
+holder=462310
+}

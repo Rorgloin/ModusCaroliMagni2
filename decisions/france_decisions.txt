@@ -1,0 +1,602 @@
+###########################################
+#                                         #
+# MCM France Decisions                    #             
+#                                         #
+#                                         #
+#                                         #
+###########################################
+
+# Written by CMG
+
+
+
+decisions = {
+	
+	#Form Auvergne
+	form_auvergne = {
+	potential = {
+	OR = {
+	has_landed_title = k_france
+	has_landed_title = c_auvergne
+	has_landed_title = c_gevaudan
+	is_independent = yes
+	}
+	completely_controls = c_auvergne
+	completely_controls = c_gevaudan
+	NOT = {
+	has_global_flag = auvergne_formed
+	}
+	capital_scope = { TECH_LEGALISM = 5 }
+	}
+	allow = {
+	wealth = 150
+	is_adult = yes
+	hidden_tooltip = {
+	OR = {
+	year = 1337
+	ai = no
+	}
+	}
+	}
+	
+	effect = {
+	wealth = -150
+	prestige = 150
+	set_global_flag = auvergne_formed
+	
+			c_auvergne = {
+			de_jure_liege = d_auvergne
+			}
+			c_gevaudan = {
+			de_jure_liege = d_auvergne
+			}
+			
+	d_auvergne = {
+	gain_title = ROOT
+	}
+	
+		
+	}
+	
+	revoke_allowed = {
+	always = no
+	}
+	ai_will_do = {
+	factor = 1
+	}
+	
+	
+	
+	}
+	
+	#Form Bourbon
+	form_bourbon = {
+	potential = {
+	OR = {
+	has_landed_title = k_france
+	has_landed_title = c_bourbon
+	has_landed_title = c_la_marche
+	has_landed_title = c_limousin
+	is_independent = yes
+	}
+	completely_controls = c_bourbon
+	completely_controls = c_la_marche
+	completely_controls = c_limousin
+	NOT = {
+	has_global_flag = bourbon_formed
+	}
+	capital_scope = { TECH_LEGALISM = 5 }
+	}
+	allow = {
+	wealth = 150
+	is_adult = yes
+	hidden_tooltip = {
+	OR = {
+	year = 1327
+	ai = no
+	}
+	}
+	}
+	
+	effect = {
+	wealth = -150
+	prestige = 150
+	set_global_flag = bourbon_formed
+	
+			c_bourbon = {
+			de_jure_liege = d_bourbon
+			}
+			c_la_marche = {
+			de_jure_liege = d_bourbon
+			}
+			c_limousin = {
+			de_jure_liege = d_bourbon
+			}
+			
+	d_bourbon = {
+	gain_title = ROOT
+	}
+	
+		
+	}
+	
+	revoke_allowed = {
+	always = no
+	}
+	ai_will_do = {
+	factor = 1
+	}
+	
+	
+	
+	}
+	
+	#Form Berry
+	form_berry = {
+	potential = {
+	OR = {
+	has_landed_title = k_france
+	has_landed_title = c_tourraine
+	has_landed_title = c_bourges
+	is_independent = yes
+	}
+	completely_controls = c_tourraine
+	completely_controls = c_bourges
+	NOT = {
+	has_global_flag = berry_formed
+	}
+	capital_scope = { TECH_LEGALISM = 5 }
+	}
+	allow = {
+	wealth = 150
+	is_adult = yes
+	hidden_tooltip = {
+	OR = {
+	year = 1337
+	ai = no
+	}
+	}
+	}
+	
+	effect = {
+	wealth = -150
+	prestige = 150
+	set_global_flag = berry_formed
+	
+			c_tourraine = {
+			de_jure_liege = d_berry
+			}
+			c_bourges = {
+			de_jure_liege = d_berry
+			}
+			
+	d_berry = {
+	gain_title = ROOT
+	}
+	
+		
+	}
+	
+	revoke_allowed = {
+	always = no
+	}
+	ai_will_do = {
+	factor = 1
+	}
+	
+	
+	
+	}
+	
+	
+	#Form Poitou
+	form_poitou = {
+	potential = {
+	OR = {
+	has_landed_title = k_france
+	has_landed_title = c_poitiers
+	has_landed_title = c_thouars
+	has_landed_title = c_saintogne
+	has_landed_title = c_lusignan
+	is_independent = yes
+	}
+	completely_controls = c_poitiers
+	completely_controls = c_thouars
+	completely_controls = c_saintogne
+	completely_controls = c_lusignan
+	NOT = {
+	has_global_flag = poitou_formed
+	}
+	capital_scope = { TECH_LEGALISM = 4 }
+	}
+	allow = {
+	wealth = 150
+	is_adult = yes
+	hidden_tooltip = {
+	OR = {
+	year = 1205
+	ai = no
+	}
+	}
+	}
+	
+	effect = {
+	wealth = -150
+	prestige = 150
+	set_global_flag = poitou_formed
+	
+			c_poitiers = {
+			de_jure_liege = d_poitou
+			}
+			c_thouars = {
+			de_jure_liege = d_poitou
+			}
+			c_saintonge = {
+			de_jure_liege = d_poitou
+			}
+			c_lusignan = {
+			de_jure_liege = d_poitou
+			}
+			
+			
+	d_poitou = {
+	gain_title = ROOT
+	}
+	
+		
+	}
+	
+	revoke_allowed = {
+	always = no
+	}
+	ai_will_do = {
+	factor = 1
+	}
+	
+	
+	
+	}
+	
+	#Form Anjou
+	form_anjou = {
+	potential = {
+	OR = {
+	has_landed_title = k_france
+	has_landed_title = c_anjou
+	has_landed_title = c_maine
+	is_independent = yes
+	}
+	completely_controls = c_anjou
+	completely_controls = c_maine
+	NOT = {
+	has_global_flag = anjou_formed
+	}
+	capital_scope = { TECH_LEGALISM = 1 }
+	}
+	allow = {
+	wealth = 150
+	is_adult = yes
+	hidden_tooltip = {
+	OR = {
+	year = 862
+	ai = no
+	}
+	}
+	}
+	
+	effect = {
+	wealth = -150
+	prestige = 150
+	set_global_flag = anjou_formed
+	
+			c_anjou = {
+			de_jure_liege = d_anjou
+			}
+			c_maine = {
+			de_jure_liege = d_anjou
+			}
+			
+			
+	d_anjou = {
+	gain_title = ROOT
+	}
+	
+		
+	}
+	
+	revoke_allowed = {
+	always = no
+	}
+	ai_will_do = {
+	factor = 1
+	}
+	
+	
+	
+	}
+	
+	#Form Orleans
+	form_orleans = {
+	potential = {
+	OR = {
+	has_landed_title = k_france
+	has_landed_title = c_vendome
+	has_landed_title = c_blois
+	has_landed_title = c_orleans
+	has_landed_title = c_chartres
+	is_independent = yes
+	}
+	completely_controls = c_vendome
+	completely_controls = c_blois
+	completely_controls = c_orleans
+	completely_controls = c_chartres
+	NOT = {
+	has_global_flag = orleans_formed
+	}
+	capital_scope = { TECH_LEGALISM = 5 }
+	}
+	allow = {
+	wealth = 150
+	is_adult = yes
+	hidden_tooltip = {
+	OR = {
+	year = 1337
+	ai = no
+	}
+	}
+	}
+	
+	effect = {
+	wealth = -150
+	prestige = 150
+	set_global_flag = orleans_formed
+	
+			c_vendome = {
+			de_jure_liege = d_orleans
+			}
+			c_blois = {
+			de_jure_liege = d_orleans
+			}
+			c_orleans = {
+			de_jure_liege = d_orleans
+			}
+			c_chartres = {
+			de_jure_liege = d_orleans
+			}
+			
+			
+	d_orleans = {
+	gain_title = ROOT
+	}
+	
+		
+	}
+	
+	revoke_allowed = {
+	always = no
+	}
+	ai_will_do = {
+	factor = 1
+	}
+	
+	
+	
+	}
+	
+	#Form Valois
+	form_valois = {
+	potential = {
+	OR = {
+	has_landed_title = k_france
+	has_landed_title = c_ile_de_france
+	has_landed_title = c_vermandois
+	has_landed_title = c_amiens
+	is_independent = yes
+	}
+	completely_controls = c_ile_de_france
+	completely_controls = c_vermandois
+	completely_controls = c_amiens
+
+	NOT = {
+	has_global_flag = valois_formed
+	}
+	capital_scope = { TECH_LEGALISM = 6 }
+	}
+	allow = {
+	wealth = 150
+	is_adult = yes
+	hidden_tooltip = {
+	OR = {
+	year = 1337
+	ai = no
+	}
+	}
+	}
+	
+	effect = {
+	wealth = -150
+	prestige = 150
+	set_global_flag = valois_formed
+	
+			c_ile_de_france = {
+			de_jure_liege = d_valois
+			}
+			c_vermandois = {
+			de_jure_liege = d_valois
+			}
+			c_amiens = {
+			de_jure_liege = d_valois
+			}
+			
+			
+			
+	d_valois = {
+	gain_title = ROOT
+	}
+	
+		
+	}
+	
+	revoke_allowed = {
+	always = no
+	}
+	ai_will_do = {
+	factor = 1
+	}
+	
+	
+	
+	}
+	
+	#Form Champagne
+	form_champagne = {
+	potential = {
+	OR = {
+	has_landed_title = k_france
+	has_landed_title = c_reims
+	has_landed_title = c_sens
+	has_landed_title = c_troyes
+	is_independent = yes
+	}
+	completely_controls = c_reims
+	completely_controls = c_sens
+	completely_controls = c_troyes
+
+	NOT = {
+	has_global_flag = champagne_formed
+	}
+	capital_scope = { TECH_LEGALISM = 2 }
+	}
+	allow = {
+	wealth = 150
+	is_adult = yes
+	hidden_tooltip = {
+	OR = {
+	year = 956
+	ai = no
+	}
+	}
+	}
+	
+	effect = {
+	wealth = -150
+	prestige = 150
+	set_global_flag = champagne_formed
+	
+			c_reims = {
+			de_jure_liege = d_champagne
+			}
+			c_sens = {
+			de_jure_liege = d_champagne
+			}
+			c_troyes = {
+			de_jure_liege = d_champagne
+			}
+			
+			
+			
+	d_champagne = {
+	gain_title = ROOT
+	}
+	
+		
+	}
+	
+	revoke_allowed = {
+	always = no
+	}
+	ai_will_do = {
+	factor = 1
+	}
+	
+	
+	
+	}
+	
+	#Form Flanders
+	form_flanders = {
+	potential = {
+	OR = {
+	has_landed_title = k_france
+	has_landed_title = c_artois
+	has_landed_title = c_boulogne
+	has_landed_title = c_guines
+	has_landed_title = c_yperen
+	has_landed_title = c_zeeland
+	has_landed_title = c_gent
+	has_landed_title = c_brugge
+	is_independent = yes
+	}
+	completely_controls = c_artois
+	completely_controls = c_boulogne
+	completely_controls = c_guines
+	completely_controls = c_yperen
+	completely_controls = c_zeeland
+	completely_controls = c_gent
+	completely_controls = c_brugge
+
+	NOT = {
+	has_global_flag = flanders_formed
+	}
+	capital_scope = { TECH_LEGALISM = 1 }
+	}
+	allow = {
+	wealth = 150
+	is_adult = yes
+	hidden_tooltip = {
+	OR = {
+	year = 862
+	ai = no
+	}
+	}
+	}
+	
+	effect = {
+	wealth = -150
+	prestige = 150
+	set_global_flag = flanders_formed
+	
+			c_artois = {
+			de_jure_liege = d_flanders
+			}
+			c_boulogne = {
+			de_jure_liege = d_flanders
+			}
+			c_guines = {
+			de_jure_liege = d_flanders
+			}
+			c_yperen = {
+			de_jure_liege = d_flanders
+			}
+			c_zeeland = {
+			de_jure_liege = d_flanders
+			}
+			c_gent = {
+			de_jure_liege = d_flanders
+			}
+			c_brugge = {
+			de_jure_liege = d_flanders
+			}
+			
+			
+			
+	d_flanders = {
+	gain_title = ROOT
+	}
+	
+		
+	}
+	
+	revoke_allowed = {
+	always = no
+	}
+	ai_will_do = {
+	factor = 1
+	}
+	
+	
+	
+	}
+	}
+	
+

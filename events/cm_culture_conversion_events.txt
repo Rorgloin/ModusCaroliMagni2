@@ -1,0 +1,865 @@
+
+###########################################
+#                                         #
+# Charlemagne culture conversion events   #
+#                                         #
+# ID CM.1-CM.499                          #
+#                                         #
+###########################################
+
+# Written by Tobias Bodlund, Edits by Carolus Magnus
+
+namespace = CM
+
+###########################################
+# Province conversions                    #
+###########################################
+
+# Pictish province converts to Scottish
+province_event = {
+	id = CM.1
+	desc = EVTDESC_CM_1
+	picture = GFX_evt_stone_church
+
+	trigger = {
+	OR = {
+	AND = {
+	culture = pictish
+	owner = {
+			NOT = {	culture = pictish }
+		}
+	}
+	AND = {
+	culture = pictish
+	
+	county = {
+			kingdom = { title = k_scotland }	
+		}
+	}
+	AND = {
+		culture = irish
+		NOT = {year = 867}
+		county = {
+			kingdom = { title = k_scotland }	
+		}
+		
+	}
+	AND = {
+		culture = welsh
+		NOT = {year = 867}
+		county = {
+			kingdom = { title = k_scotland }	
+		
+		}
+		}
+	}
+	}
+	
+	mean_time_to_happen = {
+		months = 600
+	}
+
+	option = {
+		name = EVTOPTA_CM_1
+		culture = scottish
+	}
+}
+
+# Lombard province converts to Italian
+province_event = {
+	id = CM.2
+	desc = EVTDESC_CM_2
+	picture = GFX_evt_stone_church
+
+	trigger = {
+		culture = lombard
+		county = {
+			OR = {
+			kingdom = { title = k_italy }
+			kingdom = { title = k_sicily }
+			}	
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 600
+		modifier = {
+			factor = 0.3
+			owner = {
+				culture_group = latin
+			}
+		}
+	}
+
+	option = {
+		name = EVTOPTA_CM_2
+		culture = italian
+	}
+}
+
+# Old Saxon or German or Old Frankish or Frisian province converts to Dutch
+province_event = {
+	id = CM.3
+	desc = EVTDESC_CM_3
+	picture = GFX_evt_tribal_lands
+
+	trigger = {
+		OR = {
+		province_id = 76
+		province_id = 78
+		province_id = 79
+		province_id = 80
+		province_id = 81
+		province_id = 82
+		province_id = 83
+		province_id = 84
+		province_id = 92
+		province_id = 93
+		province_id = 117
+		}
+		OR = {
+			culture = old_frankish
+			culture = frisian
+			culture = german
+			AND = {
+				culture = old_saxon
+				has_global_flag = widukind_spawned
+			}
+		}
+		
+	}
+	
+	mean_time_to_happen = {
+		months = 600
+		modifier = {
+			factor = 0.5
+			owner = {
+				culture = dutch
+			}
+		}
+	}
+
+	option = {
+		name = EVTOPTA_CM_3
+		culture = dutch
+	}
+}
+
+# Old Saxon province converts to German
+province_event = {
+	id = CM.4
+	desc = EVTDESC_CM_4
+	picture = GFX_evt_tribal_lands
+
+	trigger = {
+		culture = old_saxon
+		NOT = {
+		
+		province_id = 76
+		province_id = 78
+		province_id = 79
+		province_id = 80
+		province_id = 81
+		province_id = 82
+		province_id = 83
+		province_id = 84
+		province_id = 92
+		province_id = 93
+		province_id = 117
+		
+		}
+		
+		owner = {
+			NOT = {culture = old_saxon}
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 600
+		modifier = {
+			factor = 0.5
+			owner = {
+				culture = german
+			}
+		}
+	}
+
+	option = {
+		name = EVTOPTA_CM_4
+		culture = german
+	}
+}
+
+# Old Frankish province converts to French
+province_event = {
+	id = CM.5
+	desc = EVTDESC_CM_5
+	picture = GFX_evt_stone_church
+
+	trigger = {
+		year = 776
+		culture = old_frankish
+		OR = {
+		county = {
+			kingdom = { title = k_france }
+		}
+		county = {
+			kingdom = { title = k_burgundy }
+		}
+		county = {
+			kingdom = { title = k_brittany }
+		}
+		province_id = 94
+		province_id = 116
+		province_id = 76
+		province_id = 133
+		province_id = 115
+		province_id = 129
+		province_id = 930
+		}
+		NOT = {
+		
+		province_id = 76
+		province_id = 78
+		province_id = 79
+		province_id = 80
+		province_id = 81
+		province_id = 82
+		province_id = 83
+		province_id = 84
+		province_id = 92
+		province_id = 93
+		province_id = 117
+		
+		}
+		
+		
+		}
+	
+	mean_time_to_happen = {
+		months = 600
+		modifier = {
+			factor = 0.5
+			owner = {
+				culture_group = latin
+			}
+		}
+	}
+
+	option = {
+		name = EVTOPTA_CM_5
+		culture = frankish
+	}
+}
+
+# Visigothic province converts to Occitan
+province_event = {
+	id = CM.6
+	desc = EVTDESC_CM_6
+	picture = GFX_evt_stone_church
+
+	trigger = {
+		culture = visigothic
+		NOT = { religion_group = muslim }
+		OR = {
+		county = {
+			kingdom = { title = k_france }
+		}
+		county = {
+			kingdom = { title = k_burgundy }
+		}
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 600
+		modifier = {
+			factor = 0.5
+			owner = {
+				culture = occitan
+			}
+		}
+	}
+
+	option = {
+		name = EVTOPTA_CM_6
+		culture = occitan
+	}
+}
+
+# Visigothic province converts to Castilian
+province_event = {
+	id = CM.7
+	desc = EVTDESC_CM_7
+	picture = GFX_evt_stone_church
+
+	trigger = {
+		culture = visigothic
+		NOT = { religion_group = muslim }
+		year = 867
+		OR = {
+			county = { kingdom = { title = k_castille } }
+			county = { kingdom = { title = k_asturias } }
+			county = { kingdom = { title = k_leon } }
+			county = { kingdom = { title = k_spanish_galicia } }
+			owner = { culture = castillan }
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 600
+		modifier = {
+			factor = 0.5
+			owner = {
+				culture = castillan
+			}
+		}
+	}
+
+	option = {
+		name = EVTOPTA_CM_7
+		culture = castillan
+	}
+}
+
+# Visigothic province converts to Catalan
+province_event = {
+	id = CM.8
+	desc = EVTDESC_CM_8
+	picture = GFX_evt_stone_church
+	
+	trigger = {
+		culture = visigothic
+		NOT = { religion_group = muslim }
+		year = 867
+		OR = {
+			county = { kingdom = { title = k_aragon } }
+			owner = { culture = catalan }
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 600
+		modifier = {
+			factor = 0.5
+			owner = {
+				culture = catalan
+			}
+		}
+	}
+
+	option = {
+		name = EVTOPTA_CM_8
+		culture = catalan
+	}
+}
+
+# Suebi province converts to Portuguese
+province_event = {
+	id = CM.9
+	desc = EVTDESC_CM_9
+	picture = GFX_evt_stone_church
+
+	trigger = {
+		culture = suebi
+		year = 867
+		NOT = { religion_group = muslim }
+		OR = {
+			county = { kingdom = { title = k_spanish_galicia } }
+			county = { kingdom = { title = k_portugal } }
+			county = { kingdom = { title = k_asturias } }
+			county = { kingdom = { title = k_leon } }
+			county = { kingdom = { title = k_castile } }
+			county = { kingdom = { title = k_andalusia } }
+			owner = { culture = portuguese }
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 600
+		modifier = {
+			factor = 0.5
+			owner = {
+				culture = portuguese
+			}
+		}
+	}
+
+	option = {
+		name = EVTOPTA_CM_9
+		culture = portuguese
+	}
+}
+
+# Visigothic province converts to Andalusian
+province_event = {
+	id = CM.10
+	desc = EVTDESC_CM_10
+	picture = GFX_evt_monk_muslim
+
+	trigger = {
+		culture = visigothic
+		religion_group = muslim
+		year = 867
+		OR = {
+			county = { kingdom = { title = k_andalusia } }
+			owner = { culture_group = arabic }
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 600
+		modifier = {
+			factor = 0.5
+			owner = {
+				culture_group = arabic
+			}
+		}
+	}
+
+	option = {
+		name = EVTOPTA_CM_10
+		culture = andalusian_arabic
+	}
+}
+
+# East Slavic province becomes Russian
+province_event = {
+	id = CM.11
+	desc = EVTDESC_CM_11
+	picture = GFX_evt_tribal_lands
+
+	trigger = {
+		culture_group = east_slavic
+		year = 865
+		NOT = { culture = russian }
+		owner = {
+			OR = {
+				culture = russian
+				AND = {
+					NOT = { culture_group = east_slavic }
+					NOT = { culture_group = finno_ugric }
+				}
+				NOT = { religion_group = pagan_group }
+				AND = {
+					religion_group = pagan_group
+					is_reformed_religion = yes
+				}
+			}
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 600
+	}
+
+	option = {
+		name = EVTOPTA_CM_11
+		culture = russian
+	}
+}
+
+# Old Frankish province converts to German NEW DEFAULT
+province_event = {
+	id = CM.11
+	desc = EVTDESC_CM_11
+	picture = GFX_evt_stone_church
+
+	trigger = {
+		year = 776
+		culture = old_frankish
+		
+		AND = {
+		NOT = {
+		
+		province_id = 76
+		province_id = 78
+		province_id = 79
+		province_id = 80
+		province_id = 81
+		province_id = 82
+		province_id = 83
+		province_id = 84
+		province_id = 92
+		province_id = 93
+		province_id = 117
+		province_id = 94
+		province_id = 116
+		province_id = 76
+		province_id = 133
+		province_id = 115
+		province_id = 129
+		province_id = 930
+		}
+		
+		NOT = {county = { kingdom = { title = k_france } }}
+		NOT = {county = { kingdom = { title = k_burgundy } }}
+		NOT = {county = { kingdom = { title = k_brittany } }}
+		NOT = {county = { kingdom = { title = k_italy } }}
+		NOT = {county = { kingdom = { title = k_sicily } }}
+		}
+		
+		}
+	
+	mean_time_to_happen = {
+		months = 600
+		modifier = {
+			factor = 0.5
+			owner = {
+				culture = german
+			}
+		}
+	}
+
+	option = {
+		name = EVTOPTA_CM_11
+		culture = german
+	}
+}
+
+# Old Frankish province converts to Italian
+province_event = {
+	id = CM.12
+	desc = EVTDESC_CM_12
+	picture = GFX_evt_stone_church
+
+	trigger = {
+		year = 776
+		culture = old_frankish
+		OR = {
+		county = {
+			kingdom = { title = k_italy }
+		}
+		county = {
+			kingdom = { title = k_sicily }
+		}
+
+		}
+		}
+	
+	mean_time_to_happen = {
+		months = 600
+		modifier = {
+			factor = 0.5
+			owner = {
+				culture_group = latin
+			}
+		}
+	}
+
+	option = {
+		name = EVTOPTA_CM_12
+		culture = italian
+	}
+}
+
+# Old Frankish province converts to Castillan
+province_event = {
+	id = CM.13
+	desc = EVTDESC_CM_13
+	picture = GFX_evt_stone_church
+
+	trigger = {
+		year = 776
+		culture = old_frankish
+		OR = {
+		county = {
+			kingdom = { title = k_navarra }
+		}
+		county = {
+			kingdom = { title = k_castille }
+		}
+		county = {
+			kingdom = { title = k_leon }
+		}
+		county = {
+			kingdom = { title = k_asturias }
+		}
+		county = {
+			kingdom = { title = k_galicia }
+		}
+		county = {
+			kingdom = { title = k_andalusia }
+		}
+		}
+		}
+	
+	mean_time_to_happen = {
+		months = 600
+		modifier = {
+			factor = 0.5
+			owner = {
+				culture_group = iberian
+			}
+		}
+	}
+
+	option = {
+		name = EVTOPTA_CM_13
+		culture = castillan
+	}
+}
+
+# Old Frankish province converts to Catalan
+province_event = {
+	id = CM.14
+	desc = EVTDESC_CM_14
+	picture = GFX_evt_stone_church
+
+	trigger = {
+		year = 776
+		culture = old_frankish
+		county = {
+			kingdom = { title = k_aragon }
+		}
+		}
+	
+	mean_time_to_happen = {
+		months = 600
+		modifier = {
+			factor = 0.5
+			owner = {
+				culture_group = iberian
+			}
+		}
+	}
+
+	option = {
+		name = EVTOPTA_CM_14
+		culture = catalan
+	}
+}
+
+# Old Frankish province converts to Portuguese
+province_event = {
+	id = CM.15
+	desc = EVTDESC_CM_15
+	picture = GFX_evt_stone_church
+
+	trigger = {
+		year = 776
+		culture = old_frankish
+		county = {
+			kingdom = { title = k_portugal }
+		}
+		}
+	
+	mean_time_to_happen = {
+		months = 600
+		modifier = {
+			factor = 0.5
+			owner = {
+				culture_group = latin
+			}
+		}
+	}
+
+	option = {
+		name = EVTOPTA_CM_15
+		culture = portuguese
+	}
+}
+
+# Lombard province converts to German
+province_event = {
+	id = CM.16
+	desc = EVTDESC_CM_16
+	picture = GFX_evt_stone_church
+
+	trigger = {
+		year = 776
+		culture = lombard
+		county = {
+			NOT = {
+			kingdom = {title = k_italy}
+			kingdom = {title = k_sicily}
+			kingdom = {title = k_france}
+			kingdom = {title = k_burgundy}
+			kingdom = {title = k_aragon}
+			kingdom = {title = k_castile}
+			kingdom = {title = k_leon}
+			kingdom = {title = k_galicia}
+			kingdom = {title = k_portugal}
+			kingdom = {title = k_andalusia}
+			}
+		}
+		}
+	
+	mean_time_to_happen = {
+		months = 600
+		modifier = {
+			factor = 0.5
+			owner = {
+				culture = german
+			}
+		}
+	}
+
+	option = {
+		name = EVTOPTA_CM_16
+		culture = german
+	}
+}
+# Lombard province converts to Occitan
+province_event = {
+	id = CM.17
+	desc = EVTDESC_CM_17
+	picture = GFX_evt_stone_church
+
+	trigger = {
+		year = 776
+		culture = lombard
+		county = {
+			OR {
+			kingdom = {title = k_france}
+			kingdom = {title = k_burgundy}
+			}
+			
+		}
+		}
+	
+	mean_time_to_happen = {
+		months = 600
+		modifier = {
+			factor = 0.5
+			owner = {
+				culture_group = latin
+			}
+		}
+	}
+
+	option = {
+		name = EVTOPTA_CM_15
+		culture = occitan
+	}
+}
+# Lombard province converts to Catalan
+province_event = {
+	id = CM.18
+	desc = EVTDESC_CM_18
+	picture = GFX_evt_stone_church
+
+	trigger = {
+		year = 776
+		culture = lombard
+		county = {
+			
+			kingdom = {title = k_aragon}
+
+
+			
+		}
+		}
+	
+	mean_time_to_happen = {
+		months = 600
+		modifier = {
+			factor = 0.5
+			owner = {
+				culture_group = iberian
+			}
+		}
+	}
+
+	option = {
+		name = EVTOPTA_CM_18
+		culture = catalan
+	}
+}
+# Lombard province converts to Castillan
+province_event = {
+	id = CM.19
+	desc = EVTDESC_CM_19
+	picture = GFX_evt_stone_church
+
+	trigger = {
+		year = 776
+		culture = lombard
+		county = {
+			
+			kingdom = {title = k_castile}
+			kingdom = {title = k_leon}
+			kingdom = {title = k_galicia}
+			kingdom = {title = k_andalusia}
+			
+		}
+		}
+	
+	mean_time_to_happen = {
+		months = 600
+		modifier = {
+			factor = 0.5
+			owner = {
+				culture_group = iberian
+			}
+		}
+	}
+
+	option = {
+		name = EVTOPTA_CM_19
+		culture = castillan
+	}
+}
+
+# Lombard province converts to Portuguese
+province_event = {
+	id = CM.20
+	desc = EVTDESC_CM_20
+	picture = GFX_evt_stone_church
+
+	trigger = {
+		year = 776
+		culture = lombard
+		county = {
+			
+			kingdom = {title = k_portugal}
+			
+		}
+		}
+	
+	mean_time_to_happen = {
+		months = 600
+		modifier = {
+			factor = 0.5
+			owner = {
+				culture_group = iberian
+			}
+		}
+	}
+
+	option = {
+		name = EVTOPTA_CM_20
+		culture = portuguese
+	}
+}
+
+# Bolghar Province in de jure Byzantine Empire becomes Bulgarian
+province_event = {
+	id = CM.21
+	desc = EVTDESC_CM_21
+	picture = GFX_evt_tribal_lands
+
+	trigger = {
+		culture = bolghar
+		OR = {
+		county = {
+			empire = { title = e_byzantium }
+		}
+		county = {
+			kingdom = { title = k_wallachia }
+		}
+		county = {
+			kingdom = { title = k_hungary }
+		}
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 100
+	}
+
+	option = {
+		name = EVTOPTA_CM_21
+		culture = bulgarian
+	}
+}

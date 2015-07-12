@@ -1,0 +1,198 @@
+
+###########################################
+#                                         #
+# Charlemagne Story Events                #             
+#                                         #
+# ID moduscarolimagni 5000 - 5999         #
+#                                         #
+###########################################
+
+# Written by Carolus Magnus
+namespace = moduscarolimagni
+##################################
+# Charlemagne Events 5000-5100
+##################################
+# Pope invites Charlemagne to invade Lombardy
+
+# Invasion of Lombardy at behest of Pope
+Charlemagne receives a letter
+character_event = {
+	id = moduscarolimagni.5001
+	desc = EVTDESCmoduscarolimagni.5001
+
+	trigger = {
+		has_landed_title = k_france
+		year = 772
+		has_character_flag = is_charlemagne
+		NOT = {has_global_flag = pope_charlemagne_aid}
+	}
+	
+	mean_time_to_happen = {
+	months = 1
+	}
+	
+	immediate = {
+	set_global_flag = pope_charlemagne_aid
+	}
+	
+	option = {
+	name = "EVTOPTAmoduscarolimagni.5001"
+	spawn_unit = {
+	owner = ROOT
+	province = ROOT
+	home = ROOT
+	 troops = {
+    knights = { 10000 10000 }
+  }
+  attrition = 0
+  disband_on_peace = yes
+  maintenance_multiplier = 0.01
+  
+}
+	ai_chance = {
+	factor = 1000
+	}
+	add_claim = k_italy
+		k_italy = {
+			holder_scope = {
+				reverse_war = {
+					target = ROOT
+					casus_belli = claim
+					thirdparty_title = PREV
+				}
+			}
+		}
+	
+	}
+	
+	option = {
+	name = "EVTOPTBmoduscarolimagni.5001"
+	ai_chance = {
+	factor = 1
+	}
+	}
+}
+
+# Removal of Incapable, Maimed and Infirm traits before 800
+character_event = {
+id = moduscarolimagni.5002
+	desc = EVTDESCmoduscarolimagni.5002
+	hide_window = yes
+	trigger = {
+		NOT = {year = 800}
+		has_character_flag = is_charlemagne
+		OR = {
+		trait = incapable
+		trait = infirm
+		trait = maimed
+		}
+	}
+	
+	mean_time_to_happen = {
+	days = 1
+	}
+	
+	immediate = {
+	remove_trait = incapable
+	remove_trait = infirm
+	remove_trait = maimed
+	}
+	
+
+
+}
+
+# Removal of Illness Traits before 800
+character_event = {
+id = moduscarolimagni.5003
+	desc = EVTDESCmoduscarolimagni.5003
+	hide_window = yes
+	trigger = {
+		NOT = {year = 800}
+		has_character_flag = is_charlemagne
+		is_ill = yes
+	}
+	
+	mean_time_to_happen = {
+	days = 1
+	}
+	
+	immediate = {
+	cure_illness = yes
+	}
+	
+
+
+}
+# Charlemagne Health 769
+character_event = {
+id = moduscarolimagni.5004
+	desc = EVTDESCmoduscarolimagni.5004
+	hide_window = yes
+	trigger = {
+		NOT = {has_character_flag = charlemagne_health_boost}
+		has_character_flag = is_charlemagne
+
+	}
+	
+	mean_time_to_happen = {
+	days = 1
+	}
+	
+	immediate = {
+	health = 12
+	}
+	
+
+
+}
+
+# Charlemagne Health Cut 814
+character_event = {
+id = moduscarolimagni.5005
+	desc = EVTDESCmoduscarolimagni.5005
+	hide_window = yes
+	trigger = {
+		year = 814
+		NOT = {has_character_flag = charlemagne_health_cut}
+		has_character_flag = is_charlemagne
+		has_character_flag = charlemagne_health_boost
+
+	}
+	
+	mean_time_to_happen = {
+	days = 1
+	}
+	
+	immediate = {
+	health = -12
+	}
+	
+
+
+}
+
+# Charlemagne Destroys Saxony
+character_event = {
+id = moduscarolimagni.5006
+	desc = EVTDESCmoduscarolimagni.5006
+	hide_window = yes
+	trigger = {
+		has_character_flag = is_charlemagne
+		has_landed_title = k_saxony
+
+	}
+	
+	mean_time_to_happen = {
+	days = 1
+	}
+	
+	immediate = {
+	k_saxony = {
+	destroy_landed_title = THIS
+	}
+	}
+	
+
+
+}

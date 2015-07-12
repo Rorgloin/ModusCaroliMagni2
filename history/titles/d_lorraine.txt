@@ -1,0 +1,31 @@
+903.1.1={
+	liege = "k_lotharingia"
+}
+903.1.1={
+	holder = 7961 #Gebhard
+}
+910.6.22={
+	holder = 7812 #Reginar
+}
+915.1.1={
+	holder = 7813 #Giselbert
+}
+923.1.1={
+	liege=k_germany
+}
+939.10.2={
+	holder = 1292 #Heinrich
+}
+940.1.1={
+	holder = 144993 #Otto
+}
+944.1.1={
+	holder = 1306 #Konrad
+}
+953.1.1={
+	holder = 1290 #Bruno
+}
+959.1.1={
+	holder = 0 #split
+	set_global_flag = lorraine_split
+}

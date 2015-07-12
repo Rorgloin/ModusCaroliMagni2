@@ -1,0 +1,58 @@
+
+###########################################
+#                                         #
+# Kingdom of France Events                #             
+#                                         #
+# ID moduscarolimagni 3200 - 3299         #
+#                                         #
+###########################################
+
+# Written by Carolus Magnus
+namespace = moduscarolimagni
+
+# Elect a King of France
+narrative_event = {
+	id = moduscarolimagni.3200
+	title = EVTNAMEmoduscarolimagni.3200
+	desc = EVTDESCmoduscarolimagni.3200
+	picture = GFX_evt_cathedral
+	border = GFX_event_narrative_frame_diplomacy
+
+	
+	trigger = {
+		has_landed_title = c_paris
+		is_adult = yes
+		female = no
+		e_karling = {
+		has_holder = no
+		}
+		k_france = {
+		has_holder = no
+		}
+		NOT = {
+		year = 1000
+		}
+	}
+	mean_time_to_happen = {
+	months = 30
+	}
+	option = {
+		name = EVTOPTAmoduscarolimagni.3200
+		
+		k_france = {
+			grant_title = root
+			add_law_w_cooldown = crown_authority_0
+			add_law = succ_primogeniture
+		}
+		d_france = {
+		any_de_jure_vassal = {
+		NOT = {
+		tier = baron
+		}
+		liege = k_france
+		}
+		}
+		
+	}
+}
+

@@ -1,0 +1,14 @@
+600.1.1={
+	holder=0 # to Mercia
+}
+758.1.1={
+	holder = 205072
+}
+852.1.1={
+	holder = 163102
+}
+1066.1.1={
+	holder = 0
+	de_jure_liege = k_england
+}
+

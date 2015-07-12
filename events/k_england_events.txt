@@ -1,0 +1,44 @@
+
+###########################################
+#                                         #
+# Kingdom of England Events               #             
+#                                         #
+# ID moduscarolimagni 3100 - 3199         #
+#                                         #
+###########################################
+
+# Written by Carolus Magnus
+namespace = moduscarolimagni
+##################################
+# Heptarchy Events 3100-3120
+##################################
+
+# Bretwalda cannot pass to heir
+narrative_event = {
+	id = moduscarolimagni.3100
+	title = EVTNAMEmoduscarolimagni.3100
+	desc = EVTDESCmoduscarolimagni.3100
+	picture = GFX_evt_cathedral
+	border = GFX_event_narrative_frame_diplomacy
+	is_high_prio = yes
+
+	
+	trigger = {
+		has_landed_title = k_heptarchy
+		NOT = {
+			has_character_flag = is_bretwalda
+		}
+	}
+	mean_time_to_happen = {
+	days = 1
+	}
+	option = {
+		name = EVTOPTAmoduscarolimagni.3100
+		
+		k_heptarchy = {
+			destroy_landed_title = THIS
+		}
+		
+	}
+}
+

@@ -1,0 +1,1995 @@
+
+###########################################
+#                                         #
+# Historical Conquest Events              #             
+#                                         #
+# ID moduscarolimagni 1000-1999           #
+#                                         #
+###########################################
+
+# Written by Carolus Magnus
+namespace = moduscarolimagni
+##################################
+# Magyar Invasion 1000-1019
+##################################
+
+# Arpad distinguishes himself in Korsun
+character_event = {
+	id = moduscarolimagni.1000
+	desc = EVTDESCmoduscarolimagni.1000
+	
+	picture = GFX_evt_mongols
+	border = GFX_event_normal_frame_war
+	
+	only_playable = yes
+	
+	trigger = {
+		year = 860
+		NOT = { year = 866 }
+		
+		has_landed_title = c_korsun
+		NOT = { has_global_flag = arpad_spawned }
+	}
+	
+	mean_time_to_happen = {
+		months = 1
+	}
+	
+	immediate = {
+		create_character = {
+			random_traits = no
+			dynasty = 708 # Arpad
+			name = "Arpad"
+			culture = hungarian
+			religion = ROOT
+			age = 18
+			attributes = {
+				martial = 14
+				diplomacy = 19
+				stewardship = 11
+				intrigue = 9
+				learning = 6
+			}
+			health = 7
+			fertility = 0.8
+			trait = brilliant_strategist
+			trait = ambitious
+			trait = just
+			trait = strong
+			trait = patient
+		}
+		new_character = {
+			character_event = {
+				id = moduscarolimagni.1001
+				days = 2
+				#random = 730
+			}
+			set_character_flag = arpad_himself
+		}
+	}
+	
+	option = { # A most capable young man
+		name = EVTOPTAmoduscarolimagni.1000
+		
+		set_global_flag = arpad_spawned
+		set_global_flag = arpad_spawned_by_event
+		
+		tooltip = {
+			create_character = {
+			random_traits = no
+			dynasty = 708 # Arpad
+			name = "Arpad"
+			culture = hungarian
+			religion = ROOT
+			age = 18
+			attributes = {
+				martial = 14
+				diplomacy = 19
+				stewardship = 11
+				intrigue = 9
+				learning = 6
+			}
+			health = 7
+			fertility = 0.8
+			trait = brilliant_strategist
+			trait = ambitious
+			trait = just
+			trait = strong
+			trait = patient
+		}
+		}
+	}
+}
+
+# Arpad and his men consider starting an adventure
+character_event = {
+	id = moduscarolimagni.1001
+	desc = EVTDESCmoduscarolimagni.1001
+	
+	picture = GFX_evt_mongols
+	border = GFX_event_normal_frame_war
+	
+	is_triggered_only = yes
+	
+	prisoner = no
+	only_capable = yes
+	
+	trigger = {
+		is_alive = yes
+		NOT = { trait = blinded }
+		NOT = { trait = eunuch }
+		NOT = { trait = infirm }
+		lower_tier_than = king
+		
+		OR = {
+			522 = { # Pest
+				owner = {
+					NOT = { same_realm = ROOT }
+				}
+			}
+			520 = { # Bihar
+				owner = {
+					NOT = { same_realm = ROOT }
+				}
+			}
+			518 = { # Bacs
+				owner = {
+					NOT = { same_realm = ROOT }
+				}
+			}
+		}
+	}
+	
+	option = { # Pest it is!
+		name = EVTOPTAmoduscarolimagni.1001
+		trigger = {
+			522 = { # Pest
+				owner = {
+					NOT = { same_realm = ROOT }
+				}
+			}
+		}
+		
+		ai_chance = {
+			factor = 10000
+		}
+		
+		522 = {
+			province_event = {
+				id = moduscarolimagni.1002
+				days = 2
+			}
+		}
+	}
+	option = { # Bihar
+		name = EVTOPTBmoduscarolimagni.1001
+		trigger = {
+			520 = { # Bihar
+				owner = {
+					NOT = { same_realm = ROOT }
+				}
+			}
+		}
+		
+		ai_chance = {
+			factor = 1000
+		}
+		
+		520 = {
+			province_event = {
+				id = moduscarolimagni.1002
+				days = 2
+			}
+		}
+	}
+	option = { # Bacs
+		name = EVTOPTCmoduscarolimagni.1001
+		trigger = {
+			518 = { # Bacs
+				owner = {
+					NOT = { same_realm = ROOT }
+				}
+			}
+		}
+		
+		ai_chance = {
+			factor = 100
+		}
+		
+		518 = {
+			province_event = {
+				id = moduscarolimagni.1002
+				days = 2
+			}
+		}
+	}
+}
+
+# Ping the target province
+province_event = {
+	id = moduscarolimagni.1002
+	desc = OK
+	
+	hide_window = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = OK
+		if = {
+			limit = {
+				FROM = {
+					is_ruler = yes
+				}
+			}
+			FROM = {
+				character_event = {
+					id = moduscarolimagni.1004
+				}
+			}
+		}
+		if = {
+			limit = {
+				FROM = {
+					is_ruler = no
+				}
+			}
+			FROM = {
+				character_event = {
+					id = moduscarolimagni.1003
+				}
+			}
+		}
+	}
+}
+
+# The landless Arpad and his men start an adventure
+character_event = {
+	id = moduscarolimagni.1003
+	desc = OK
+	
+	hide_window = yes
+	
+	is_triggered_only = yes
+	
+	prisoner = no
+	only_capable = yes
+	
+	trigger = {
+		is_alive = yes
+		NOT = { trait = blinded }
+		NOT = { trait = eunuch }
+		NOT = { trait = infirm }
+		lower_tier_than = king
+	}
+	
+	immediate = {
+		wealth = 500
+		
+		any_liege = {
+			character_event = {
+				id = moduscarolimagni.1005
+				days = 1
+			}
+		}
+		
+		liege = {
+			capital_scope = {
+				FROM = {
+					owner = {
+						top_liege = {
+							ROOT = {
+								set_defacto_liege = ROOT
+								create_title = {
+									tier = DUKE
+									landless = yes
+									temporary = yes
+									culture = ROOT
+									name = "CLAIMANT_ADVENTURE"
+									holder = ROOT
+								}
+								
+								set_character_flag = duchy_adventurer
+								
+								spawn_unit = {
+									province = PREVPREVPREVPREV
+									home = PREVPREVPREVPREV
+									owner = THIS
+									leader = THIS
+									match_character = PREV
+									match_mult = 0.33
+									match_min = 500
+									match_max = 10000
+									attrition = 0.25
+								}
+								spawn_unit = {
+									province = PREVPREVPREVPREV
+									home = PREVPREVPREVPREV
+									owner = THIS
+									match_character = PREV
+									match_mult = 0.33
+									match_min = 500
+									match_max = 10000
+									attrition = 0.25
+								}
+								spawn_unit = {
+									province = PREVPREVPREVPREV
+									home = PREVPREVPREVPREV
+									owner = THIS
+									match_character = PREV
+									match_mult = 0.33
+									match_min = 500
+									match_max = 10000
+									attrition = 0.25
+								}
+								spawn_unit = {
+									province = PREVPREVPREVPREV
+									home = PREVPREVPREVPREV
+									owner = THIS
+									match_character = PREV
+									match_mult = 0.33
+									match_min = 500
+									match_max = 10000
+									attrition = 0.25
+								}
+								spawn_unit = {
+									province = PREVPREVPREVPREV
+									home = PREVPREVPREVPREV
+									owner = THIS
+									match_character = PREV
+									match_mult = 0.33
+									match_min = 500
+									match_max = 10000
+									attrition = 0.25
+								}
+								spawn_unit = {
+									province = PREVPREVPREVPREV
+									home = PREVPREVPREVPREV
+									owner = THIS
+									match_character = PREV
+									match_mult = 0.33
+									match_min = 500
+									match_max = 10000
+									attrition = 0.25
+								}
+								spawn_unit = {
+								province = prevprevprevprev
+								home = prevprevprevprev
+								owner = this
+								troops =
+				{
+					horse_archers = { 5700 5700 }
+					light_cavalry = { 1600 1600 }
+					light_infantry = { 541 541 }
+					heavy_infantry = { 210 210 }
+					knights = { 47 47 }
+				}
+				attrition = 0
+				disband_on_peace = no
+				maintenance_multiplier = 0.1
+								}
+								war = {
+									target = PREV
+									casus_belli = duchy_adventure
+									thirdparty_title = PREVPREVPREV
+									tier = DUKE
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+		
+		
+		# Create some characters
+		create_random_soldier = {
+			random_traits = yes
+			dynasty = none
+			religion = ROOT
+			culture = ROOT
+			female = no
+			age = 30
+		}
+		create_random_soldier = {
+			random_traits = yes
+			dynasty = none
+			religion = ROOT
+			culture = ROOT
+			female = no
+			age = 25
+		}
+		create_random_soldier = {
+			random_traits = yes
+			dynasty = none
+			religion = ROOT
+			culture = ROOT
+			female = no
+			age = 22
+		}
+		create_character = {
+			random_traits = yes
+			dynasty = none
+			religion = ROOT
+			culture = ROOT
+			female = yes
+			age = 16
+		}
+		create_character = {
+			random_traits = yes
+			dynasty = none
+			religion = ROOT
+			culture = ROOT
+			female = yes
+			age = 17
+		}
+		create_character = {
+			random_traits = yes
+			dynasty = none
+			religion = ROOT
+			culture = ROOT
+			female = yes
+			age = 18
+		}
+		
+		log = "moduscarolimagni.1003: Arpad starts his first war as a landless character!"
+	}
+	
+	option = {
+		name = OK
+	}
+}
+
+# The landed Arpad and his men start an adventure
+character_event = {
+	id = moduscarolimagni.1004
+	desc = EVTDESCmoduscarolimagni.1004
+	
+	picture = GFX_evt_mongols
+	border = GFX_event_normal_frame_war
+	
+	is_triggered_only = yes
+	
+	prisoner = no
+	only_capable = yes
+	
+	trigger = {
+		is_alive = yes
+		NOT = { trait = blinded }
+		NOT = { trait = eunuch }
+		NOT = { trait = infirm }
+		lower_tier_than = king
+	}
+	
+	immediate = {
+		wealth = 500
+		
+		any_liege = {
+			character_event = {
+				id = moduscarolimagni.1005
+				days = 1
+			}
+		}
+		
+		FROM = {
+			owner = {
+				top_liege = {
+					ROOT = {
+						capital_scope = {
+							ROOT = {
+								set_character_flag = duchy_adventurer
+								spawn_unit = {
+									province = PREV
+									home = PREV
+									owner = THIS
+									leader = THIS
+									match_character = PREVPREVPREV
+									match_mult = 0.33
+									match_min = 500
+									match_max = 10000
+									attrition = 0.25
+								}
+								spawn_unit = {
+									province = PREV
+									home = PREV
+									owner = THIS
+									match_character = PREVPREVPREV
+									match_mult = 0.33
+									match_min = 500
+									match_max = 10000
+									attrition = 0.25
+								}
+								spawn_unit = {
+									province = PREV
+									home = PREV
+									owner = THIS
+									match_character = PREVPREVPREV
+									match_mult = 0.33
+									match_min = 500
+									match_max = 10000
+									attrition = 0.25
+								}
+								spawn_unit = {
+									province = PREV
+									home = PREV
+									owner = THIS
+									match_character = PREVPREVPREV
+									match_mult = 0.33
+									match_min = 500
+									match_max = 10000
+									attrition = 0.25
+								}
+								spawn_unit = {
+									province = PREV
+									home = PREV
+									owner = THIS
+									match_character = PREVPREVPREV
+									match_mult = 0.33
+									match_min = 500
+									match_max = 10000
+									attrition = 0.25
+								}
+								spawn_unit = {
+									province = PREV
+									home = PREV
+									owner = THIS
+									match_character = PREVPREVPREV
+									match_mult = 0.33
+									match_min = 500
+									match_max = 10000
+									attrition = 0.25
+								}
+							}
+						}
+						
+						war = {
+							target = PREV
+							casus_belli = duchy_adventure
+							thirdparty_title = PREVPREVPREV
+							tier = DUKE
+						}
+					}
+				}
+			}
+		}
+		
+		
+		
+		# Create some characters
+		create_random_soldier = {
+			random_traits = yes
+			dynasty = none
+			religion = ROOT
+			culture = ROOT
+			female = no
+			age = 30
+		}
+		create_random_soldier = {
+			random_traits = yes
+			dynasty = none
+			religion = ROOT
+			culture = ROOT
+			female = no
+			age = 25
+		}
+		create_random_soldier = {
+			random_traits = yes
+			dynasty = none
+			religion = ROOT
+			culture = ROOT
+			female = no
+			age = 22
+		}
+		create_character = {
+			random_traits = yes
+			dynasty = none
+			religion = ROOT
+			culture = ROOT
+			female = yes
+			age = 16
+		}
+		create_character = {
+			random_traits = yes
+			dynasty = none
+			religion = ROOT
+			culture = ROOT
+			female = yes
+			age = 17
+		}
+		create_character = {
+			random_traits = yes
+			dynasty = none
+			religion = ROOT
+			culture = ROOT
+			female = yes
+			age = 18
+		}
+		
+		log = "moduscarolimagni.1004: Arpad starts his first war as a landed character!"
+	}
+	
+	option = {
+		name = EVTOPTAmoduscarolimagni.1004
+	}
+}
+
+# Notify Arpad's old liege
+character_event = {
+	id = moduscarolimagni.1005
+	desc = EVTDESCmoduscarolimagni.1005
+	picture = GFX_evt_mongols
+	border = GFX_event_normal_frame_war
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		FROM = { is_ruler = yes } # The DoW worked and the adventurer has a temporary title
+	}
+	
+	option = {
+		name = EVTOPTAmoduscarolimagni.1005
+	}
+}
+
+# Arpad is successful!
+# Fired from the duchy_adventure CB
+narrative_event = {
+	id = moduscarolimagni.1006
+	title = EVTNAMEmoduscarolimagni.1006
+	desc = EVTDESCmoduscarolimagni.1006
+	picture = GFX_evt_mongols
+	border = GFX_event_narrative_frame_war
+	
+	major = yes
+	trigger = {
+	has_character_flag = arpad_himself
+	NOT = {has_character_flag = arpad_king}
+	OR = {
+	has_landed_title = c_pest
+	has_landed_title = c_bihar
+	has_landed_title = c_bacs
+	}
+	}
+	mean_time_to_happen = {
+		days = 2
+	}
+	immediate = {
+			set_defacto_liege = ROOT
+			k_hungary = {
+			destroy_landed_title = THIS
+			}
+			k_magyar = {
+				usurp_title = ROOT
+			}
+		set_character_flag = arpad_king
+		
+		
+		prestige = 1000
+		
+		capital_scope = {
+			ROOT = {
+				spawn_unit = {
+					province = PREV
+					home = PREV
+					owner = THIS
+					troops = {
+						horse_archers = { 2700 2700 }
+						light_cavalry = { 1600 1600 }
+						light_infantry = { 541 541 }
+						heavy_infantry = { 210 210 }
+						knights = { 47 47 }
+					}
+				}
+				
+			}
+		}
+		
+		log = "moduscarolimagni.1006: Arpad wins his first war!"
+	}
+	
+	option = {
+		name = EVTOPTAmoduscarolimagni.1006
+	}
+	}
+
+#Bad Arpad! No changing culture!
+	character_event = {
+	id = moduscarolimagni.1007
+	desc = EVTDESCmoduscarolimagni.1007
+	
+	picture = GFX_evt_mongols
+	border = GFX_event_normal_frame_war
+	
+	only_playable = yes
+	
+	trigger = {
+		NOT = {culture = hungarian}
+		has_character_flag = arpad_himself
+	}
+	
+	mean_time_to_happen = {
+		months = 1
+	}
+	
+	immediate = {
+		culture = hungarian
+	}
+	
+	option = { # A most capable young man
+		name = EVTOPTAmoduscarolimagni.1007
+	}
+}
+
+#Bad Seljuk! No changing culture!
+	character_event = {
+	id = moduscarolimagni.1008
+	desc = EVTDESCmoduscarolimagni.1007
+	
+	picture = GFX_evt_mongols
+	border = GFX_event_normal_frame_war
+	
+	only_playable = yes
+	
+	trigger = {
+		NOT = {culture = turkish}
+		has_character_flag = seljuk_himself
+	}
+	
+	mean_time_to_happen = {
+		months = 1
+	}
+	
+	immediate = {
+		culture = turkish
+	}
+	
+	option = { # A most capable young man
+		name = EVTOPTAmoduscarolimagni.1007
+	}
+}
+
+##################################
+# Rus Invasion 1020-1039
+##################################
+
+# Rurik Arrival Announcement
+narrative_event = {
+id = moduscarolimagni.1020
+	desc = EVTDESCmoduscarolimagni.1020
+	title = EVTTITLEmoduscarolimagni.1020
+	picture = GFX_evt_longships_at_sea_oldgods
+	border = GFX_event_narrative_frame_diplomacy
+	major = yes
+	trigger = {
+		has_global_flag = rus_arrival
+		NOT = { has_global_flag = rus_arrival_announcement }
+		has_landed_title = c_novgorod
+	}
+	major_trigger = {
+		is_ruler = yes
+		capital_scope = {
+			NOT = {
+				distance = {
+					where = 414 # Novgorod
+					value = 600	# Same part of the world
+				}
+			}
+		}
+	}
+	
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	option = { # OK
+		name = EVTOPTAmoduscarolimagni.1020
+		
+		set_global_flag = rus_arrival_announcement
+		
+	}
+
+}
+# Rurik Arrival in Novgorod
+character_event = {
+	id = moduscarolimagni.1021
+	desc = EVTDESCmoduscarolimagni.1021
+	
+	picture = GFX_evt_longships_at_sea_oldgods
+	border = GFX_event_narrative_frame_diplomacy
+	
+	only_playable = yes
+	
+	trigger = {
+		year = 865
+		NOT = { year = 866 }
+		has_landed_title = c_novgorod
+		# c_novgorod = {
+			# holder = {
+			# ai = yes
+			# }
+		# }
+		# c_beloozero = {
+		# holder = {
+			# ai = yes
+			# }
+		# }
+		# c_bezhetsky_verh = {
+		# holder = {
+			# ai = yes
+			# }
+		# }
+		# c_vodi = {
+		# holder = {
+			# ai = yes
+			# }
+		# }
+		# c_velikiye_luki = {
+		# holder = {
+			# ai = yes
+			# }
+		# }
+		# c_smolensk = {
+		# holder = {
+			# ai = yes
+			# }
+		# }
+		# c_lyubech = {
+		# holder = {
+			# ai = yes
+			# }
+		# }
+		# c_turov = {
+		# holder = {
+			# ai = yes
+			# }
+		# }
+		NOT = { has_global_flag = rus_arrival }
+	}
+	
+	mean_time_to_happen = {
+		months = 1
+	}
+	
+	
+		
+	
+	option = { # Rurik arrives and usurps non-player land
+		name = EVTOPTAmoduscarolimagni.1000
+		
+		set_global_flag = rus_arrival
+		create_character = {
+  random_traits = no
+  name = "Rurik"
+  dynasty = 705
+  religion = norse_pagan
+  culture = norse
+  female = no
+  age = 25
+  attributes = {
+    martial = 8
+    diplomacy = 12
+    stewardship = 8
+    intrigue = 6
+    learning = 8
+  }
+  health = 8
+  fertility = 0.8
+  trait = brilliant_strategist
+  trait = quick
+  trait = strong
+  trait = gregarious
+  trait = just
+  trait = ambitious
+  trait = brave
+  trait = holy_warrior
+}
+new_character = {
+set_character_flag = rurik_himself
+c_novgorod = {
+					gain_title = prev
+	
+				}
+c_beloozero = {
+gain_title = prev
+}
+c_bezhetsky_verh = {
+gain_title = prev
+}
+c_vodi = {
+gain_title = prev
+}
+c_velikiye_luki = {
+gain_title = prev
+}
+c_smolensk = {
+gain_title = prev
+}
+c_torzhok = {
+gain_title = prev
+}
+c_toropets = {
+gain_title = prev
+}
+d_novgorod = {
+gain_title = prev
+
+}
+c_kiev = {
+add_claim = prev
+}
+d_kiev = {
+add_claim = prev
+}
+c_novgorod_seversky = {
+add_claim = prev
+}
+c_bryansk = {
+add_claim = prev
+}
+c_lyubech = {
+gain_title = prev
+}
+c_chernigov = {
+add_claim = prev
+}
+c_peremyshl = {
+add_claim = prev
+}
+c_galich = {
+add_claim = prev
+}
+c_pereyaslavl = {
+add_claim = prev
+}
+c_chortitza = {
+add_claim = prev
+}
+c_pronsk = {
+add_claim = prev
+}
+c_kolomna = {
+add_claim = prev
+}
+c_ryazan = {
+add_claim = prev
+}
+c_murom = {
+add_claim = prev
+}
+c_mstislavl = {
+gain_title = prev
+}
+c_roslavl = {
+add_claim = prev
+}
+c_pinsk = {
+add_claim = prev
+}
+c_turov = {
+gain_title = prev
+}
+c_vitebsk = {
+gain_title = prev
+}
+c_orsha = {
+gain_title = prev
+}
+c_minsk = {
+gain_title = prev
+}
+c_vladimir_volynsky = {
+add_claim = prev
+}
+c_beresty = {
+add_claim = prev
+}
+spawn_unit = {
+								province = 414
+								home = 414
+								owner = prev
+								troops =
+				{
+					heavy_infantry = { 8000 8000 }
+				}
+				disband_on_peace = no
+				maintenance_multiplier = 0.1
+								}
+create_character = {
+			random_traits = no
+			name = "Oleg"
+  dynasty = 705
+  religion = slavic_pagan
+  culture = russian
+  female = no
+  age = 16
+  attributes = {
+    martial = 10
+    diplomacy = 8
+    stewardship = 8
+    intrigue = 20
+    learning = 10
+  }
+  health = 8
+  fertility = 0.8
+  trait = brilliant_strategist
+  trait = quick
+  trait = strong
+  trait = gregarious
+  trait = just
+  trait = ambitious
+  trait = brave
+  trait = holy_warrior
+		}
+}
+
+	}
+}
+# Rurik Culture/Religion Conversion
+character_event = {
+	id = moduscarolimagni.1022
+	desc = EVTDESCmoduscarolimagni.1022
+	
+	picture = GFX_evt_longships_at_sea_oldgods
+	border = GFX_event_narrative_frame_diplomacy
+	
+	only_playable = yes
+	
+	trigger = {
+		year = 870
+		has_landed_title = c_novgorod
+		has_character_flag = rurik_himself
+		NOT = {
+		culture = russian
+		religion = slavic_pagan
+		has_global_flag = rus_russian
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 1
+	}
+	
+	
+		
+	
+	option = { # Rurik becomes Russian
+	name = EVTOPTAmoduscarolimagni.1022
+	set_global_flag = rus_russian
+	culture = russian
+	religion = slavic_pagan
+}
+	}
+
+# Rurik Russian Conversion
+province_event = {
+	id = moduscarolimagni.1023
+	desc = EVTDESCmoduscarolimagni.1023
+	picture = GFX_evt_tribal_lands
+
+	trigger = {
+		culture_group = east_slavic
+		NOT = { culture = russian }
+		owner = {
+			has_character_flag = rurik_himself
+		}
+	}
+	
+	mean_time_to_happen = {
+		days = 1
+	}
+
+	option = {
+		name = EVTOPTA_CM_11
+		culture = russian
+	}
+}
+
+##################################
+# Norman Invasions in Italy 1040 - 1059
+##################################
+
+# Robert distinguishes himself in Benevento
+character_event = {
+	id = moduscarolimagni.1040
+	desc = EVTDESCmoduscarolimagni.1040
+	
+	picture = GFX_evt_siege
+	border = GFX_event_normal_frame_war
+	
+	only_playable = yes
+	
+	trigger = {
+		year = 1040
+		NOT = { year = 1050 }
+		
+		has_landed_title = c_benevento
+		NOT = { has_global_flag = robert_spawned }
+	}
+	
+	mean_time_to_happen = {
+		months = 1
+	}
+	
+	immediate = {
+		create_character = {
+			random_traits = no
+			dynasty = 678 # Arpad
+			name = "Robert"
+			culture = norman
+			religion = catholic
+			age = 18
+			attributes = {
+				martial = 14
+				diplomacy = 2
+				stewardship = 8
+				intrigue = 9
+				learning = 2
+			}
+			health = 8
+			fertility = 0.8
+			trait = brilliant_strategist
+			trait = ambitious
+			trait = deceitful
+			trait = greedy
+		}
+		new_character = {
+			character_event = {
+				id = moduscarolimagni.1041
+				days = 2
+				#random = 730
+			}
+			set_character_flag = robert_himself
+		}
+	}
+	
+	option = { # A most capable young man
+		name = OK
+		
+		set_global_flag = robert_spawned
+		set_global_flag = robert_spawned_by_event
+		
+		tooltip = {
+			create_character = {
+			random_traits = no
+			dynasty = 678 # Arpad
+			name = "Robert"
+			culture = norman
+			religion = catholic
+			age = 18
+			attributes = {
+				martial = 14
+				diplomacy = 2
+				stewardship = 8
+				intrigue = 9
+				learning = 2
+			}
+			health = 8
+			fertility = 0.8
+			trait = brilliant_strategist
+			trait = ambitious
+			trait = deceitful
+			trait = greedy
+		}
+		}
+	}
+}
+
+# Robert and his men consider starting an adventure
+character_event = {
+	id = moduscarolimagni.1041
+	desc = EVTDESCmoduscarolimagni.1041
+	
+	picture = GFX_evt_siege
+	border = GFX_event_normal_frame_war
+	
+	is_triggered_only = yes
+	
+	prisoner = no
+	only_capable = yes
+	
+	trigger = {
+		is_alive = yes
+		NOT = { trait = blinded }
+		NOT = { trait = eunuch }
+		NOT = { trait = infirm }
+		lower_tier_than = king
+		
+		OR = {
+			522 = { # Pest
+				owner = {
+					NOT = { same_realm = ROOT }
+				}
+			}
+			520 = { # Bihar
+				owner = {
+					NOT = { same_realm = ROOT }
+				}
+			}
+			518 = { # Bacs
+				owner = {
+					NOT = { same_realm = ROOT }
+				}
+			}
+		}
+	}
+	
+	option = { # Apulia it is!
+		name = EVTOPTAmoduscarolimagni.1041
+		trigger = {
+			347 = { # Apulia
+				owner = {
+					NOT = { same_realm = ROOT }
+				}
+			}
+		}
+		
+		ai_chance = {
+			factor = 10000
+		}
+		
+		347 = {
+			province_event = {
+				id = moduscarolimagni.1042
+				days = 2
+			}
+		}
+	}
+	option = { # Salerno
+		name = EVTOPTBmoduscarolimagni.1041
+		trigger = {
+			336 = { # Salerno
+				owner = {
+					NOT = { same_realm = ROOT }
+				}
+			}
+		}
+		
+		ai_chance = {
+			factor = 1000
+		}
+		
+		336 = {
+			province_event = {
+				id = moduscarolimagni.1042
+				days = 2
+			}
+		}
+	}
+	option = { # Messina
+		name = EVTOPTCmoduscarolimagni.1041
+		trigger = {
+			339 = { # Messina
+				owner = {
+					NOT = { same_realm = ROOT }
+				}
+			}
+		}
+		
+		ai_chance = {
+			factor = 100
+		}
+		
+		339 = {
+			province_event = {
+				id = moduscarolimagni.1042
+				days = 2
+			}
+		}
+	}
+}
+
+# Ping the target province
+province_event = {
+	id = moduscarolimagni.1042
+	desc = OK
+	
+	hide_window = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = OK
+		if = {
+			limit = {
+				FROM = {
+					is_ruler = yes
+				}
+			}
+			FROM = {
+				character_event = {
+					id = moduscarolimagni.1044
+				}
+			}
+		}
+		if = {
+			limit = {
+				FROM = {
+					is_ruler = no
+				}
+			}
+			FROM = {
+				character_event = {
+					id = moduscarolimagni.1043
+				}
+			}
+		}
+	}
+}
+
+# The landless Robert and his men start an adventure
+character_event = {
+	id = moduscarolimagni.1043
+	desc = OK
+	
+	hide_window = yes
+	
+	is_triggered_only = yes
+	
+	prisoner = no
+	only_capable = yes
+	
+	trigger = {
+		is_alive = yes
+		NOT = { trait = blinded }
+		NOT = { trait = eunuch }
+		NOT = { trait = infirm }
+		lower_tier_than = king
+	}
+	
+	immediate = {
+		wealth = 500
+		
+		any_liege = {
+			character_event = {
+				id = moduscarolimagni.1045
+				days = 1
+			}
+		}
+		
+		liege = {
+			capital_scope = {
+				FROM = {
+					owner = {
+						top_liege = {
+							ROOT = {
+								set_defacto_liege = ROOT
+								create_title = {
+									tier = DUKE
+									landless = yes
+									temporary = yes
+									culture = ROOT
+									name = "CLAIMANT_ADVENTURE"
+									holder = ROOT
+								}
+								
+								set_character_flag = duchy_adventurer
+								
+								spawn_unit = {
+									province = PREVPREVPREVPREV
+									home = PREVPREVPREVPREV
+									owner = THIS
+									match_character = PREV
+									match_mult = 0.33
+									match_min = 500
+									match_max = 10000
+									attrition = 0.25
+								}
+								spawn_unit = {
+									province = PREVPREVPREVPREV
+									home = PREVPREVPREVPREV
+									owner = THIS
+									match_character = PREV
+									match_mult = 0.33
+									match_min = 500
+									match_max = 10000
+									attrition = 0.25
+								}
+								spawn_unit = {
+								province = prevprevprevprev
+								home = prevprevprevprev
+								owner = this
+								troops =
+				{
+					knights = { 18000 18000 }
+				}
+				disband_on_peace = no
+				maintenance_multiplier = 0.1
+				attrition = 0
+								}
+								war = {
+									target = PREV
+									casus_belli = duchy_adventure
+									thirdparty_title = PREVPREVPREV
+									tier = DUKE
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+		
+		
+		# Create some characters
+		create_random_soldier = {
+			random_traits = yes
+			dynasty = none
+			religion = ROOT
+			culture = ROOT
+			female = no
+			age = 30
+		}
+		create_random_soldier = {
+			random_traits = yes
+			dynasty = none
+			religion = ROOT
+			culture = ROOT
+			female = no
+			age = 25
+		}
+		create_random_soldier = {
+			random_traits = yes
+			dynasty = none
+			religion = ROOT
+			culture = ROOT
+			female = no
+			age = 22
+		}
+		create_character = {
+			random_traits = yes
+			dynasty = none
+			religion = ROOT
+			culture = ROOT
+			female = yes
+			age = 16
+		}
+		create_character = {
+			random_traits = yes
+			dynasty = none
+			religion = ROOT
+			culture = ROOT
+			female = yes
+			age = 17
+		}
+		create_character = {
+			random_traits = yes
+			dynasty = none
+			religion = ROOT
+			culture = ROOT
+			female = yes
+			age = 18
+		}
+		
+		log = "moduscarolimagni.1043: Robert starts his first war as a landless character!"
+	}
+	
+	option = {
+		name = OK
+	}
+}
+
+# The landed Robert and his men start an adventure
+character_event = {
+	id = moduscarolimagni.1044
+	desc = EVTDESCmoduscarolimagni.1044
+	
+	picture = GFX_evt_siege
+	border = GFX_event_normal_frame_war
+	
+	is_triggered_only = yes
+	
+	prisoner = no
+	only_capable = yes
+	
+	trigger = {
+		is_alive = yes
+		NOT = { trait = blinded }
+		NOT = { trait = eunuch }
+		NOT = { trait = infirm }
+		lower_tier_than = king
+	}
+	
+	immediate = {
+		wealth = 500
+		
+		any_liege = {
+			character_event = {
+				id = moduscarolimagni.1005
+				days = 1
+			}
+		}
+		
+		FROM = {
+			owner = {
+				top_liege = {
+					ROOT = {
+						capital_scope = {
+							ROOT = {
+								set_character_flag = duchy_adventurer
+								spawn_unit = {
+									province = PREV
+									home = PREV
+									owner = THIS
+									leader = THIS
+									match_character = PREVPREVPREV
+									match_mult = 0.33
+									match_min = 500
+									match_max = 10000
+									attrition = 0.25
+								}
+								spawn_unit = {
+									province = PREV
+									home = PREV
+									owner = THIS
+									match_character = PREVPREVPREV
+									match_mult = 0.33
+									match_min = 500
+									match_max = 10000
+									attrition = 0.25
+								}
+								spawn_unit = {
+									province = PREV
+									home = PREV
+									owner = THIS
+									match_character = PREVPREVPREV
+									match_mult = 0.33
+									match_min = 500
+									match_max = 10000
+									attrition = 0.25
+								}
+								spawn_unit = {
+									province = PREV
+									home = PREV
+									owner = THIS
+									match_character = PREVPREVPREV
+									match_mult = 0.33
+									match_min = 500
+									match_max = 10000
+									attrition = 0.25
+								}
+								spawn_unit = {
+									province = PREV
+									home = PREV
+									owner = THIS
+									match_character = PREVPREVPREV
+									match_mult = 0.33
+									match_min = 500
+									match_max = 10000
+									attrition = 0.25
+								}
+								spawn_unit = {
+									province = PREV
+									home = PREV
+									owner = THIS
+									match_character = PREVPREVPREV
+									match_mult = 0.33
+									match_min = 500
+									match_max = 10000
+									attrition = 0.25
+								}
+							}
+						}
+						
+						war = {
+							target = PREV
+							casus_belli = duchy_adventure
+							thirdparty_title = PREVPREVPREV
+							tier = DUKE
+						}
+					}
+				}
+			}
+		}
+		
+		
+		
+		# Create some characters
+		create_random_soldier = {
+			random_traits = yes
+			dynasty = none
+			religion = ROOT
+			culture = ROOT
+			female = no
+			age = 30
+		}
+		create_random_soldier = {
+			random_traits = yes
+			dynasty = none
+			religion = ROOT
+			culture = ROOT
+			female = no
+			age = 25
+		}
+		create_random_soldier = {
+			random_traits = yes
+			dynasty = none
+			religion = ROOT
+			culture = ROOT
+			female = no
+			age = 22
+		}
+		create_character = {
+			random_traits = yes
+			dynasty = none
+			religion = ROOT
+			culture = ROOT
+			female = yes
+			age = 16
+		}
+		create_character = {
+			random_traits = yes
+			dynasty = none
+			religion = ROOT
+			culture = ROOT
+			female = yes
+			age = 17
+		}
+		create_character = {
+			random_traits = yes
+			dynasty = none
+			religion = ROOT
+			culture = ROOT
+			female = yes
+			age = 18
+		}
+		
+		log = "moduscarolimagni.1004: Arpad starts his first war as a landed character!"
+	}
+	
+	option = {
+		name = EVTOPTAmoduscarolimagni.1044
+	}
+}
+
+# Notify Robert's old liege
+character_event = {
+	id = moduscarolimagni.1045
+	desc = EVTDESCmoduscarolimagni.1045
+	picture = GFX_evt_siege
+	border = GFX_event_normal_frame_war
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		FROM = { is_ruler = yes } # The DoW worked and the adventurer has a temporary title
+	}
+	
+	option = {
+		name = EVTOPTAmoduscarolimagni.1045
+	}
+}
+
+# Robert is successful!
+# Fired from the duchy_adventure CB
+narrative_event = {
+	id = moduscarolimagni.1046
+	title = EVTNAMEmoduscarolimagni.1046
+	desc = EVTDESCmoduscarolimagni.1046
+	picture = GFX_evt_siege
+	border = GFX_event_normal_frame_war
+	
+	major = yes
+	trigger = {
+	has_character_flag = robert_himself
+	k_sicily = {
+	has_holder = no
+	}
+	NOT = {has_character_flag = robert_king}
+	OR = {
+	has_landed_title = c_apulia
+	has_landed_title = c_salerno
+	has_landed_title = c_messina
+	}
+	}
+	mean_time_to_happen = {
+		days = 2
+	}
+	immediate = {
+			set_defacto_liege = ROOT
+			k_sicily = {
+				usurp_title = ROOT
+			}
+		set_character_flag = robert_king
+		
+		
+		prestige = 1000
+		
+		capital_scope = {
+			ROOT = {
+				spawn_unit = {
+					province = PREV
+					home = PREV
+					owner = THIS
+					troops =
+				{
+					knights = { 18000 18000 }
+				}
+				disband_on_peace = no
+				maintenance_multiplier = 0.1
+				attrition = 0
+				}
+				}
+		}
+		
+		log = "moduscarolimagni.1046: Robert wins his first war!"
+	}
+	
+	option = {
+		name = OK
+	}
+	}
+
+#Bad Robert! No changing culture!
+	character_event = {
+	id = moduscarolimagni.1047
+	desc = EVTDESCmoduscarolimagni.1047
+	
+	picture = GFX_evt_siege
+	border = GFX_event_normal_frame_war
+	
+	only_playable = yes
+	
+	trigger = {
+		NOT = {culture = norman}
+		has_character_flag = robert_himself
+	}
+	
+	mean_time_to_happen = {
+		months = 1
+	}
+	
+	immediate = {
+		culture = norman
+	}
+	
+	option = { # A most capable young man
+		name = EVTOPTAmoduscarolimagni.1047
+	}
+}
+
+##################################
+# Normandy Formation 1060-79
+##################################
+
+# Normandy Creation 
+character_event = {
+id = moduscarolimagni.1060
+desc = {
+	text = EVTDESCmoduscarolimagni.1060
+}
+is_triggered_only = yes
+
+	option = {
+	name = EVTOPTBmoduscarolimagni.1060
+	create_character = {
+  random_traits = no
+  name = "Rollo"
+  dynasty = 752
+  religion = catholic
+  culture = norse
+  female = no
+  age = 30
+  attributes = {
+    martial = 15
+    diplomacy = 8
+    stewardship = 8
+    intrigue = 8
+    learning = 2
+  }
+  health = 8
+  fertility = 0.8
+  trait = skilled_tactician
+  trait = wroth
+  trait = strong
+  trait = envious
+  trait = proud
+  trait = viking
+}
+new_character = {
+set_character_flag = rollo_himself
+c_arques = {
+					gain_title = prev
+					de_jure_liege = d_normandy
+				}
+b_rouen = {
+	add_building = ca_keep_2
+	add_building = ca_keep_3
+	add_building = ca_wall_1
+	add_building = ca_wall_2
+	add_building = ca_wall_3
+	add_building = ca_wall_q_1
+	add_building = ca_wall_q_2
+	add_building = ca_wall_q_3
+}
+b_evreux = {
+	add_building = ca_keep_2
+	add_building = ca_keep_3
+	add_building = ca_wall_1
+	add_building = ca_wall_2
+	add_building = ca_wall_3
+	add_building = ca_wall_q_1
+	add_building = ca_wall_q_2
+	add_building = ca_wall_q_3
+}
+b_mortain = {
+add_building = ca_keep_1
+	add_building = ca_keep_2
+	add_building = ca_keep_3
+	add_building = ca_wall_1
+	add_building = ca_wall_2
+	add_building = ca_wall_3
+	add_building = ca_wall_q_1
+	add_building = ca_wall_q_2
+	add_building = ca_wall_q_3
+}
+b_gisors = {
+add_building = ca_keep_1
+	add_building = ca_keep_2
+	add_building = ca_keep_3
+	add_building = ca_wall_1
+	add_building = ca_wall_2
+	add_building = ca_wall_3
+	add_building = ca_wall_q_1
+	add_building = ca_wall_q_2
+	add_building = ca_wall_q_3
+}
+c_eu = {
+gain_title = prev
+de_jure_liege = d_normandy
+}
+c_evreux = {
+gain_title = prev
+de_jure_liege = d_normandy
+}
+c_avranches = {
+gain_title = prev
+de_jure_liege = d_normandy
+}
+c_vexin = {
+gain_title = prev
+de_jure_liege = d_normandy
+}
+c_maine = {
+gain_title = prev
+}
+
+d_normandy = {
+gain_title = prev
+}
+set_defacto_liege = ROOT
+}
+
+	}
+}
+
+# Rollo Culture Conversion
+province_event = {
+	id = moduscarolimagni.1061
+	desc = EVTDESCmoduscarolimagni.1061
+	picture = GFX_evt_longships_at_sea_oldgods
+	border = GFX_event_narrative_frame_diplomacy
+	
+	trigger = {
+		culture_group = latin
+		NOT = { culture = norman }
+		owner = {
+			has_character_flag = rollo_himself
+		}
+	}
+	
+	mean_time_to_happen = {
+		days = 1
+	}
+
+	option = {
+		name = OK
+		culture = norman
+	}
+}
+
+#Bad Rollo! No changing culture!
+	character_event = {
+	id = moduscarolimagni.1062
+	desc = EVTDESCmoduscarolimagni.1047
+	
+	picture = GFX_evt_siege
+	border = GFX_event_normal_frame_war
+	
+	only_playable = yes
+	
+	trigger = {
+		NOT = {culture = norman}
+		has_character_flag = rollo_himself
+	}
+	
+	mean_time_to_happen = {
+		months = 1
+	}
+	
+	immediate = {
+		culture = norman
+	}
+	
+	option = { # A most capable young man
+		name = EVTOPTAmoduscarolimagni.1047
+	}
+}
+
+#Normandy Formation Announcement
+narrative_event = {
+	id = moduscarolimagni.1063
+	title = EVTNAMEmoduscarolimagni.1063
+	desc = EVTDESCmoduscarolimagni.1063
+	picture = GFX_evt_longships_at_sea_oldgods
+	border = GFX_event_narrative_frame_diplomacy
+	
+	major = yes
+	trigger = {
+	has_character_flag = rollo_himself
+	NOT = {
+	has_global_flag = normandy_formation_announcement
+	}
+	}
+	mean_time_to_happen = {
+		days = 2
+	}
+	immediate = {
+		set_global_flag = normandy_formation_announcement
+		prestige = 1000
+		
+		capital_scope = {
+			ROOT = {
+				spawn_unit = {
+					province = PREV
+					home = PREV
+					owner = THIS
+					troops =
+				{
+					heavy_infantry = { 4000 4000 }
+				}
+				disband_on_peace = no
+				maintenance_multiplier = 0.01
+				attrition = 0
+				}
+				}
+		}
+		
+		log = "moduscarolimagni.1046: Rollo is Duke of Normandy!"
+	}
+	
+	option = {
+		name = OK
+	}
+	}
+	
+##################################
+# Bulgar Events 1080-1099
+##################################
+	
+#Bulgarian King Culture Conversion
+character_event = {
+id = moduscarolimagni.1080
+desc = EVTDESCmoduscarolimagni.1080
+
+picture = GFX_evt_siege
+border = GFX_event_normal_frame_war
+
+only_playable = yes
+
+trigger = {
+	culture = bolghar
+	has_landed_title = k_bulgaria
+}
+
+mean_time_to_happen = {
+	months = 100
+}
+
+immediate = {
+	culture = bulgarian
+}
+
+option = { 
+	name = OK
+}
+}

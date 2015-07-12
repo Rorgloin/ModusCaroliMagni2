@@ -1,0 +1,1258 @@
+###########################################
+#                                         #
+# MCM Holy Roman Empire Decisions         #             
+#                                         #
+#                                         #
+#                                         #
+###########################################
+
+# Written by CMG
+
+
+
+decisions = {
+	#Golden Bull Decision
+	golden_bull = {
+		is_high_prio = yes
+		potential = {
+			is_playable = yes
+			independent = yes
+			has_landed_title = e_hre
+			OR = {
+			
+			hidden_tooltip = {
+			AND = {
+			ai = yes
+			year = 1356
+			}
+			}
+			capital_scope = { TECH_LEGALISM = 5 }
+			}
+			OR = {
+			AND = {
+			k_germany = {
+			de_jure_liege = e_hre
+			}
+			d_saxony = {
+			de_jure_liege = k_germany
+			has_holder = yes
+			}
+			d_bavaria = {
+			de_jure_liege = k_germany
+			has_holder = yes
+			}
+			d_swabia = {
+			de_jure_liege = k_germany
+			has_holder = yes
+			}
+			d_franconia = {
+			de_jure_liege = k_germany
+			has_holder = yes
+			}
+			d_trier = {
+			de_jure_liege = k_germany
+			has_holder = yes
+			}
+			d_mainz = {
+			de_jure_liege = k_germany
+			has_holder = yes
+			}
+			d_koln = {
+			de_jure_liege = k_germany
+			has_holder = yes
+			}
+			}
+			AND = {
+			k_germany = {
+			de_jure_liege = e_hre
+			}
+			d_saxony = {
+			de_jure_liege = k_germany
+			has_holder = yes
+			}
+			d_palatinate = {
+			de_jure_liege = k_germany
+			has_holder = yes
+			}
+			d_brandenburg = {
+			de_jure_liege = k_germany
+			has_holder = yes
+			}
+			k_bohemia = {
+			de_jure_liege = e_hre
+			has_holder = yes
+			}
+			d_trier = {
+			de_jure_liege = k_germany
+			has_holder = yes
+			}
+			d_mainz = {
+			de_jure_liege = k_germany
+			has_holder = yes
+			}
+			d_koln = {
+			de_jure_liege = k_germany
+			has_holder = yes
+			}
+			}
+			AND = {
+			k_germany = {
+			de_jure_liege = e_hre
+			}
+			b_magdeburg = {
+			has_holder = yes
+			}
+			b_bremen = {
+			has_holder = yes
+			}
+			b_salzburg = {
+			has_holder = yes
+			}
+			b_bamberg = {
+			de_jure_liege = k_germany
+			has_holder = yes
+			}
+			b_trier = {
+			de_jure_liege = k_germany
+			has_holder = yes
+			}
+			b_mainz = {
+			de_jure_liege = k_germany
+			has_holder = yes
+			}
+			b_koln = {
+			de_jure_liege = k_germany
+			has_holder = yes
+			}
+			learning = 10
+			}
+			AND = {
+			k_germany = {
+			de_jure_liege = e_hre
+			}
+			d_saxony = {
+			de_jure_liege = k_germany
+			has_holder = yes
+			}
+			d_bavaria = {
+			de_jure_liege = k_germany
+			has_holder = yes
+			}
+			d_brandenburg = {
+			de_jure_liege = k_germany
+			has_holder = yes
+			}
+			d_swabia = {
+			de_jure_liege = k_germany
+			has_holder = yes
+			}
+			d_osterreich = {
+			de_jure_liege = k_germany
+			has_holder = yes
+			}
+			d_thuringia = {
+			de_jure_liege = k_germany
+			has_holder = yes
+			}
+			d_franconia = {
+			de_jure_liege = k_germany
+			has_holder = yes
+			}
+			trait = cynical
+			}
+			# AND = {
+			
+			# }
+			# AND = {
+			
+			# }
+			}
+			
+			NOT = { has_global_flag = golden_bull }
+		}
+		
+		allow = {
+			is_adult = yes
+			prisoner = no
+			NOT = { trait = incapable }
+			has_landed_title = e_hre
+			realm_diplomacy = 8
+			realm_stewardship = 8
+			
+			
+		}
+		effect = {
+			set_global_flag = golden_bull
+			e_hre = {
+			owner = {
+			character_event = {id = moduscarolimagni.0001 days = 17}
+			}
+			}
+		}
+		revoke_allowed = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	#Make Brandenburg de jure part of Germany
+	brandenburg_march = {
+	is_high_prio = yes # Will show an alert once decision is enabled
+  potential = {
+    OR = {
+	has_landed_title = e_hre
+	has_landed_title = k_germany
+	}
+	NOT = { has_global_flag = brandenburg_march }
+	
+	
+  }
+  allow = {
+    d_brandenburg = {
+	OR = {
+	de_facto_liege = e_hre
+	de_facto_liege = k_germany
+	}
+	NOT = {
+	de_jure_liege = k_germany
+	}
+	}
+  }
+  effect = {
+    d_brandenburg = {
+	de_jure_liege = k_germany
+	}
+	set_global_flag = brandenburg_march
+  }
+  revoke_allowed = {
+    always = no #Not used in vanilla
+  }
+  ai_will_do = {
+    factor = 1
+  }
+	}
+	#Upgrade Austria to a Kingdom "Archduchy"
+	archduchy_austria = {
+	potential = {
+	has_landed_title = d_osterreich
+	NOT = {has_global_flag = archduchy_austria}
+	OR = {
+	has_global_flag = golden_bull_one 
+	has_global_flag = golden_bull_two
+	has_global_flag = golden_bull_four
+	}
+	
+	}
+	allow = {
+	has_landed_title = d_osterreich
+	OR = {
+	has_global_flag = golden_bull_one 
+	has_global_flag = golden_bull_two
+	has_global_flag = golden_bull_four
+	}
+	wealth = 1000
+	}
+	effect = {
+	wealth = -1000
+	set_global_flag = archduchy_austria
+	e_hre = {
+	owner = {
+	character_event = {id = moduscarolimagni.0020 days = 17}
+	}
+	}
+	}
+	revoke_allowed = {
+    always = no #Not used in vanilla
+  }
+  ai_will_do = {
+    factor = 1
+  }
+	
+	}
+	
+	
+	#German Culture for king of Germany
+	german_king_culture = {
+	is_high_prio = yes # Will show an alert once decision is enabled
+	potential = {
+    has_landed_title = k_germany
+	NOT = { culture = german }
+	NOT = {
+	year = 1000
+	}
+	year = 800
+	}
+  allow = {
+    NOT = {
+	has_landed_title = k_france
+	has_landed_title = e_karling
+	has_character_flag = rollo_himself
+	has_character_flag = arpad_himself
+	}
+	}
+  effect = {
+	k_germany = {
+			owner = {
+			culture = german
+			give_nickname = nick_the_german
+			}
+			}
+  }
+  revoke_allowed = {
+    always = no #Not used in vanilla
+  }
+  ai_will_do = {
+    factor = 1
+  }
+	
+	}
+	
+	#Form the Holy Roman Empire
+	hre_first_coronation = {
+		is_high_prio = yes
+		potential = {
+			e_hre = { has_holder = no }
+			e_roman_empire = { has_holder = no }
+			e_karling = { has_holder = no}
+			religion = catholic
+			is_ruler = yes
+			is_heretic = no
+			has_regent = no
+			year = 867
+			has_global_flag = charlemagne_hre
+			NOT = {
+				has_global_flag = rome_restored
+				rightful_religious_head_scope = {
+					has_character_flag = approached_for_coronation_one
+				}
+			}
+			OR = {
+			has_landed_title = k_germany
+			has_landed_title = k_italy
+			}
+		}
+		allow = {
+			war = no
+			independent = yes
+			prestige = 500
+			piety = 100
+			NOT = { has_character_flag = former_carolingian_emperor }	
+			realm_size = 75
+			hidden_tooltip = {
+			OR = {
+			year = 950
+			ai = no
+			}
+			}
+		}
+		effect = {
+			rightful_religious_head_scope = {
+				set_character_flag = approached_for_coronation_one
+				character_event = { id = moduscarolimagni.3050 tooltip = ask_for_coronation}
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+	#New Duchy Creation decisions
+	
+	#Split Lorraine into Upper and Lower Lorraine
+	split_lorraine = {
+	potential = {
+	OR = {
+	has_landed_title = k_germany
+	has_landed_title = k_lotharingia
+	has_landed_title = e_hre
+	has_landed_title = e_karling
+	AND = {
+	has_landed_title = d_lorraine
+	is_independent = yes
+	}
+	}
+	NOT = {
+	has_global_flag = lorraine_split
+	}
+	capital_scope = { TECH_LEGALISM = 2 }
+	}
+	allow = {
+	completely_controls = d_lorraine
+	is_adult = yes
+	}
+	
+	effect = {
+	set_global_flag = lorraine_split
+	c_metz = {
+			de_jure_liege = d_upper_lorraine
+			}
+			c_verdun = {
+			de_jure_liege = d_upper_lorraine
+			}
+			c_lorraine = {
+			de_jure_liege = d_upper_lorraine
+			}
+			c_bar = {
+			de_jure_liege = d_upper_lorraine
+			}
+			c_santois = {
+			de_jure_liege = d_upper_lorraine
+			}
+			c_loon = {
+			de_jure_liege = d_lower_lorraine
+			}
+			c_julich = {
+			de_jure_liege = d_lower_lorraine
+			}
+			c_luxembourg = {
+			de_jure_liege = d_lower_lorraine
+			}
+			c_liege = {
+			de_jure_liege = d_lower_lorraine
+			}
+			c_kleve = {
+			de_jure_liege = d_lower_lorraine
+			}
+			c_holland = {
+			de_jure_liege = d_lower_lorraine
+			}
+			c_sticht = {
+			de_jure_liege = d_lower_lorraine
+			}
+			c_westfriesland = {
+			de_jure_liege = d_lower_lorraine
+			}
+			c_gelre = {
+			de_jure_liege = d_lower_lorraine
+			}
+			c_ostfriesland = {
+			de_jure_liege = d_lower_lorraine
+			}
+			c_frisia = {
+			de_jure_liege = d_lower_lorraine
+			}
+			c_brabant = {
+			de_jure_liege = d_lower_lorraine
+			}
+			c_hainaut = {
+			de_jure_liege = d_lower_lorraine
+			}
+			c_breda = {
+			de_jure_liege = d_lower_lorraine
+			}
+	d_lorraine = {
+	holder_scope = {
+	grant_title = d_upper_lorraine
+	grant_title = d_lower_lorraine
+	}
+	destroy_landed_title = this
+	}
+	
+		
+	}
+	
+	revoke_allowed = {
+	always = no
+	}
+	ai_will_do = {
+	factor = 1
+	}
+	
+	
+	
+	}
+	
+	#Form Holland
+	form_holland = {
+	potential = {
+	OR = {
+	has_landed_title = k_germany
+	has_landed_title = k_lotharingia
+	has_landed_title = e_hre
+	has_landed_title = e_karling
+	has_landed_title = c_westfriesland
+	has_landed_title = c_holland
+	has_landed_title = c_sticht
+	is_independent = yes
+	}
+	completely_controls = c_westfriesland
+	completely_controls = c_holland
+	completely_controls = c_sticht
+	NOT = {
+	has_global_flag = holland_formed
+	}
+	capital_scope = { TECH_LEGALISM = 3 }
+	}
+	allow = {
+	wealth = 150
+	is_adult = yes
+	hidden_tooltip = {
+	OR = {
+	year = 1061
+	ai = no
+	}
+	}
+	}
+	
+	effect = {
+	wealth = -150
+	prestige = 150
+	set_global_flag = holland_formed
+	
+			c_holland = {
+			de_jure_liege = d_holland
+			}
+			c_sticht = {
+			de_jure_liege = d_holland
+			}
+			c_westfriesland = {
+			de_jure_liege = d_holland
+			}
+			
+	d_holland = {
+	gain_title = ROOT
+	}
+	
+		
+	}
+	
+	revoke_allowed = {
+	always = no
+	}
+	ai_will_do = {
+	factor = 1
+	}
+	
+	
+	
+	}
+	
+	
+	#Form Brabant
+	form_brabant = {
+	potential = {
+	OR = {
+	has_landed_title = k_germany
+	has_landed_title = k_lotharingia
+	has_landed_title = e_hre
+	has_landed_title = e_karling
+	has_landed_title = c_breda
+	has_landed_title = c_hainaut
+	has_landed_title = c_brabant
+	is_independent = yes
+	}
+	completely_controls = c_breda
+	completely_controls = c_brabant
+	completely_controls = c_hainaut
+	NOT = {
+	has_global_flag = brabant_formed
+	}
+	capital_scope = { TECH_LEGALISM = 3 }
+	}
+	allow = {
+	wealth = 150
+	is_adult = yes
+	hidden_tooltip = {
+	OR = {
+	year = 1190
+	ai = no
+	}
+	}
+	}
+	
+	effect = {
+	wealth = -150
+	prestige = 150
+	set_global_flag = brabant_formed
+	
+			c_brabant = {
+			de_jure_liege = d_brabant
+			}
+			c_breda = {
+			de_jure_liege = d_brabant
+			}
+			c_hainaut = {
+			de_jure_liege = d_brabant
+			}
+			
+	d_brabant = {
+	gain_title = ROOT
+	}
+	
+		
+	}
+	
+	revoke_allowed = {
+	always = no
+	}
+	ai_will_do = {
+	factor = 1
+	}
+	
+	
+	
+	}
+	
+	#Form Gelre
+	form_gelre = {
+	potential = {
+	OR = {
+	has_landed_title = k_germany
+	has_landed_title = k_lotharingia
+	has_landed_title = e_hre
+	has_landed_title = e_karling
+	has_landed_title = c_frisia
+	has_landed_title = c_ostfriesland
+	has_landed_title = c_gelre
+	is_independent = yes
+	}
+	completely_controls = c_frisia
+	completely_controls = c_ostfriesland
+	completely_controls = c_gelre
+	NOT = {
+	has_global_flag = gelre_formed
+	}
+	capital_scope = { TECH_LEGALISM = 3 }
+	}
+	allow = {
+	wealth = 150
+	is_adult = yes
+	hidden_tooltip = {
+	OR = {
+	year = 1337
+	ai = no
+	}
+	}
+	}
+	
+	effect = {
+	wealth = -150
+	prestige = 150
+	set_global_flag = gelre_formed
+	
+			c_gelre = {
+			de_jure_liege = d_gelre
+			}
+			c_frisia = {
+			de_jure_liege = d_gelre
+			}
+			c_ostfriesland = {
+			de_jure_liege = d_gelre
+			}
+			
+	d_gelre = {
+	gain_title = ROOT
+	}
+	
+		
+	}
+	
+	revoke_allowed = {
+	always = no
+	}
+	ai_will_do = {
+	factor = 1
+	}
+	
+	
+	
+	}
+	
+	#Form Austria
+	form_osterreich = {
+	potential = {
+	OR = {
+	has_landed_title = k_germany
+	has_landed_title = k_bavaria
+	has_landed_title = e_hre
+	has_landed_title = e_karling
+	has_landed_title = c_osterreich
+	has_landed_title = c_znojmo
+	has_landed_title = c_passau
+	has_landed_title = c_steiermark
+	is_independent = yes
+	}
+	completely_controls = c_znojmo
+	completely_controls = c_osterreich
+	completely_controls = c_passau
+	completely_controls = c_steiermark
+	NOT = {
+	has_global_flag = osterreich_formed
+	}
+	capital_scope = { TECH_LEGALISM = 2 }
+	}
+	allow = {
+	wealth = 150
+	is_adult = yes
+	hidden_tooltip = {
+	OR = {
+	year = 960
+	ai = no
+	}
+	}
+	}
+	
+	effect = {
+	wealth = -150
+	prestige = 150
+	set_global_flag = osterreich_formed
+	
+			c_osterreich = {
+			de_jure_liege = d_osterreich
+			}
+			c_znojmo = {
+			de_jure_liege = d_osterreich
+			}
+			c_passau = {
+			de_jure_liege = d_osterreich
+			}
+			c_steiermark = {
+			de_jure_liege = d_osterreich
+			}
+			
+	d_osterreich = {
+	gain_title = ROOT
+	}
+	
+		
+	}
+	
+	revoke_allowed = {
+	always = no
+	}
+	ai_will_do = {
+	factor = 1
+	}
+	
+	
+	
+	}
+	
+	#Make Meissen de jure part of Germany
+	meissen_march = {
+	is_high_prio = yes # Will show an alert once decision is enabled
+  potential = {
+    OR = {
+	has_landed_title = e_hre
+	has_landed_title = k_germany
+	}
+	NOT = { has_global_flag = meissen_march }
+	
+	
+  }
+  allow = {
+    d_meissen = {
+	OR = {
+	de_facto_liege = e_hre
+	de_facto_liege = k_germany
+	}
+	NOT = {
+	de_jure_liege = k_germany
+	}
+	}
+  }
+  effect = {
+    d_meissen = {
+	de_jure_liege = k_germany
+	}
+	set_global_flag = meissen_march
+  }
+  revoke_allowed = {
+    always = no #Not used in vanilla
+  }
+  ai_will_do = {
+    factor = 1
+  }
+	}
+	
+	#Form Tyrol
+	form_tyrol = {
+	potential = {
+	OR = {
+	has_landed_title = k_germany
+	has_landed_title = k_bavaria
+	has_landed_title = e_hre
+	has_landed_title = e_karling
+	has_landed_title = c_tirol
+	has_landed_title = c_innsbruck
+	is_independent = yes
+	}
+	completely_controls = c_tirol
+	completely_controls = c_innsbruck
+	NOT = {
+	has_global_flag = tyrol_formed
+	}
+	capital_scope = { TECH_LEGALISM = 3 }
+	}
+	allow = {
+	wealth = 150
+	is_adult = yes
+	hidden_tooltip = {
+	OR = {
+	year = 1241
+	ai = no
+	}
+	}
+	}
+	
+	effect = {
+	wealth = -150
+	prestige = 150
+	set_global_flag = tyrol_formed
+	
+			c_tirol = {
+			de_jure_liege = d_tyrol
+			}
+			c_innsbruck = {
+			de_jure_liege = d_tyrol
+			}
+
+			
+	d_tyrol = {
+	gain_title = ROOT
+	}
+	
+		
+	}
+	
+	revoke_allowed = {
+	always = no
+	}
+	ai_will_do = {
+	factor = 1
+	}
+	
+	
+	
+	}
+	
+	#Form Baden
+	form_baden = {
+	potential = {
+	OR = {
+	has_landed_title = k_germany
+	has_landed_title = k_bavaria
+	has_landed_title = e_hre
+	has_landed_title = e_karling
+	has_landed_title = c_baden
+	has_landed_title = c_breisgau
+	is_independent = yes
+	}
+	completely_controls = c_baden
+	completely_controls = c_breisgau
+	NOT = {
+	has_global_flag = baden_formed
+	}
+	capital_scope = { TECH_LEGALISM = 3 }
+	}
+	allow = {
+	wealth = 150
+	is_adult = yes
+	hidden_tooltip = {
+	OR = {
+	year = 1241
+	ai = no
+	}
+	}
+	}
+	
+	effect = {
+	wealth = -150
+	prestige = 150
+	set_global_flag = baden_formed
+	
+			c_baden = {
+			de_jure_liege = d_baden
+			}
+			c_breisgau = {
+			de_jure_liege = d_baden
+			}
+
+			
+	d_baden = {
+	gain_title = ROOT
+	}
+	
+		
+	}
+	
+	revoke_allowed = {
+	always = no
+	}
+	ai_will_do = {
+	factor = 1
+	}
+	
+	
+	
+	}
+	
+	#Form Alsace
+	form_alsace = {
+	potential = {
+	OR = {
+	has_landed_title = k_germany
+	has_landed_title = k_bavaria
+	has_landed_title = e_hre
+	has_landed_title = e_karling
+	has_landed_title = c_nordgau
+	has_landed_title = c_sundgau
+	is_independent = yes
+	}
+	completely_controls = c_sundgau
+	completely_controls = c_nordgau
+	NOT = {
+	has_global_flag = alsace_formed
+	}
+	capital_scope = { TECH_LEGALISM = 3 }
+	}
+	allow = {
+	wealth = 150
+	is_adult = yes
+	hidden_tooltip = {
+	OR = {
+	year = 1241
+	ai = no
+	}
+	}
+	}
+	
+	effect = {
+	wealth = -150
+	prestige = 150
+	set_global_flag = alsace_formed
+	
+			c_nordgau = {
+			de_jure_liege = d_alsace
+			}
+			c_sundgau = {
+			de_jure_liege = d_alsace
+			}
+
+			
+	d_alsace = {
+	gain_title = ROOT
+	}
+	
+		
+	}
+	
+	revoke_allowed = {
+	always = no
+	}
+	ai_will_do = {
+	factor = 1
+	}
+	
+	
+	
+	}
+	
+	#Form Brunswick
+	form_brunswick = {
+	potential = {
+	OR = {
+	has_landed_title = k_germany
+	has_landed_title = k_bavaria
+	has_landed_title = e_hre
+	has_landed_title = e_karling
+	has_landed_title = c_celle
+	has_landed_title = c_luneburg
+	has_landed_title = c_braunschweig
+	is_independent = yes
+	}
+	completely_controls = c_celle
+	completely_controls = c_luneburg
+	completely_controls = c_braunschweig
+	completely_controls = c_osnabruck
+	completely_controls = c_oldenburg
+	NOT = {
+	has_global_flag = brunswick_formed
+	}
+	capital_scope = { TECH_LEGALISM = 3 }
+	}
+	allow = {
+	wealth = 150
+	is_adult = yes
+	hidden_tooltip = {
+	OR = {
+	year = 1235
+	ai = no
+	}
+	}
+	}
+	
+	effect = {
+	wealth = -150
+	prestige = 150
+	set_global_flag = brunswick_formed
+	
+			c_celle = {
+			de_jure_liege = d_brunswick
+			}
+			c_luneburg = {
+			de_jure_liege = d_brunswick
+			}
+			c_braunschweig = {
+			de_jure_liege = d_brunswick
+			}
+			c_oldenburg = {
+			de_jure_liege = d_brunswick
+			}
+			c_osnabruck = {
+			de_jure_liege = d_brunswick
+			}
+
+			
+	d_brunswick = {
+	gain_title = ROOT
+	}
+	
+		
+	}
+	
+	revoke_allowed = {
+	always = no
+	}
+	ai_will_do = {
+	factor = 1
+	}
+	
+	
+	
+	}
+
+	#Form Luxembourg
+	form_luxembourg = {
+	potential = {
+	OR = {
+	has_landed_title = k_germany
+	has_landed_title = k_bavaria
+	has_landed_title = e_hre
+	has_landed_title = e_karling
+	has_landed_title = c_luxembourg
+	is_independent = yes
+	}
+	completely_controls = c_luxembourg
+	NOT = {
+	has_global_flag = luxembourg_formed
+	}
+	capital_scope = { TECH_LEGALISM = 2 }
+	}
+	allow = {
+	wealth = 150
+	is_adult = yes
+	hidden_tooltip = {
+	OR = {
+	year = 975
+	ai = no
+	}
+	}
+	}
+	
+	effect = {
+	wealth = -150
+	prestige = 150
+	set_global_flag = luxembourg_formed
+	
+			c_luxembourg = {
+			de_jure_liege = d_luxembourg
+			}
+
+			
+	d_luxembourg = {
+	gain_title = ROOT
+	}
+	
+		
+	}
+	
+	revoke_allowed = {
+	always = no
+	}
+	ai_will_do = {
+	factor = 1
+	}
+	
+	
+	
+	}
+	
+	#Form Munster
+	form_munster = {
+	potential = {
+	OR = {
+	has_landed_title = k_germany
+	has_landed_title = k_bavaria
+	has_landed_title = e_hre
+	has_landed_title = e_karling
+	has_landed_title = c_munster
+	is_independent = yes
+	}
+	completely_controls = c_munster
+	NOT = {
+	has_global_flag = munster_formed
+	}
+	capital_scope = { TECH_LEGALISM = 4 }
+	}
+	allow = {
+	wealth = 150
+	is_adult = yes
+	hidden_tooltip = {
+	OR = {
+	year = 1247
+	ai = no
+	}
+	}
+	}
+	
+	effect = {
+	wealth = -150
+	prestige = 150
+	set_global_flag = munster_formed
+	
+			c_munster = {
+			de_jure_liege = d_german_munster
+			}
+			c_gottingen = {
+			de_jure_liege = d_german_munster
+			}
+
+			
+	d_german_munster = {
+	gain_title = ROOT
+	}
+	
+		
+	}
+	
+	revoke_allowed = {
+	always = no
+	}
+	ai_will_do = {
+	factor = 1
+	}
+	
+	
+	
+	}
+	
+	#Form Bremen
+	form_bremen = {
+	potential = {
+	OR = {
+	has_landed_title = k_germany
+	has_landed_title = k_bavaria
+	has_landed_title = e_hre
+	has_landed_title = e_karling
+	has_landed_title = c_bremen
+	is_independent = yes
+	}
+	completely_controls = c_bremen
+	NOT = {
+	has_global_flag = bremen_formed
+	}
+	capital_scope = { TECH_LEGALISM = 3 }
+	}
+	allow = {
+	wealth = 150
+	is_adult = yes
+	hidden_tooltip = {
+	OR = {
+	year = 1123
+	ai = no
+	}
+	}
+	}
+	
+	effect = {
+	wealth = -150
+	prestige = 150
+	set_global_flag = bremen_formed
+	
+			c_bremen = {
+			de_jure_liege = d_bremen
+			}
+
+			
+	d_bremen = {
+	gain_title = ROOT
+	}
+	
+		
+	}
+	
+	revoke_allowed = {
+	always = no
+	}
+	ai_will_do = {
+	factor = 1
+	}
+	
+	
+	
+	}
+	
+	#Form Palatinate
+	form_palatinate = {
+	potential = {
+	OR = {
+	has_landed_title = k_germany
+	has_landed_title = k_bavaria
+	has_landed_title = e_hre
+	has_landed_title = e_karling
+	has_landed_title = c_pfalz
+	is_independent = yes
+	}
+	completely_controls = c_pfalz
+	NOT = {
+	has_global_flag = palatinate_formed
+	}
+	capital_scope = { TECH_LEGALISM = 3 }
+	}
+	allow = {
+	wealth = 150
+	is_adult = yes
+	hidden_tooltip = {
+	OR = {
+	year = 1085
+	ai = no
+	}
+	}
+	}
+	
+	effect = {
+	wealth = -150
+	prestige = 150
+	set_global_flag = palatinate_formed
+	
+			c_pfalz = {
+			de_jure_liege = d_palatinate
+			}
+			c_leiningen = {
+			de_jure_liege = d_palatinate
+			}
+
+			
+	d_palatinate = {
+	gain_title = ROOT
+	}
+	
+		
+	}
+	
+	revoke_allowed = {
+	always = no
+	}
+	ai_will_do = {
+	factor = 1
+	}
+	
+	
+	
+	}
+	
+	}
+	
+

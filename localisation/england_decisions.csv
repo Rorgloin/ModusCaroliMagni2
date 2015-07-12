@@ -1,0 +1,9 @@
+become_bretwalda;Become Bretwalda;
+become_bretwalda_desc;I can declare myself Bretwalda, asserting my dominance over the other Anglo-Saxon kings!;
+form_england;Form England;
+form_england_desc;I can declare myself King of England, formalizing a hereditary right to succession.;
+form_england_foreign;Form England;
+form_england_foreign_desc;I can declare myself King of England.;
+reorganize_england;Reorganize England;
+reorganize_england_foreign_desc;I can reorganize England, removing the now defunct land rights of the great Earls, forcing all earls to serve me directly.;
+
