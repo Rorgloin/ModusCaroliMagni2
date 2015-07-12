@@ -10,7 +10,7 @@
 # Written by Carolus Magnus
 namespace = moduscarolimagni
 ##################################
-# Frankish Empire Events 3000-3099. Most adapted from CKII Plus
+# Frankish Empire Events 3000-3099. Mostly adapted from CKII Plus
 ##################################
 # Upon a new Carolingian emperor ascending to the throne
 character_event = {
