@@ -61,6 +61,7 @@ id = moduscarolimagni.3121 #Change to have french heraldry
 	}
 	major_trigger = {
 		is_ruler = yes
+		religion_group = christian
 		capital_scope = {
 			NOT = {
 				distance = {
@@ -76,6 +77,8 @@ id = moduscarolimagni.3121 #Change to have french heraldry
 	}
 	
 	option = { # OK
+		name = OK
+		set_global_flag = england_france_crest_change_announcement
 		trigger = {
 		NOT = {
 		has_landed_title = k_england
@@ -84,24 +87,23 @@ id = moduscarolimagni.3121 #Change to have french heraldry
 		de_facto_liege = k_england
 		}
 		}
-		name = OK
-		
-				set_global_flag = england_france_crest_change_announcement
 		
 	}
 	option = {
-	trigger = {
+	name = EVTOPTAmoduscarolimagni.3121
+		trigger = {
 	has_landed_title = k_france
 	de_facto_liege = k_france
 	}
-	name = EVTOPTAmoduscarolimagni.3121
 	}
 	option = {
+	name = EVTOPTBmoduscarolimagni.3121
 	trigger = {
 	has_landed_title = k_england
-	de_facto_liege = k_england}
+	de_facto_liege = k_england
 	}
-	name = EVTOPTBmoduscarolimagni.3121
+	}
+	
 	
 
 }

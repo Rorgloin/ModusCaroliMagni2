@@ -533,6 +533,7 @@ decisions = {
       }
      }
     }
+	}
 k_france = {
     holder_scope = {
      opinion = {
@@ -553,9 +554,7 @@ k_france = {
      }
     }
    }
-	}
-	
-	
+   }
 	revoke_allowed = {
 	always = no
 	}
@@ -566,7 +565,7 @@ k_france = {
 	factor = 0
 	}
 		}
-		}
+		
 	
 	
 	#Change to Plantagenet flag decision 
