@@ -2,7 +2,7 @@ EVTNAMEmoduscarolimagni.3100;Bretwalda No More;;;;;;x;;,,,,,,,,,,,,,,,,,,,,,,,,,
 EVTDESCmoduscarolimagni.3100;While my predecessor ruled the Anglo-Saxons as Bretwalda, the title was not formalized enough to pass to his successor. It is therefore forfeit!;;;;x;;,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 EVTOPTAmoduscarolimagni.3100;Then I shall have to assert my own dominance!;;;;;;x;;,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 EVTNAMEmoduscarolimagni.3121;England Claims France;
-EVTDESCmoduscarolimagni.3121;The [From.GetRulerTitle] of England, claimant and self-proclaimed rightful ruler of France, has boldly declared [From.GetPossPronoun] rightful place by adopting French Heraldry into [From.GetPossPronoun] banner. This bodes poorly for the future of relations between the two kingdoms, and only time will tell who will rule France.;
+EVTDESCmoduscarolimagni.3121;The [From.GetTitle] of England, claimant and self-proclaimed rightful ruler of France, has boldly declared [From.GetPossPronoun] rightful place by adopting French Heraldry into [From.GetPossPronoun] banner. This bodes poorly for the future of relations between the two kingdoms, and only time will tell who will rule France.;
 EVTOPTAmoduscarolimagni.3121;Those bastards!;
 EVTOPTBmoduscarolimagni.3121;Dieu et mon droit!;
 EVTNAMEmoduscarolimagni.3122;England Abandons French Heraldry;
@@ -10,7 +10,7 @@ EVTDESCmoduscarolimagni.3122;[From.GetPossPronoun] old claims lost, and with no 
 EVTOPTAmoduscarolimagni.3122;Vive le roi!;
 EVTOPTBmoduscarolimagni.3122;England shall never die!;
 EVTNAMEmoduscarolimagni.3123;England Reasserts Its Claims;
-EVTDESCmoduscarolimagni.3123;The [From.GetRulerTitle] of England has received officiation of his heritage, which [From.GetSheHe] claims to prove [From.GetPossPronoun] right to the Kingdom of France. 
-EVTOPTAmoduscarolimagni.3123;There is only one [Root.GetRulerTitle] of France!;
+EVTDESCmoduscarolimagni.3123;The [From.GetTitle] of England has received officiation of his heritage, which [From.GetSheHe] claims to prove [From.GetPossPronoun] right to the Kingdom of France. 
+EVTOPTAmoduscarolimagni.3123;There is only one [Root.GetTitle] of France!;
 
 

@@ -658,10 +658,10 @@ k_france = {
 				}
 	allow = {
 	is_adult = yes
-	gold = 500
+	wealth = 500
 	}
 	effect = {
-	gold = -500
+	wealth = -500
 	set_character_flag = bought_claim
 	primary_title = {
 	holder_scope = {
