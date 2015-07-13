@@ -484,7 +484,6 @@ decisions = {
 	
 	#Return to Norman flag events
 	england_france_crest_return = {
-	is_high_prio = yes
 	potential = {
 	has_global_flag = england_france_crest_change
 	has_landed_title = k_england
@@ -511,7 +510,7 @@ decisions = {
 	clr_global_flag = england_france_crest_change
 	primary_title = {
 	k_england = {
-	set_coa = k_england
+	reset_coa = k_england 
 	}
 	}
 	k_england = {
@@ -561,10 +560,7 @@ k_france = {
 	ai_will_do = {
 	factor = 0
 	}
-	ai_will_revoke = {
-	factor = 0
-	}
-		}
+			}
 		
 	
 	
