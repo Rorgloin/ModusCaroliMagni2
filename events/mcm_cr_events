@@ -1,0 +1,650 @@
+###########################################
+#                                         #
+# Carolingian Renaissance Events          #             
+#                                         #
+# ID cr 0001-                             #
+#                                         #
+###########################################
+
+# Written by BGG
+namespace = cr
+##################################
+# Carolingian Renaissance 0001-1000
+##################################
+
+#The Carolingian Renaissance begins 
+narrative_event = {
+	id = cr.0001
+	title = EVTTITLE_cr.0001
+	desc = EVTDESC_cr.0001
+	picture = GFX_evt_garden
+	border = GFX_event_narrative_frame_diplomacy
+	major = yes
+
+	trigger = {
+		has_dlc = "Charlemagne"
+		has_character_flag = is_charlemagne
+		holder_scope = {
+		e_karling = {
+		has_character_flag = is_charlemagne
+		}
+		}
+		NOT = {
+		OR = {
+		has_global_flag = carolingian_renaissance
+		has_character_flag = crstarts
+		}
+		}
+			}
+	
+	mean_time_to_happen = {
+		months = 6
+	}
+	
+	immediate = {
+		character_event = { id = cr.0002 days = 50 }
+	}
+	
+	option = { #OK
+		name = OK
+		set_character_flag = crstarts
+			}
+}
+character_event = {
+	id = cr.0002
+	title = EVTTITLE_cr.0002
+	desc = EVTDESC_cr.0001
+	picture = GFX_evt_council_around_table
+	border = GFX_event_narrative_frame_diplomacy
+	
+	is_triggered_only = yes
+	
+	option = {
+	name = EVTOPTA_cr.0002
+	set_global_flag = carolingian_renaissance
+	}
+}
+#####################################
+#Courtiers 0001-0020
+#####################################
+
+#Paulinus II of Aquileia
+narrative_event = {
+	id = cr.0003
+	title = EVTTITLE_cr.0003
+	desc = EVTDESC_cr.0003
+	picture = GFX_evt_emissary
+
+	capable_only = yes
+	prisoner = no
+	
+	trigger = {
+		has_dlc = "Charlemagne"
+		religion_group = christian
+		has_character_flag = is_charlemagne
+		independent = yes
+		has_global_flag = carolingian_renaissance
+		NOT = {
+		has_global_flag = paulinus_arrives
+		}
+		year = 774
+	}
+	
+	mean_time_to_happen = {
+		months = 6
+	}
+	
+	immediate = {
+		set_global_flag = paulinus_arrives
+	}
+	
+	option = {
+		ai_chance = {
+		factor = 1000
+		}
+		name = EVTOPTA_cr.0003
+		custom_tooltip = { text = paulinus_arrives }
+		hidden_tooltip = {
+			create_character = {
+				random_traits = no
+				dynasty = 1045059
+				religion = ROOT
+				culture = italian
+				age = 25
+				trait = martial_cleric
+				trait = quick
+				trait = theologian
+				trait = diligent
+				trait = zealous
+					attributes = {
+					diplomacy = 11
+					martial = 6
+					stewardship = 8
+					intrigue = 3
+					learning = 10
+				}
+			}
+		}
+		new_character = {
+			set_name = Paulinus II
+				opinion = {
+				modifier = opinion_loyal_servant
+				who = ROOT
+				years = 100
+			}
+			}
+	}
+	option = {
+		ai_chance = {
+		factor = 0
+		}
+		name = EVTOPTB_cr.0003
+		prestige = -5
+	}
+}
+
+#Einhard
+
+narrative_event = {
+	id = cr.0004
+	title = EVTTITLE_cr.0004
+	desc = EVTDESC_cr.0004
+	picture = GFX_evt_emissary
+
+	capable_only = yes
+	prisoner = no
+	
+	trigger = {
+		has_dlc = "Charlemagne"
+		religion_group = christian
+		has_character_flag = is_charlemagne
+		independent = yes
+		has_global_flag = carolingian_renaissance
+		NOT = {
+		has_global_flag = einhard_arrives
+		}
+		year = 791
+	}
+	
+	mean_time_to_happen = {
+		months = 6
+	}
+	
+	immediate = {
+		set_global_flag = einhard_arrives
+		character_event = { id = cr.0021 days = 50 }
+	}
+	
+	option = {
+		ai_chance = {
+		factor = 1000
+		}
+		name = EVTOPTA_cr.0004
+		custom_tooltip = { text = einhard_arrives }
+		hidden_tooltip = {
+			create_character = {
+				random_traits = no
+				dynasty = lowborn
+				religion = ROOT
+				culture = old_frankish
+				age = 16
+				trait = charismatic_negotiator
+				trait = scholar
+				trait = poet
+				trait = gregarious
+				attributes = {
+					diplomacy = 12
+					martial = 5
+					stewardship = 7
+					intrigue = 4
+					learning = 11
+				}
+			}
+		}
+		new_character = {
+			set_name = Einhard
+				opinion = {
+				modifier = opinion_loyal_servant
+				who = ROOT
+				years = 100
+			}
+			}
+	}
+	option = {
+		ai_chance = {
+		factor = 0
+		}
+		name = EVTOPTB_cr.0004
+		prestige = -5
+	}
+}
+
+#Peter of Pisa 
+
+narrative_event = {
+	id = cr.0005
+	title = EVTTITLE_cr.0005
+	desc = EVTDESC_cr.0005
+	picture = GFX_evt_emissary
+
+	capable_only = yes
+	prisoner = no
+	
+	trigger = {
+		has_dlc = "Charlemagne"
+		religion_group = christian
+		has_character_flag = is_charlemagne
+		independent = yes
+		has_global_flag = carolingian_renaissance
+		NOT = {
+		has_global_flag = peterpisa_arrives
+		}
+		year = 776
+	}
+	
+	mean_time_to_happen = {
+		months = 6
+	}
+	
+	immediate = {
+		set_global_flag = peterpisa_arrives
+	}
+	
+	option = {
+		ai_chance = {
+		factor = 1000
+		}
+		name = EVTOPTA_cr.0005
+		custom_tooltip = { text = peter_arrives }
+		hidden_tooltip = {
+			create_character = {
+				random_traits = no
+				dynasty = 1045058
+				religion = ROOT
+				culture = italian
+				age = 32
+				trait = scholar
+				trait = patient
+				trait = poet
+				trait = scholarly_theologian
+				attributes = {
+					diplomacy = 10
+					martial = 6
+					stewardship = 7
+					intrigue = 2
+					learning = 15
+				}
+			}
+		}
+		new_character = {
+			set_name = Peter
+				opinion = {
+				modifier = opinion_loyal_servant
+				who = ROOT
+				years = 100
+			}
+			}
+	}
+	option = {
+		ai_chance = {
+		factor = 0
+		}
+		name = EVTOPTB_cr.0005
+		prestige = -5
+	}
+}
+
+#Alcuin
+
+narrative_event = {
+	id = cr.0006
+	title = EVTTITLE_cr.0006
+	desc = EVTDESC_cr.0006
+	picture = GFX_evt_emissary
+
+	capable_only = yes
+	prisoner = no
+	
+	trigger = {
+		has_dlc = "Charlemagne"
+		religion_group = christian
+		has_character_flag = is_charlemagne
+		independent = yes
+		has_global_flag = carolingian_renaissance
+		NOT = {
+		has_global_flag = alcuin_arrives
+		}
+		year = 776
+	}
+	
+	mean_time_to_happen = {
+		months = 6
+	}
+	
+	immediate = {
+		set_global_flag = alcuin_arrives
+	}
+	
+	option = {
+		ai_chance = {
+		factor = 1000
+		}
+		name = EVTOPTA_cr.0006
+		custom_tooltip = { text = alcuin_arrives }
+		hidden_tooltip = {
+			create_character = {
+				random_traits = no
+				dynasty = 100057
+				religion = ROOT
+				culture = saxon
+				age = 46
+				trait = mastermind_theologian
+				trait = genius
+				trait = scholar
+				trait = homosexual
+				trait = celibate
+				trait = sympathy_pagans
+				trait = kind
+				trait = diligent
+				attributes = {
+					diplomacy = 9
+					martial = 5
+					stewardship = 8
+					intrigue = 5
+					learning = 18
+				}
+			}
+		}
+		new_character = {
+			set_name = Alcuin
+				opinion = {
+				modifier = opinion_loyal_servant
+				who = ROOT
+				years = 100
+			}
+			}
+	}
+	option = {
+		ai_chance = {
+		factor = 0
+		}
+		name = EVTOPTB_cr.0006
+		prestige = -5
+	}
+}
+
+#Paul the Deacon
+
+narrative_event = {
+	id = cr.0007
+	title = EVTTITLE_cr.0007
+	desc = EVTDESC_cr.0007
+	picture = GFX_evt_emissary
+
+	capable_only = yes
+	prisoner = no
+	
+	trigger = {
+		has_dlc = "Charlemagne"
+		religion_group = christian
+		has_character_flag = is_charlemagne
+		independent = yes
+		has_global_flag = carolingian_renaissance
+		NOT = {
+		has_global_flag = thedeacon_arrives
+		}
+		year = 776
+	}
+	
+	mean_time_to_happen = {
+		months = 6
+	}
+	
+	immediate = {
+		set_global_flag = thedeacon_arrives
+	}
+	
+	option = {
+		ai_chance = {
+		factor = 1000
+		}
+		name = EVTOPTA_cr.0007
+		custom_tooltip = { text = paul_arrives }
+		hidden_tooltip = {
+			create_character = {
+				random_traits = no
+				dynasty = 9555
+				religion = ROOT
+				culture = lombard
+				give_nickname = nick_the_deacon
+				age = 56
+				trait = mastermind_theologian
+				trait = scholar
+					attributes = {
+					diplomacy = 6
+					martial = 4
+					stewardship = 9
+					intrigue = 3
+					learning = 12
+				}
+			}
+		}
+		new_character = {
+			set_name = Paul
+				opinion = {
+				modifier = opinion_loyal_servant
+				who = ROOT
+				years = 100
+			}
+			}
+	}
+	option = {
+		ai_chance = {
+		factor = 0
+		}
+		name = EVTOPTB_cr.0007
+		prestige = -5
+	}
+}
+
+#Odo of Metz
+
+narrative_event = {
+	id = cr.0008
+	title = EVTTITLE_cr.0008
+	desc = EVTDESC_cr.0008
+	picture = GFX_evt_emissary
+
+	capable_only = yes
+	prisoner = no
+	
+	trigger = {
+		has_dlc = "Charlemagne"
+		religion_group = christian
+		has_character_flag = is_charlemagne
+		independent = yes
+		has_global_flag = carolingian_renaissance
+		NOT = {
+		has_global_flag = odometz_arrives
+		}
+		e_karling = {
+		capital_scope ={
+		location = 90
+		}
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 6
+	}
+	
+	immediate = {
+		set_global_flag = odometz_arrives
+	}
+	
+	option = {
+		ai_chance = {
+		factor = 1000
+		}
+		name = EVTOPTA_cr.0008
+		custom_tooltip = { text = odo_arrives }
+		hidden_tooltip = {
+			create_character = {
+				random_traits = no
+				dynasty = lowborn
+				religion = ROOT
+				culture = armenian
+				age = 30
+				trait = architect
+				trait = administrator
+				trait = thrifty_clerk
+				trait = clerk
+					attributes = {
+					diplomacy = 7
+					martial = 6
+					stewardship = 13
+					intrigue = 7
+					learning = 8
+				}
+			}
+		}
+		new_character = {
+			set_name = Odo
+				opinion = {
+				modifier = opinion_loyal_servant
+				who = ROOT
+				years = 100
+			}
+			}
+	}
+	option = {
+		ai_chance = {
+		factor = 0
+		}
+		name = EVTOPTB_cr.0008
+		prestige = -5
+	}
+}
+
+narrative_event = {
+	id = cr.0009
+	title = EVTTITLE_cr.0009
+	desc = EVTDESC_cr.0009
+	picture = GFX_evt_emissary
+
+	capable_only = yes
+	prisoner = no
+	
+	trigger = {
+		has_dlc = "Charlemagne"
+		religion_group = christian
+		has_character_flag = is_charlemagne
+		independent = yes
+		has_global_flag = carolingian_renaissance
+		NOT = {
+		has_global_flag = angilbert_arrives
+		}
+		year = 776
+			}
+	
+	mean_time_to_happen = {
+		months = 6
+	}
+	
+	immediate = {
+		set_global_flag = angilbert_arrives
+	}
+	
+	option = {
+		ai_chance = {
+		factor = 1000
+		}
+		name = EVTOPTA_cr.0009
+		custom_tooltip = { text = angilbert_arrives }
+		hidden_tooltip = {
+			create_character = {
+				random_traits = no
+				dynasty = lowborn
+				religion = ROOT
+				culture = old_frankish
+				age = 16
+				trait = charismatic_negotiator
+				trait = lustful
+				trait = poet
+					attributes = {
+					diplomacy = 12
+					martial = 8
+					stewardship = 8
+					intrigue = 8
+					learning = 8
+				}
+			}
+		}
+		new_character = {
+			set_name = Angilbert
+				opinion = {
+				modifier = opinion_loyal_servant
+				who = ROOT
+				years = 100
+			}
+			}
+	}
+	option = {
+		ai_chance = {
+		factor = 0
+		}
+		name = EVTOPTB_cr.0009
+		prestige = -5
+	}
+}
+
+##############################
+#Courtier Events 0021-
+##############################
+
+#Einhard befriends Charlemagne
+
+character_event = {
+	id = cr.0021
+	
+	hide_window = yes
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		has_dlc = "Charlemagne"
+		liege = {
+			has_character_flag = is_charlemagne
+			NOT = {	is_friend = ROOT }
+		}
+	}
+	
+	immediate= {
+		liege = {
+			character_event = { id = cr.0022 }
+		}
+	}
+}
+
+character_event = {
+	id = cr.0022
+	desc = EVTDESC_cr.0022
+	picture = GFX_evt_courtiers_talking
+	
+	is_triggered_only = yes
+	
+	option = {
+	ai_will_do = {
+	factor = 1000
+	}
+	name = EVTOPTA_cr.0022
+	}
+	option = {
+	ai_will_do = {
+	factor = 1000
+	}
+	name = EVTOPTB_cr.0022
+	
+	}
+
+}
