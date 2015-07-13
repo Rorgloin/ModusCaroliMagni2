@@ -2,13 +2,15 @@ EVTNAMEmoduscarolimagni.3100;Bretwalda No More;;;;;;x;;,,,,,,,,,,,,,,,,,,,,,,,,,
 EVTDESCmoduscarolimagni.3100;While my predecessor ruled the Anglo-Saxons as Bretwalda, the title was not formalized enough to pass to his successor. It is therefore forfeit!;;;;x;;,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 EVTOPTAmoduscarolimagni.3100;Then I shall have to assert my own dominance!;;;;;;x;;,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 EVTNAMEmoduscarolimagni.3121;England Claims France;
-EVTDESCmoduscarolimagni.3121;The King of England, claimant and self-proclaimed rightful ruler of France, has boldly declared his rightful place by adopting French Heraldry into his banner. This bodes poorly for the future of relations between the two kingdoms, and only time will tell who will rule France.;
+EVTDESCmoduscarolimagni.3121;The [From.GetRulerTitle] of England, claimant and self-proclaimed rightful ruler of France, has boldly declared [From.GetPossPronoun] rightful place by adopting French Heraldry into [From.GetPossPronoun] banner. This bodes poorly for the future of relations between the two kingdoms, and only time will tell who will rule France.;
 EVTOPTAmoduscarolimagni.3121;Those bastards!;
 EVTOPTBmoduscarolimagni.3121;Dieu et mon droit!;
 EVTNAMEmoduscarolimagni.3122;England Abandons French Heraldry;
-EVTDESCmoduscarolimagni.3122;His old claims lost, and with no ambition to ever return to France, the King of England has readopted the banner of old, once again proudly displaying the three lions as the only part of the English banner. No longer shall the King of England display ancient French Heraldry in his own banner.;
+EVTDESCmoduscarolimagni.3122;[From.GetPossPronoun] old claims lost, and with no ambition to ever return to France, the [From.GetRulerTitle] of England has readopted the banner of old, once again proudly displaying the three lions as the only part of the English banner. No longer shall the King of England display ancient French Heraldry in [From.GetPossPronoun] own banner.;
 EVTOPTAmoduscarolimagni.3122;Vive le roi!;
 EVTOPTBmoduscarolimagni.3122;England shall never die!;
-
+EVTNAMEmoduscarolimagni.3123;England Reasserts Its Claims;
+EVTDESCmoduscarolimagni.3123;The [From.GetRulerTitle] of England has received officiation of his heritage, which [From.GetSheHe] claims to prove [From.GetPossPronoun] right to the Kingdom of France. 
+EVTOPTAmoduscarolimagni.3123;There is only one [Root.GetRulerTitle] of France!;
 
 

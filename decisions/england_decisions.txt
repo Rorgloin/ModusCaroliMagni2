@@ -641,5 +641,80 @@ k_france = {
 	
 	
 }
-}
+	
+	#Get claim on France 
+	buy_claim = {
+
+	is_high_prio = yes
+	potential = {
+	has_global_flag = england_france_crest_change
+	has_landed_title = k_england
+	has_global_flag = england_formed
+	NOT = {
+	has_claim = k_france
+	has_landed_title = k_france
+	has_character_flag = bought_claim 
+		 }
+				}
+	allow = {
+	is_adult = yes
+	gold = 500
+	}
+	effect = {
+	gold = -500
+	set_character_flag = bought_claim
+	primary_title = {
+	holder_scope = {
+	k_france = {
+	add_claim = PREVPREV 
+	}
+	}
+	}
+	k_england = {
+    holder_scope = {
+     opinion = {
+      who = ROOT
+      modifier = opinion_unhappy
+      months = 1200
+     }
+     hidden_tooltip = {
+      k_france = {
+       holder_scope = {
+        reverse_opinion = {
+         who = PREVPREV
+         modifier = opinion_unhappy
+         months = 1200
+        }
+       }
+      }
+     }
+    }
+k_france = {
+    holder_scope = {
+     opinion = {
+      who = ROOT
+      modifier = opinion_unhappy
+      months = 1200
+     }
+     hidden_tooltip = {
+      k_england = {
+       holder_scope = {
+        reverse_opinion = {
+         who = PREVPREV
+         modifier = opinion_unhappy
+         months = 1200
+        }
+       }
+      }
+     }
+    }
+   }
+	}
+	}
+	revoke_allowed = {
+	always = no
+	}
+	ai_will_do = {
+factor = 1 
+	}
 
