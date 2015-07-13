@@ -19,7 +19,6 @@ EVTTITLE_cr.0006;Alcuin;
 EVTDESC_cr.0006;A remarkably talented Anglo-Saxon has arrived from York, in the Kingdom of Northumbria. His knowledge and wit are outstanding.;
 EVTOPTA_cr.0006;He is exactly what we need;
 EVTOPTB_cr.0006;Send him back;
-nick_the_deacon;The Deacon;
 EVTTITLE_cr.0007;Paul the Deacon;
 EVTDESC_cr.0007;In my conquest of the Kingdom of Lombardy, one scholar in particular piqued my interest. Upon my request, he has arrived at my court, despite the bad blood between the Franks and Lombards.;
 EVTOPTA_cr.0007;Lombard or not, he is welcome;
@@ -32,6 +31,9 @@ EVTTITLE_cr.0009;Angilbert;
 EVTDESC_cr.0009;A young but promising youth raised in my retinue has pledged his loyalty and wishes to serve in the Carolingian Court.;
 EVTOPTA_cr.0009;Excellent!;
 EVTOPTB_cr.0009;Send him away ;
+EVTDESC_cr.0022;Einhard and I have been getting along quite well recently. We share many interests, and his skill as a poet makes for interseting conversation.;
+EVTOPTA_cr.0022;Good;
+EVTOPTB_cr.0022;Send him back to work;
 
 
 

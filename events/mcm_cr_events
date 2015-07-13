@@ -638,13 +638,18 @@ character_event = {
 	factor = 1000
 	}
 	name = EVTOPTA_cr.0022
+	add_friend = FROM
 	}
 	option = {
 	ai_will_do = {
-	factor = 1000
+	factor = 0
 	}
 	name = EVTOPTB_cr.0022
 	
 	}
 
 }
+
+# insert after charlemagne's death event, 0023-0025 reserved
+
+#Peter of Pisa 
