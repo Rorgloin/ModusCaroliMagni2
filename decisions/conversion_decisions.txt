@@ -3700,6 +3700,9 @@ decisions = {
 			any_realm_province = {
 				culture = frankish
 			}
+			NOT = {
+			has_character_flag = is_charlemagne
+			}
 		}
 		allow = {
 			culture = old_frankish
