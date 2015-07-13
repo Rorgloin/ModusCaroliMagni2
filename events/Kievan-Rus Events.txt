@@ -1,0 +1,26 @@
+##################################
+#                                #
+# Kievan-Rus' Events             #
+#                                #
+# ID kaz.0001 - KAZ.0100         #
+#                                #
+##################################
+
+# Written by Kazaract
+namespace = kaz
+##################################
+# Rus' Raids                     #
+##################################
+
+# 
+character_event = {
+	id = KAZ.0001
+	title = EVTNAMEkaz.0001
+	desc = EVTDESCkaz.0001
+	picture = GFX_evt_battle
+	border = GFX_event_character_frame_martial
+	is_high_prio = yes
+	
+	trigger = {
+			is_adult = yes
+			dynasty = 705
