@@ -515,6 +515,45 @@ decisions = {
 	set_coa = k_england2
 	}
 	}
+	k_england = {
+    holder_scope = {
+     opinion = {
+      who = ROOT
+      modifier = opinion_unhappy
+      months = 1200
+     }
+     hidden_tooltip = {
+      k_france = {
+       holder_scope = {
+        reverse_opinion = {
+         who = PREVPREV
+         modifier = opinion_unhappy
+         months = 1200
+        }
+       }
+      }
+     }
+    }
+k_england = {
+    holder_scope = {
+     opinion = {
+      who = ROOT
+      modifier = opinion_unhappy
+      months = 1200
+     }
+     hidden_tooltip = {
+      k_france = {
+       holder_scope = {
+        reverse_opinion = {
+         who = PREVPREV
+         modifier = opinion_unhappy
+         months = 1200
+        }
+       }
+      }
+     }
+    }
+   }
 	}
 	revoke_allowed = {
 	always = no
