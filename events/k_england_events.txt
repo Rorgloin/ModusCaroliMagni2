@@ -42,7 +42,7 @@ narrative_event = {
 	}
 }
 ##################################
-# England Events 3121-
+# England Events 3121-3141
 ##################################
 narrative_event = {
 id = moduscarolimagni.3121 #Change to have french heraldry 
@@ -146,7 +146,7 @@ id = moduscarolimagni.3122 #Return to the old flag
 	
 
 }
-narrative_event = {
+character_event = {
 id = moduscarolimagni.3123 #England buys claim 
 	title = EVTNAMEmoduscarolimagni.3123
 	desc = EVTDESCmoduscarolimagni.3123
@@ -159,6 +159,7 @@ id = moduscarolimagni.3123 #England buys claim
 		}
 		}
 		has_landed_title = k_france
+		de_facto_liege = k_france
 		NOT =
 		{
 		k_france = { 
