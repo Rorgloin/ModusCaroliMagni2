@@ -37581,3 +37581,12 @@ d_rajput_band = {
 	mercenary_type = rajput_band_composition
 }
 
+#MCM titles
+k_england2 = {
+		color={ 202 26 26 }
+		color2={ 255 255 255 }
+		allow = {
+		always = no
+		}
+	}
+

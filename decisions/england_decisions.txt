@@ -6,7 +6,7 @@
 #                                         #
 ###########################################
 
-# Written by CMG
+# Written by CMG, Added to by BGG
 
 
 
@@ -477,6 +477,53 @@ decisions = {
 	factor = 1
 	}
 	}
+	
+	#################################################################################
+	#Other decisions
+	
+	#Plantagenet flag decision 
+	england_france_crest_change = {
+	is_high_prio = yes
+	potential = {
+	NOT = {
+	has_global_flag = england_france_crest_change
+		  }
+	has_landed_title = k_england
+	has_global_flag = england_formed
+	OR = {
+	has_claim = k_france
+	has_landed_title = k_france
+		 }
+				}
+	allow = {
+	NOT = {
+	has_global_flag = england_france_crest_change
+		  }
+	has_landed_title = k_england
+	has_global_flag = england_formed
+	OR = {
+	has_claim = k_france
+	has_landed_title = k_france
+		 }
+	is_adult = yes
+	}
+	effect = {
+	prestige = 50
+	set_global_flag = england_france_crest_change
+	primary_title = {
+	k_england = {
+	set_coa = k_england2
+	}
+	}
+	}
+	revoke_allowed = {
+	always = no
+	}
+	ai_will_do = {
+	factor = 1 
+	}
+	ai_will_revoke = {
+	factor = 0
 	}
 	
-
+}
