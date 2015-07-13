@@ -1,10 +1,10 @@
 EVTNAMEmoduscarolimagni.3100;Bretwalda No More;;;;;;x;;,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 EVTDESCmoduscarolimagni.3100;While my predecessor ruled the Anglo-Saxons as Bretwalda, the title was not formalized enough to pass to his successor. It is therefore forfeit!;;;;x;;,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 EVTOPTAmoduscarolimagni.3100;Then I shall have to assert my own dominance!;;;;;;x;;,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-EVTNAMEmoduscarolimagni.3121;England Adopts French Heraldry
-EVTDESCmoduscarolimagni.3121;The King of England, claimant and self-proclaimed rightful ruler of France, has boldly declared his rightful place by adopting French Heraldry into his banner. This bodes poorly for the future of relations between the two kingdoms, and only time will tell who will rule France.
-EVTOPTAmoduscarlimagni.3121;Those bastards!
-EVTOPTBmoduscarlimagni.3121;Dieu et mon droit!
+EVTNAMEmoduscarolimagni.3121;England Claims France;
+EVTDESCmoduscarolimagni.3121;The King of England, claimant and self-proclaimed rightful ruler of France, has boldly declared his rightful place by adopting French Heraldry into his banner. This bodes poorly for the future of relations between the two kingdoms, and only time will tell who will rule France.;
+EVTOPTAmoduscarlimagni.3121;Those bastards!;
+EVTOPTBmoduscarlimagni.3121;Dieu et mon droit!;
 
 
 
