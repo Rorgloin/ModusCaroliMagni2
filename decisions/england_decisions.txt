@@ -568,6 +568,7 @@ k_france = {
 		}
 		}
 	
+	
 	#Change to Plantagenet flag decision 
 	england_france_crest_change = {
 
@@ -584,15 +585,6 @@ k_france = {
 		 }
 				}
 	allow = {
-	NOT = {
-	has_global_flag = england_france_crest_change
-		  }
-	has_landed_title = k_england
-	has_global_flag = england_formed
-	OR = {
-	has_claim = k_france
-	has_landed_title = k_france
-		 }
 	is_adult = yes
 	}
 	effect = {
@@ -643,15 +635,15 @@ k_france = {
     }
    }
 	}
+	}
 	revoke_allowed = {
 	always = no
 	}
 	ai_will_do = {
 	factor = 1 
 	}
-	ai_will_revoke = {
-	factor = 0
-	}
+	
+	
 	
 }
 }
