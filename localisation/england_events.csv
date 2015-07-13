@@ -10,7 +10,7 @@ EVTDESCmoduscarolimagni.3122;[From.GetPossPronoun] old claims lost, and with no 
 EVTOPTAmoduscarolimagni.3122;Vive le roi!;
 EVTOPTBmoduscarolimagni.3122;England shall never die!;
 EVTNAMEmoduscarolimagni.3123;England Reasserts Its Claims;
-EVTDESCmoduscarolimagni.3123;The [From.GetTitle] of England has received officiation of his heritage, which [From.GetSheHe] claims to prove [From.GetPossPronoun] right to the Kingdom of France. 
+EVTDESCmoduscarolimagni.3123;The [From.GetTitle] of England has received officiation of his heritage, which [From.GetSheHe] claims to prove [From.GetPossPronoun] right to the Kingdom of France.;
 EVTOPTAmoduscarolimagni.3123;There is only one [Root.GetTitle] of France!;
 
 

@@ -663,10 +663,11 @@ k_france = {
 	effect = {
 	wealth = -500
 	set_character_flag = bought_claim
-	k_england = {
+	
 	holder_scope = {
+	k_england = {
 	k_france = {
-	add_claim = PREVPREV 
+	add_claim = PREVPREVPREV
 	}
 	}
 	}
