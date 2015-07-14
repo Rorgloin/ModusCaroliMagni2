@@ -14,46 +14,40 @@ namespace = cr
 
 #The Carolingian Renaissance begins 
 narrative_event = {
-	id = cr.0001
-	title = EVTTITLE_cr.0001
-	desc = EVTDESC_cr.0001
+	id = cr_0001
+	title = EVTTITLE_cr_0001
+	desc = EVTDESCcr_0001
 	picture = GFX_evt_garden
 	border = GFX_event_narrative_frame_diplomacy
-	major = yes
-
+	
 	trigger = {
-		has_dlc = "Charlemagne"
 		has_character_flag = is_charlemagne
-		holder_scope = {
-		e_karling = {
-		has_character_flag = is_charlemagne
-		}
-		}
+		has_landed_title = e_karling 
 		NOT = {
-		OR = {
-		has_global_flag = carolingian_renaissance
-		has_character_flag = crstarts
+		has_character_flag = cr_starts
 		}
-		}
+		
 			}
 	
 	mean_time_to_happen = {
-		months = 6
+		days = 1
 	}
 	
-	immediate = {
-		character_event = { id = cr.0002 days = 50 }
-	}
 	
 	option = { #OK
 		name = OK
-		set_character_flag = crstarts
+		set_character_flag = cr_starts
+		character_event = { id = cr.0002 days = 50 }
 			}
+	option = {
+		name = EVTOPTB_cr_0001
+		prestige = -25
+	}
 }
 character_event = {
 	id = cr.0002
 	title = EVTTITLE_cr.0002
-	desc = EVTDESC_cr.0001
+	desc = EVTDESCcr.0001
 	picture = GFX_evt_council_around_table
 	border = GFX_event_narrative_frame_diplomacy
 	
@@ -64,15 +58,15 @@ character_event = {
 	set_global_flag = carolingian_renaissance
 	}
 }
-#####################################
-#Courtiers 0001-0020
-#####################################
+###################################
+# Courtiers 0001-0020
+###################################
 
-#Paulinus II of Aquileia
+# Paulinus II of Aquileia
 narrative_event = {
 	id = cr.0003
 	title = EVTTITLE_cr.0003
-	desc = EVTDESC_cr.0003
+	desc = EVTDESCcr.0003
 	picture = GFX_evt_emissary
 
 	capable_only = yes
@@ -91,7 +85,7 @@ narrative_event = {
 	}
 	
 	mean_time_to_happen = {
-		months = 6
+		days = 1
 	}
 	
 	immediate = {
@@ -143,12 +137,12 @@ narrative_event = {
 	}
 }
 
-#Einhard
+# Einhard
 
 narrative_event = {
 	id = cr.0004
 	title = EVTTITLE_cr.0004
-	desc = EVTDESC_cr.0004
+	desc = EVTDESCcr.0004
 	picture = GFX_evt_emissary
 
 	capable_only = yes
@@ -167,7 +161,7 @@ narrative_event = {
 	}
 	
 	mean_time_to_happen = {
-		months = 6
+		days = 1
 	}
 	
 	immediate = {
@@ -219,12 +213,12 @@ narrative_event = {
 	}
 }
 
-#Peter of Pisa 
+# Peter of Pisa 
 
 narrative_event = {
 	id = cr.0005
 	title = EVTTITLE_cr.0005
-	desc = EVTDESC_cr.0005
+	desc = EVTDESCcr.0005
 	picture = GFX_evt_emissary
 
 	capable_only = yes
@@ -243,7 +237,7 @@ narrative_event = {
 	}
 	
 	mean_time_to_happen = {
-		months = 6
+		days = 1
 	}
 	
 	immediate = {
@@ -294,12 +288,12 @@ narrative_event = {
 	}
 }
 
-#Alcuin
+# Alcuin
 
 narrative_event = {
 	id = cr.0006
 	title = EVTTITLE_cr.0006
-	desc = EVTDESC_cr.0006
+	desc = EVTDESCcr.0006
 	picture = GFX_evt_emissary
 
 	capable_only = yes
@@ -318,7 +312,7 @@ narrative_event = {
 	}
 	
 	mean_time_to_happen = {
-		months = 6
+		days = 1
 	}
 	
 	immediate = {
@@ -373,12 +367,12 @@ narrative_event = {
 	}
 }
 
-#Paul the Deacon
+# Paul the Deacon
 
 narrative_event = {
 	id = cr.0007
 	title = EVTTITLE_cr.0007
-	desc = EVTDESC_cr.0007
+	desc = EVTDESCcr.0007
 	picture = GFX_evt_emissary
 
 	capable_only = yes
@@ -397,7 +391,7 @@ narrative_event = {
 	}
 	
 	mean_time_to_happen = {
-		months = 6
+		days = 1
 	}
 	
 	immediate = {
@@ -447,12 +441,12 @@ narrative_event = {
 	}
 }
 
-#Odo of Metz
+# Odo of Metz
 
 narrative_event = {
 	id = cr.0008
 	title = EVTTITLE_cr.0008
-	desc = EVTDESC_cr.0008
+	desc = EVTDESCcr.0008
 	picture = GFX_evt_emissary
 
 	capable_only = yes
@@ -469,13 +463,15 @@ narrative_event = {
 		}
 		e_karling = {
 		capital_scope ={
-		location = 90
+		location = {
+		province = 90 #julich
+		}
 		}
 		}
 	}
 	
 	mean_time_to_happen = {
-		months = 6
+		days = 1
 	}
 	
 	immediate = {
@@ -529,7 +525,7 @@ narrative_event = {
 narrative_event = {
 	id = cr.0009
 	title = EVTTITLE_cr.0009
-	desc = EVTDESC_cr.0009
+	desc = EVTDESCcr.0009
 	picture = GFX_evt_emissary
 
 	capable_only = yes
@@ -548,7 +544,7 @@ narrative_event = {
 			}
 	
 	mean_time_to_happen = {
-		months = 6
+		days = 1
 	}
 	
 	immediate = {
@@ -598,11 +594,11 @@ narrative_event = {
 	}
 }
 
-##############################
-#Courtier Events 0021-
-##############################
+############################
+# Courtier Events 0021-
+############################
 
-#Einhard befriends Charlemagne
+# Einhard befriends Charlemagne
 
 character_event = {
 	id = cr.0021
@@ -628,7 +624,7 @@ character_event = {
 
 character_event = {
 	id = cr.0022
-	desc = EVTDESC_cr.0022
+	desc = EVTDESCcr.0022
 	picture = GFX_evt_courtiers_talking
 	
 	is_triggered_only = yes
