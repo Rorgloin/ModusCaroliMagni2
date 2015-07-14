@@ -14,9 +14,9 @@ namespace = cr
 
 #The Carolingian Renaissance begins 
 narrative_event = {
-	id = cr_0001
-	title = EVTTITLE_cr_0001
-	desc = EVTDESCcr_0001
+	id = cr.0001
+	title = EVTTITLE_cr.0001
+	desc = EVTDESCcr.0001
 	picture = GFX_evt_garden
 	border = GFX_event_narrative_frame_diplomacy
 	
@@ -40,14 +40,14 @@ narrative_event = {
 		character_event = { id = cr.0002 days = 50 }
 			}
 	option = {
-		name = EVTOPTB_cr_0001
+		name = EVTOPTB_cr.0001
 		prestige = -25
 	}
 }
-character_event = {
+narrative_event = {
 	id = cr.0002
 	title = EVTTITLE_cr.0002
-	desc = EVTDESCcr.0001
+	desc = EVTDESCcr.0002
 	picture = GFX_evt_council_around_table
 	border = GFX_event_narrative_frame_diplomacy
 	
