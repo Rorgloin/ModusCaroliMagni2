@@ -31642,7 +31642,9 @@
 	name = "Duro"
 	culture = suebi
 }
-#for CR
+
+#mcm dynasties 
+
 1045058 = {
 	name = "of Pisa"
 	culture = italian
@@ -31651,5 +31653,3 @@
 	name = "de Premariacco"
 	culture = italian
 }
-
-
