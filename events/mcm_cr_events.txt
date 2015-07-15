@@ -15,8 +15,8 @@ namespace = cr
 #The Carolingian Renaissance begins 
 narrative_event = {
 	id = cr.0001
-	title = EVTTITLE_cr.0001
-	desc = EVTDESCcr.0001
+	title = EVTTITLE_cr_0001
+	desc = EVTDESCcr_0001
 	picture = GFX_evt_garden
 	border = GFX_event_narrative_frame_diplomacy
 	
@@ -40,21 +40,22 @@ narrative_event = {
 		character_event = { id = cr.0002 days = 50 }
 			}
 	option = {
-		name = EVTOPTB_cr.0001
+		name = EVTOPTB_cr_0001
 		prestige = -25
 	}
 }
 narrative_event = {
 	id = cr.0002
-	title = EVTTITLE_cr.0002
-	desc = EVTDESCcr.0002
+	title = EVTTITLE_cr_0002
+	desc = EVTDESCcr_0002
 	picture = GFX_evt_council_around_table
 	border = GFX_event_narrative_frame_diplomacy
 	
 	is_triggered_only = yes
 	
 	option = {
-	name = EVTOPTA_cr.0002
+	name = EVTOPTA_cr_0002
+	custom_tooltip = { text = courtiers_invited}
 	set_global_flag = carolingian_renaissance
 	}
 }
@@ -65,8 +66,8 @@ narrative_event = {
 # Paulinus II of Aquileia
 narrative_event = {
 	id = cr.0003
-	title = EVTTITLE_cr.0003
-	desc = EVTDESCcr.0003
+	title = EVTTITLE_cr_0003
+	desc = EVTDESCcr_0003
 	picture = GFX_evt_emissary
 
 	capable_only = yes
@@ -96,12 +97,12 @@ narrative_event = {
 		ai_chance = {
 		factor = 1000
 		}
-		name = EVTOPTA_cr.0003
+		name = EVTOPTA_cr_0003
 		custom_tooltip = { text = paulinus_arrives }
 		hidden_tooltip = {
 			create_character = {
 				random_traits = no
-				dynasty = 1045059
+				dynasty = 1042142
 				religion = ROOT
 				culture = italian
 				age = 25
@@ -132,7 +133,7 @@ narrative_event = {
 		ai_chance = {
 		factor = 0
 		}
-		name = EVTOPTB_cr.0003
+		name = EVTOPTB_cr_0003
 		prestige = -5
 	}
 }
@@ -141,8 +142,8 @@ narrative_event = {
 
 narrative_event = {
 	id = cr.0004
-	title = EVTTITLE_cr.0004
-	desc = EVTDESCcr.0004
+	title = EVTTITLE_cr_0004
+	desc = EVTDESCcr_0004
 	picture = GFX_evt_emissary
 
 	capable_only = yes
@@ -173,12 +174,12 @@ narrative_event = {
 		ai_chance = {
 		factor = 1000
 		}
-		name = EVTOPTA_cr.0004
+		name = EVTOPTA_cr_0004
 		custom_tooltip = { text = einhard_arrives }
 		hidden_tooltip = {
 			create_character = {
 				random_traits = no
-				dynasty = lowborn
+				dynasty = 0
 				religion = ROOT
 				culture = old_frankish
 				age = 16
@@ -208,7 +209,7 @@ narrative_event = {
 		ai_chance = {
 		factor = 0
 		}
-		name = EVTOPTB_cr.0004
+		name = EVTOPTB_cr_0004
 		prestige = -5
 	}
 }
@@ -217,8 +218,8 @@ narrative_event = {
 
 narrative_event = {
 	id = cr.0005
-	title = EVTTITLE_cr.0005
-	desc = EVTDESCcr.0005
+	title = EVTTITLE_cr_0005
+	desc = EVTDESCcr_0005
 	picture = GFX_evt_emissary
 
 	capable_only = yes
@@ -248,12 +249,12 @@ narrative_event = {
 		ai_chance = {
 		factor = 1000
 		}
-		name = EVTOPTA_cr.0005
+		name = EVTOPTA_cr_0005
 		custom_tooltip = { text = peter_arrives }
 		hidden_tooltip = {
 			create_character = {
 				random_traits = no
-				dynasty = 1045058
+				dynasty = 1042141
 				religion = ROOT
 				culture = italian
 				age = 32
@@ -283,7 +284,7 @@ narrative_event = {
 		ai_chance = {
 		factor = 0
 		}
-		name = EVTOPTB_cr.0005
+		name = EVTOPTB_cr_0005
 		prestige = -5
 	}
 }
@@ -292,8 +293,8 @@ narrative_event = {
 
 narrative_event = {
 	id = cr.0006
-	title = EVTTITLE_cr.0006
-	desc = EVTDESCcr.0006
+	title = EVTTITLE_cr_0006
+	desc = EVTDESCcr_0006
 	picture = GFX_evt_emissary
 
 	capable_only = yes
@@ -323,7 +324,7 @@ narrative_event = {
 		ai_chance = {
 		factor = 1000
 		}
-		name = EVTOPTA_cr.0006
+		name = EVTOPTA_cr_0006
 		custom_tooltip = { text = alcuin_arrives }
 		hidden_tooltip = {
 			create_character = {
@@ -362,7 +363,7 @@ narrative_event = {
 		ai_chance = {
 		factor = 0
 		}
-		name = EVTOPTB_cr.0006
+		name = EVTOPTB_cr_0006
 		prestige = -5
 	}
 }
@@ -371,8 +372,8 @@ narrative_event = {
 
 narrative_event = {
 	id = cr.0007
-	title = EVTTITLE_cr.0007
-	desc = EVTDESCcr.0007
+	title = EVTTITLE_cr_0007
+	desc = EVTDESCcr_0007
 	picture = GFX_evt_emissary
 
 	capable_only = yes
@@ -402,7 +403,7 @@ narrative_event = {
 		ai_chance = {
 		factor = 1000
 		}
-		name = EVTOPTA_cr.0007
+		name = EVTOPTA_cr_0007
 		custom_tooltip = { text = paul_arrives }
 		hidden_tooltip = {
 			create_character = {
@@ -436,7 +437,7 @@ narrative_event = {
 		ai_chance = {
 		factor = 0
 		}
-		name = EVTOPTB_cr.0007
+		name = EVTOPTB_cr_0007
 		prestige = -5
 	}
 }
@@ -445,8 +446,8 @@ narrative_event = {
 
 narrative_event = {
 	id = cr.0008
-	title = EVTTITLE_cr.0008
-	desc = EVTDESCcr.0008
+	title = EVTTITLE_cr_0008
+	desc = EVTDESCcr_0008
 	picture = GFX_evt_emissary
 
 	capable_only = yes
@@ -462,13 +463,11 @@ narrative_event = {
 		has_global_flag = odometz_arrives
 		}
 		e_karling = {
-		capital_scope ={
-		location = {
-		province = 90 #julich
+		90 = {
+		is_capital = yes 
 		}
 		}
 		}
-	}
 	
 	mean_time_to_happen = {
 		days = 1
@@ -482,12 +481,12 @@ narrative_event = {
 		ai_chance = {
 		factor = 1000
 		}
-		name = EVTOPTA_cr.0008
+		name = EVTOPTA_cr_0008
 		custom_tooltip = { text = odo_arrives }
 		hidden_tooltip = {
 			create_character = {
 				random_traits = no
-				dynasty = lowborn
+				dynasty = 1042140
 				religion = ROOT
 				culture = armenian
 				age = 30
@@ -506,6 +505,7 @@ narrative_event = {
 		}
 		new_character = {
 			set_name = Odo
+			has_character_flag = is_odo
 				opinion = {
 				modifier = opinion_loyal_servant
 				who = ROOT
@@ -517,15 +517,15 @@ narrative_event = {
 		ai_chance = {
 		factor = 0
 		}
-		name = EVTOPTB_cr.0008
+		name = EVTOPTB_cr_0008
 		prestige = -5
 	}
 }
 
 narrative_event = {
 	id = cr.0009
-	title = EVTTITLE_cr.0009
-	desc = EVTDESCcr.0009
+	title = EVTTITLE_cr_0009
+	desc = EVTDESCcr_0009
 	picture = GFX_evt_emissary
 
 	capable_only = yes
@@ -555,7 +555,7 @@ narrative_event = {
 		ai_chance = {
 		factor = 1000
 		}
-		name = EVTOPTA_cr.0009
+		name = EVTOPTA_cr_0009
 		custom_tooltip = { text = angilbert_arrives }
 		hidden_tooltip = {
 			create_character = {
@@ -589,7 +589,7 @@ narrative_event = {
 		ai_chance = {
 		factor = 0
 		}
-		name = EVTOPTB_cr.0009
+		name = EVTOPTB_cr_0009
 		prestige = -5
 	}
 }
@@ -624,7 +624,7 @@ character_event = {
 
 character_event = {
 	id = cr.0022
-	desc = EVTDESCcr.0022
+	desc = EVTDESCcr_0022
 	picture = GFX_evt_courtiers_talking
 	
 	is_triggered_only = yes
@@ -633,14 +633,14 @@ character_event = {
 	ai_will_do = {
 	factor = 1000
 	}
-	name = EVTOPTA_cr.0022
+	name = EVTOPTA_cr_0022
 	add_friend = FROM
 	}
 	option = {
 	ai_will_do = {
 	factor = 0
 	}
-	name = EVTOPTB_cr.0022
+	name = EVTOPTB_cr_0022
 	
 	}
 
@@ -648,4 +648,66 @@ character_event = {
 
 # insert after charlemagne's death event, 0023-0025 reserved
 
-#Peter of Pisa 
+#Odo of Metz
+
+#Odo offers to build a palace at Aachen
+
+character_event = {
+	id = cr.0026
+	desc = EVTDESCcr_0026
+	picture = GFX_stone_church_soa
+	border = GFX_event_narrative_frame_diplomacy
+	
+	trigger = {
+		has_character_flag = is_charlemagne
+		has_global_flag = odometz_arrives
+		e_karling = {
+		90 = {
+		is_capital = yes 
+		}
+		}
+		NOT = {
+		has_global_flag = aachen_keep_built
+		}
+			}
+	
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	
+	option = { #Build a grand keep
+		trigger = {
+		wealth = 50
+		}
+		name = EVTOPTAcr_0026
+		b_julich = {
+		add_building = ca_keep_2
+		}
+		set_global_flag = aachen_keep_built
+		wealth = -50
+		
+		ai_will_do = {
+		factor = 10000
+		}
+		}
+	option = { #I can't afford that 
+		name = EVTOPTBcr_0026
+		any_courtier = {
+		has_character_flag = is_odo
+		opinion = {
+		modifier = unhappy
+		who = ROOT 
+		years = 1
+		}
+		}
+		ai_will_do = {
+		factor = 1
+		}
+		}
+	}
+	
+
+	
+}
+

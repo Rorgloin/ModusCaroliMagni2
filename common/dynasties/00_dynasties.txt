@@ -42832,3 +42832,56 @@
 	culture = bedouin_arabic
 	religion = sunni
 }
+
+1042140 = {
+	name="of Metz"
+	    coat_of_arms = {
+        template = 2
+        layer = {
+            texture = 1
+            texture_internal = 16
+            emblem = 0
+            color = 0
+            color = 1
+            color = 6
+        }
+        layer = {
+            texture = 1
+            texture_internal = 16
+            emblem = 0
+            color = 5
+            color = 5
+            color = 5
+        }
+    }
+}
+
+1042141 = {
+	name="of Pisa"
+	    coat_of_arms = {
+        template = 0
+        layer = {
+            texture = 1
+            texture_internal = 14
+            emblem = 8
+            color = 3
+            color = 3
+            color = 3
+        }
+    }
+	}
+
+1042142 = {
+	name="de Premariacco"
+	    coat_of_arms = {
+        template = 0
+        layer = {
+            texture = 1
+            texture_internal = 14
+            emblem = 15
+            color = 5
+            color = 5
+            color = 3
+        }
+    }
+	}

@@ -1255,28 +1255,26 @@ decisions = {
 	
 	#Charlemagne event to make Aachen the capital 
 	aachen_capital = {
+	is_high_prio = yes
 	potential = {
 	has_character_flag = is_charlemagne
 	has_landed_title = c_julich 
 	has_global_flag = carolingian_renaissance
+	NOT = {
+	e_karling = {
+		90 = {
+		is_capital = yes 
+		}
+		}
+	}
 	}
 	allow = {
 	is_adult = yes 
-	is_capable = yes
-	e_karling = {
-	capital_scope = {
-	NOT = {
-	location = {
-	province = 90
-	}
-	}
-	}
-	}
-	}
+			}
 	effect = {
 	e_karling = {
-	holder_scope {
-	capital = 90
+	holder_scope = {
+		capital = 90
 	}
 	}
 	}
@@ -1284,7 +1282,7 @@ decisions = {
 	always = no
 	}
 	ai_will_do = {
-	factor = 1
+	factor = 10000
 	}
 	}
 	
